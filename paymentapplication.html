@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)http://superbank.olvip.vip/superbank/wx/receive!receive_application.action -->
+<html lang="en" style="font-size: 140px;" class="hb-loaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>收款申请</title>
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/layer.css">
+    <link rel="stylesheet" href="./static/css/swiper.css">
+    <script src="./static/js/jquery-2.1.1.js"></script>
+    <link rel="stylesheet" href="./static/css/iosSelect.css">
+    <script src="./static/js/iosSelect.js"></script>
+    <script type="text/javascript" src="./static/js/jQuery-JSONP.js"></script>
+    <link rel="stylesheet" href="./static/js/LArea.min.css">
+    <script src="./static/js/jweixin-1.2.0.js"></script>
+    <script id="wxScript" type="text/javascript" src="./static/js/wxconfig.js" sharepage="index" orgid="231766" userid="360152" nickname="清平&amp;乘锦" sharelogo="http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517548154&amp;OSSAccessKeyId=Ck76WULSZApw3ZFv&amp;Signature=Bo1YbaNB1XXdj3yxhPs26qfd6z0%3D"></script>
+    <style>
+       /*  html,body{overflow:hidden;overflow-y:auto;} */
+    </style>
+<link rel="stylesheet" href="./static/js/layer(1).css" id="layuicss-skinlayercss"></head>
+<body huaban_collector_injected="true">       
+<div>
+	<div id="loaddingDiv" style="display:none">
+        <div class="loading">
+        </div>
+        <div class="loadingImg"><img src="./static/image/loading.gif" alt=""></div>
+    </div> 
+    
+    <div>
+      <div>
+          <div class="pay_top"><img src="./static/image/banner-sksq@2x.png" alt=""></div>
+          <div class="pay_topTitle">
+                <div>收款业务是平台专为个人商户提供的快捷收款服务。商户收款服务进行实名认证保证交易安全，为中小微商户提供随时随地的便捷收款服务，快速结算，更快更稳定。</div>
+                <div class="pay_topTitle_tip">注：更多收款方式请以页面显示为准。</div>
+          </div>
+          <!-- <div class="pay_topText">
+              <div>备注：</div>
+              <div>1、以下信息均为各银行采集，非平台操作；</div>
+              <div>
+                     2、7天内收款总额中信用卡支付额度不得超过70%。
+              </div>
+              <div>
+                    3、如平台职务发生变更，对应的收钱服务费率会在24小时内变更生效
+              </div>
+          </div> -->
+      </div>
+      <div>
+          <div>
+                <div class="pay_upload"><i></i>商户收款服务申请</div>
+          </div>
+            <ul class="pay_info" id="ul1">
+                <li>
+                    <span>手机号　</span>
+                    <div><input id="phone" type="text" placeholder="请输入银行预留的手机号"></div>
+                </li>
+                <!-- <li id="pay_li4">
+                    <span>验证码&#12288;</span>
+                    <div class="pay_li4_input">
+                        <input id="validateCode" type="text" placeholder="请输入验证码" maxlength="6">  
+                    </div>
+                    <div class="A_carloginWrap3" style="margin-left: 0rem;"><input class="A_codeBtn" id="A_codeBtn" type="button" value="获取验证码"  /></div>
+                </li> -->
+                <li>
+                    <span>商户名称</span>
+                    <div><input id="merchantName" type="text" placeholder="请输入商户名称"></div>
+                </li>
+            </ul>  
+            <ul class="pay_info" id="ul2">
+                <li>
+                    <span>经营地区</span>
+                    <div class="pay_zone">
+                        <input id="manage_zone" type="text" readonly="" placeholder="请选择" unselectable="on" onfocus="this.blur()">
+                        <input id="manage_zone_value" type="hidden" value="">
+                    </div>
+                </li>
+                <li>
+                    <span style="visibility:hidden;">经营地区</span>
+                    <div>
+                        <input id="businessArea" type="text" placeholder="请输入详细地址">
+                    </div>
+                </li>
+                <li>
+                    <span>姓名</span>
+                    <div>
+                        <input id="realName" type="text" placeholder="请输入真实姓名">
+                    </div>
+                </li>
+                <li>
+                    <span>身份证号</span>
+                    <div>
+                        <input id="idCard" type="text" placeholder="请输入真实身份证号码">
+                    </div>
+                </li>
+                <li>
+                    <span>银行卡号</span>
+                    <div><input id="bankCardNo" type="text" onblur="checkcard();" placeholder="请输入银行卡号" pattern="[0-9]*" ng-pattern="/[^a-zA-Z]/"></div>
+                </li>
+                <li>
+                    <span>开户行　</span>
+                    <div id="openingBank"></div>
+                </li>
+                <li>
+                    <span>开户地区</span>
+                    <div class="pay_zone">
+                        <input style="padding-left: 0.08rem;" id="open_account_zone" type="text" readonly="readonly" placeholder="请选择" unselectable="on" onfocus="this.blur()">
+                        <input id="open_account_value" type="hidden" value="">
+                    </div>
+                </li>
+                <li class="li_branch">
+                    <span>支行　　&nbsp;</span>
+                    <div class="pc-box">                     
+                        <input type="hidden" name="Day_id" id="DayId" value="">                     
+                        <span id="showDay">请选择支行</span>  
+                    </div> 
+                    <div class="set_li6_right"><img src="./static/image/issue@2x.png" alt=""></div>
+                </li>
+              <!--   <li class="li_branch">
+                    <span >支行&#12288;&#12288;</span>
+                    <div class="pc-box">                     
+                        <input type="hidden" name="Day_id" id="DayId" value="">                     
+                        <span id="showDay">请选择支行</span>  
+                    </div> 
+                </li> -->
+            </ul>   
+            <div class="pay_uploadWrap">
+                <div class="pay_upload"><i></i>上传照片</div>
+                <div class="pay_uploadInfoWrap" id="imgH5">
+                    <div>
+                        <div class="pay_uploadInfo">
+                            <img id="img1" src="./static/image/add-foidcar@2x.png" alt="">
+                            <input type="text" id="input1" readonly="" onclick="wxChooseImage(1)">
+                        </div>
+                        <div class="pay_uploadTip">身份证正面照片</div>
+                    </div>
+                    <div>
+                        <div class="pay_uploadInfo">
+                            <img id="img2" src="./static/image/add-identity_card@2x.png" alt="">
+                            <input type="text" id="input2" readonly="" onclick="wxChooseImage(2)">
+                        </div>
+                        <div class="pay_uploadTip">身份证反面照片</div>
+                    </div>
+                    <div>
+                        <div class="pay_uploadInfo">
+                            <img id="img3" src="./static/image/add-scsfz@2x.png" alt="">
+                            <input type="text" id="input3" readonly="" onclick="wxChooseImage(3)">
+                        </div>
+                        <div class="pay_uploadTip">手持身份证照片</div>
+                    </div>
+                    <div>
+                        <div class="pay_uploadInfo">
+                            <img id="img4" src="./static/image/add-Bank card@2x.png" alt="">
+                            <input type="text" id="input4" readonly="" onclick="wxChooseImage(4)">
+                        </div>
+                        <div class="pay_uploadTip">银行卡正面</div>
+                    </div>
+                </div>
+                
+                <div class="pay_uploadInfoWrap" id="imgApp" style="display:none">
+                    <div>
+                        <div class="pay_uploadInfo">
+                            <img id="img1_app" src="./static/image/add-foidcar@2x.png" alt="">
+                            <input type="file" id="input1_app">
+                        </div>
+                        <div class="pay_uploadTip">身份证正面照片</div>
+                    </div>
+                    <div>
+                        <div class="pay_uploadInfo">
+                            <img id="img2_app" src="./static/image/add-identity_card@2x.png" alt="">
+                            <input type="file" id="input2_app">
+                        </div>
+                        <div class="pay_uploadTip">身份证反面照片</div>
+                    </div>
+                    <div>
+                        <div class="pay_uploadInfo">
+                            <img id="img3_app" src="./static/image/add-scsfz@2x.png" alt="">
+                            <input type="file" id="input3_app">
+                        </div>
+                        <div class="pay_uploadTip">手持身份证照片</div>
+                    </div>
+                    <div>
+                        <div class="pay_uploadInfo">
+                            <img id="img4_app" src="./static/image/add-Bank card@2x.png" alt="">
+                            <input type="file" id="input4_app">
+                        </div>
+                        <div class="pay_uploadTip">银行卡正面</div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="pay_btn"><input class="active" id="personal_btn" type="button" value="下一步" ></div> -->
+            <div class="pay_btn">
+                <input class="pay_register" type="button" value="商户收款注册教程">
+                <input class="pay_next" id="personal_btn" type="button" value="立即申请">
+            </div>   
+      </div>
+      <div class="nav" id="nav" style="visibility: visible; display: block;">
+        <a href="index.html"><img src="./static/image/home_icon@2x.png" alt=""></a>
+        <a href="javascript:void(0);" onclick="javascript:history.go(-1);"><img src="./static/image/back_icon@2x.png" alt=""></a>
+      </div>
+    </div>
+     
+     <!-- 弹出框 -->
+	<div class="weui-mask "></div>
+	<div class="weui-dialog ">
+	    <div class="weui-dialog__hd">
+	        <div class="weui-dialog__title">温馨提示</div>
+	    </div>
+	    <div class="weui-dialog__bd" style="margin-left:0.3rem;margin-right:0.3rem;">如果未找到您开户行的所属分行或支行，可选择该地区的最大支行</div>
+	    <div class="weui-dialog__ft">
+	        <a href="javascript:;" class="weui-dialog__btn primary">确定</a>
+	    </div>
+	</div>
+	<!-- 弹出框end -->
+</div>
+<script src="./static/js/layer.js"></script>
+<script src="./static/js/swiper.js"></script>
+<script id="commonScript" src="./static/js/adaptive.js" source=""></script>
+<script src="./static/js/LArea.min.js"></script>
+<script src="./static/js/LAreaData1.js"></script>
+<script src="./static/js/LAreaData2.js"></script>
+<script src="./static/js/Inertia.js"></script>
+<script>
+//滑动的小球
+new Inertia(document.getElementById('nav'));
+//滑动的小球end
+	$(".pay_register").click(function(){
+        window.location.href="receive!receiptRegisterVideo.action";
+    })
+	//弹出框
+	$(".set_li6_right").click(function(){
+	    $(".weui-mask").addClass("weui-mask--visible");
+	    $(".weui-dialog").addClass("weui-dialog--visible");
+	})
+	$(".weui-dialog__ft").click(function(){
+	    $(".weui-mask").removeClass("weui-mask--visible");
+	    $(".weui-dialog").removeClass("weui-dialog--visible");
+	})
+
+	var area1 = new LArea();
+	area1.init({
+	    'trigger': '#manage_zone', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+	    'valueTo': '#manage_zone_value', //选择完毕后id属性输出到该位置
+	    'keys': {
+	        id: 'id',
+	        name: 'name'
+	    }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+	    'type': 1, //数据源类型
+	    'data': LAreaData //数据源
+	});
+	var area2 = new LArea();
+	area2.init({
+	    'trigger': '#open_account_zone', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+	    'valueTo': '#open_account_value', //选择完毕后id属性输出到该位置
+	    'keys': {
+	        id: 'id',
+	        name: 'name'
+	    }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+	    'type': 1, //数据源类型
+	    'data': LAreaData //数据源
+	});
+	
+	
+    // 提示弹出框
+    $(".off_tel").click(function(){
+        $(".weui-mask").addClass("weui-mask--visible");
+        $(".weui-dialog").addClass("weui-dialog--visible");
+    })
+    $(".weui-dialog__ft").click(function(){
+        $(".weui-mask").removeClass("weui-mask--visible");
+        $(".weui-dialog").removeClass("weui-dialog--visible");
+    })
+    $(".weui-dialog_cancel").click(function(){
+        $(".weui-mask").removeClass("weui-mask--visible");
+        $(".weui-dialog").removeClass("weui-dialog--visible");
+    });
+      // 微信弹窗
+      function popup5() {
+        $(".plan_Popup").removeClass("plan_Popup_in").addClass("plan_Popup_fade");
+        $(".plan_Popup-backdrop").removeClass("plan_Popup_in2").removeClass("plan_Popup_fade").addClass("fa_Popup_fade");
+    }
+    $(".order_Poptext").on("click", "#close2", function () {//这个是关闭弹出框
+        $(".plan_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup5()", 200);
+    });
+    $(".off_wechat").click(function () {
+        $(".plan_Popup-backdrop").toggleClass("plan_Popup_in2");
+        $(".plan_Popup").toggleClass("plan_Popup_in");
+        $(".plan_Popup-dialog").animate({bottom:0});
+    });
+    $(".plan_masked").click(function(){
+        $(".plan_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup5()", 200);
+    })
+    // end
+    $(".A_codeBtn").click(function(){
+        sendCode(this);
+        var userName = document.getElementById("iphoneText").value;
+        if(!(/^1(3|4|5|7|8)\d{9}$/.test(userName))){
+                //alert(userName );
+            layer.msg('请输入有效的手机号码！', { time: 500 }); 
+            // return false; 
+        }else{
+            //alert(userName );
+            sendCode(this);
+            //console.log(123)
+        }
+    })
+      // 点击发送验证码
+      var clock = '';
+        var nums = 60;
+        var btn;
+
+        function sendCode(thisBtn) {
+            btn = thisBtn;
+            btn.disabled = true; //将按钮置为不可点击
+            btn.value = nums + '秒重新获取';
+            clock = setInterval(doLoop, 1000); //一秒执行一次
+           
+            // $.ajax({
+            //     url:'http://192.168.3.49:11012/mdm-rs/member/login',
+            //     type:GET,
+            //     async:false,
+            //     dataType:'json',
+            //     cache:false,
+            //     data:{'member.accountName':userphone},
+            //     success:function(){
+
+            //     }
+            // }) 
+           
+        }
+
+        function doLoop() {
+            nums--;
+            if (nums > 0) {
+                btn.value = nums + '秒重新获取';
+            } else {
+                clearInterval(clock); //清除js定时器
+                btn.disabled = false;
+                btn.value = '获取验证码';
+                nums = 60; //重置时间
+            }
+        }
+</script>
+
+<script>
+	$(function(){
+		var jsonObject = {"code":"success","message":"查询成功","data":{"userId":360152,"userCode":"334138","userName":null,"nickName":"清平&乘锦","phone":null,"v2Phone":null,"idCardNo":null,"weixinCode":null,"userType":"10","userLogo":"http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIOQsnZwG7fAiaQtIKAGg8P6Khd4jSU8htct0eWJNVOAMEibSFAlyhym79POzZacdDNgtsGtzkCzAkw/132","qrCode":null,"orgId":231766,"status":"1","statusAgent":null,"statusRepayment":null,"statusReceive":null,"totalProfit":null,"createBy":0,"createDate":1517535398000,"toagentDate":null,"topOneCode":"320820","topTwoCode":"28010","topThreeCode":"19799","repaymentUserNo":null,"receiveUserNo":null,"userNode":"-320820-28010-19799-0-","wxOpenId":"oLsb20ZwptuGXaI7Mdnnoh-wEIQE","payOpenId":"oHxuSw_APxwbt2SxaW7qn2wuhpWA","payBack":null,"updateDate":null,"authorizationCode":"dc0b4194-be5a-4592-b32f-66fd34ea216c","agentStartDate":null,"agentEndDate":null,"accountStatus":"0","toManagerDate":null,"toBankerDate":null,"oemDefaultUser":null,"unionid":"ofpOD0zBe1OxSB_Z0ZP7paZerERw","wxCity":"","secondUserNode":"-28010-19799-0-","phoneCode":null,"qrCodeName":null,"wzfOrder":0,"booleans":0,"refereeUserId":null,"orgName":"超级盛银家","superOrgcode":"200012","v2AgentNumber":"231766","v2Orgcode":"610021","agentPrice":"198.00","repaymentCost":"18.00","authorizedUnit":"盛海","authorizedUnitSeal":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090825908_23555.jpg?Expires=1517548202&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=XRE3rTKNunm8guuvlB5oOv9WlYE%3D","publicSubscribeKey":null,"isSupportPay":"1","publicQrCode":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090923533_60097.jpg?Expires=1517548202&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=5YVxKPZoEqZuMkw5ct1n8Fsb6uA%3D","businessEmail":"120900767@qq.com","uiStatus":"0","memberCenterLogo":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090886050_33145.jpg?Expires=1517548202&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=4J1uuPq94rXyPh4P6DVgrNTvGSU%3D","startPage":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517548202&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=CQH4XG0ic9O9ohGaklSi66n0uhc%3D","shareMessageLogo":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517548202&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yaFfT8JjSVRHnWpeBhQscnz8Yc4%3D","shareTemplateImage1":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1517447736132_8829.jpg?Expires=1517548202&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=onkNMAihzplxlaSq0iYnu7HmaLk%3D","shareTemplateImage2":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090945116_33116.jpg?Expires=1517548202&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=G6cpegXMI9zzIh6BPYS3bvSws1c%3D","shareTemplateImage3":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090949820_87997.jpg?Expires=1517548202&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=Z0cSgQtKdUQpcoYOnmFRaxq4xns%3D","companyName":"广州盛海信息科技有限公司","servicePhone":"020-38218669","orgLogo":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517548202&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=hW7yxSxeuZ%2B%2B3B4reabUYowM2nY%3D"},"totalCount":null};
+		
+		if ('' == 'app') {//当入口是app
+			$("#imgH5").attr('style','display:none');
+			$("#imgApp").attr('style','display:block');
+		}		
+		
+		/* if (jsonObject.data.statusReceive == '1') {
+			isGatherService(jsonObject.data.receiveUserNo);
+		} */
+	})
+	
+	$("#personal_btn").click(function(){
+		if ('' == 'app') {//当入口是app
+			toConfirmByApp();
+		}else {
+			toConfirm();
+		}
+	});
+	
+	function toConfirm(){
+		
+		var phone= $("#phone").val();
+		if(phone==""){
+			 toAlert('请输入手机号！');
+			 return;
+        }else if (!isMobile(phone)) {
+			toAlert('请输入正确的手机号');
+			return;
+		}
+		
+		var merchantName= $("#merchantName").val();
+		if(merchantName==""){
+			 toAlert('请输入商户名称！');
+			 return;
+        }
+		
+		var manage_zone= $("#manage_zone").val();
+		if(manage_zone==""){
+			 toAlert('请选择经营地区！');
+			 return;
+        }
+		manage_zone = manage_zone.replace(',','-');
+		manage_zone = manage_zone.replace(',','-');
+		manage_zone = manage_zone.replace(',','-');
+		
+		var businessArea= $("#businessArea").val();
+		if(businessArea==""){
+			 toAlert('请输入经营地区详细地址！');
+			 return;
+        }
+		
+		var realName= $("#realName").val();
+		if(realName==""){
+			 toAlert('请输入姓名！');
+			 return;
+        }else if (!isRealName(realName)) {
+			toAlert('请输入中文姓名');
+			return;
+		}
+		
+		var idCard= $("#idCard").val();
+		if(idCard==""){
+			 toAlert('请输入身份证号！');
+			 return;
+        }else if (!isIdCard(idCard)) {
+			toAlert('请输入正确的身份证号');
+			return;
+		}
+		
+		var bankCardNo= $("#bankCardNo").val();
+		if(bankCardNo==""){
+			 toAlert('请输入银行卡号！');
+			 return;
+        }else if (!isNumber(bankCardNo)) {
+			toAlert('请输入正确的银行卡号');
+			return;
+		}
+		
+		var openingBank= $("#openingBank").html();
+		if(openingBank==""){
+			 toAlert('请输入正确的银行卡号获取开户行！');
+			 return;
+        }
+		
+		var open_account_zone= $("#open_account_zone").val();
+		if(open_account_zone==""){
+			 toAlert('请选择开户地区！');
+			 return;
+        }
+		open_account_zone = open_account_zone.replace(',','-');
+		open_account_zone = open_account_zone.replace(',','-');
+		open_account_zone = open_account_zone.replace(',','-');
+		
+		//var zhName = $(".pay_select").find("option:selected").text();//选中的文本
+		//var cnapsNo = $(".pay_select").find("option:selected").val();//选中的value
+		if (bankId == '' || bankName == '') {
+			toAlert('请选择支行！');
+			return;
+		}
+		
+		var input1 = $("#input1").val();
+		if(input1==""){
+			 toAlert('请上传身份证正面图片！');
+			 return;
+        }
+		
+		var input2 = $("#input2").val();
+		if(input2==""){
+			 toAlert('请上传身份证反面图片！');
+			 return;
+        }
+		
+		var input3 = $("#input3").val();
+		if(input3==""){
+			 toAlert('请上传手持身份证图片！');
+			 return;
+        }
+		
+		var input4 = $("#input4").val();
+		if(input4==""){
+			 toAlert('请上传银行卡正面图片！');
+			 return;
+        }
+		
+		$("#loaddingDiv").attr("style","display:block");
+		$.ajax({
+			url: '/superbank/wx/receive!v2register.action', 
+	        dataType:'json',
+	        data:{
+				'reg.merchantName':encodeURIComponent(merchantName),
+				'reg.address':encodeURIComponent(manage_zone +'-'+ businessArea),
+				'reg.idCardNo':idCard,
+				'reg.accountNo':bankCardNo,
+				'reg.zhName':encodeURIComponent(bankName),
+				'reg.mobilePhone':phone,
+				'reg.cnapsNo':bankId,
+				'reg.zhAddress':encodeURIComponent(open_account_zone),
+				'reg.cardAccountNo':'',
+				'reg.accountName':encodeURIComponent(realName),
+				'reg.scsfz':input3,
+				'reg.sfzzm':input1,
+				'reg.sfzfm':input2,
+				'reg.yhkzmWx':input4,
+			},
+			success:function(data) {
+				$("#loaddingDiv").attr("style","display:none");
+				
+				if(data.code=='success'){
+				 	 $(".weui-dialog_tip").attr('style','display:block');
+					 //$(".weui-dialog__ft").find("a").attr("href",'javascript:isGatherService('+data.data.receiveUserNo+')');
+					 $(".weui-dialog__ft").find("a").attr("href",'receive!receive_index.action');
+					 toAlert('申请成功！');
+				}else {
+					toAlert(data.message);
+				}
+			}	,
+			   error:function(error){
+				   $("#loaddingDiv").attr("style","display:none");
+				   toAlert(error);
+			   } 	  
+		});	
+	}
+	
+	
+	function toConfirmByApp(){
+		
+		var phone= $("#phone").val();
+		if(phone==""){
+			 toAlert('请输入手机号！');
+			 return;
+        }else if (!isMobile(phone)) {
+			toAlert('请输入正确的手机号');
+			return;
+		}
+		
+		var merchantName= $("#merchantName").val();
+		if(merchantName==""){
+			 toAlert('请输入商户名称！');
+			 return;
+        }
+		
+		var manage_zone= $("#manage_zone").val();
+		if(manage_zone==""){
+			 toAlert('请选择经营地区！');
+			 return;
+        }
+		manage_zone = manage_zone.replace(',','-');
+		manage_zone = manage_zone.replace(',','-');
+		manage_zone = manage_zone.replace(',','-');
+		
+		var businessArea= $("#businessArea").val();
+		if(businessArea==""){
+			 toAlert('请输入经营地区详细地址！');
+			 return;
+        }
+		
+		var realName= $("#realName").val();
+		if(realName==""){
+			 toAlert('请输入姓名！');
+			 return;
+        }else if (!isRealName(realName)) {
+			toAlert('请输入中文姓名');
+			return;
+		}
+		
+		var idCard= $("#idCard").val();
+		if(idCard==""){
+			 toAlert('请输入身份证号！');
+			 return;
+        }else if (!isIdCard(idCard)) {
+			toAlert('请输入正确的身份证号');
+			return;
+		}
+		
+		var bankCardNo= $("#bankCardNo").val();
+		if(bankCardNo==""){
+			 toAlert('请输入银行卡号！');
+			 return;
+        }else if (!isNumber(bankCardNo)) {
+			toAlert('请输入正确的银行卡号');
+			return;
+		}
+		
+		var openingBank= $("#openingBank").html();
+		if(openingBank==""){
+			 toAlert('请输入正确的银行卡号获取开户行！');
+			 return;
+        }
+		
+		var open_account_zone= $("#open_account_zone").val();
+		if(open_account_zone==""){
+			 toAlert('请选择开户地区！');
+			 return;
+        }
+		open_account_zone = open_account_zone.replace(',','-');
+		open_account_zone = open_account_zone.replace(',','-');
+		open_account_zone = open_account_zone.replace(',','-');
+		
+		//var zhName = $(".pay_select").find("option:selected").text();//选中的文本
+		//var cnapsNo = $(".pay_select").find("option:selected").val();//选中的value
+		if (bankId == '' || bankName == '') {
+			toAlert('请选择支行！');
+			return;
+		}
+		
+		var img1_app = document.getElementById("img1_app").src;
+		if(filename1==""){
+			 toAlert('请上传身份证正面图片！');
+			 return;
+        }else {
+		    //截取去掉base64,以及前面的字符串
+		    var srcArr = img1_app.split('base64,');
+		    img1_app = srcArr[1];
+	    }
+		
+		var img2_app = document.getElementById("img2_app").src;
+		if(filename2==""){
+			 toAlert('请上传身份证反面图片！');
+			 return;
+        }else {
+		    //截取去掉base64,以及前面的字符串
+		    var srcArr = img2_app.split('base64,');
+		    img2_app = srcArr[1];
+	    }
+		
+		var img3_app = document.getElementById("img3_app").src;
+		if(filename3==""){
+			 toAlert('请上传手持身份证图片！');
+			 return;
+        }else {
+		    //截取去掉base64,以及前面的字符串
+		    var srcArr = img3_app.split('base64,');
+		    img3_app = srcArr[1];
+	    }
+		
+		var img4_app = document.getElementById("img4_app").src;
+		if(filename4==""){
+			 toAlert('请上传银行卡正面图片！');
+			 return;
+        }else {
+		    //截取去掉base64,以及前面的字符串
+		    var srcArr = img4_app.split('base64,');
+		    img4_app = srcArr[1];
+	    }
+		
+		$("#loaddingDiv").attr("style","display:block");
+		$.ajax({
+			type:'POST',
+			url: '/superbank/wx/receive!v2registerByApp.action', 
+	        dataType:'json',
+	        data:{
+				'reg.merchantName':encodeURIComponent(merchantName),
+				'reg.address':encodeURIComponent(manage_zone +'-'+ businessArea),
+				'reg.idCardNo':idCard,
+				'reg.accountNo':bankCardNo,
+				'reg.zhName':encodeURIComponent(bankName),
+				'reg.mobilePhone':phone,
+				'reg.cnapsNo':bankId,
+				'reg.zhAddress':encodeURIComponent(open_account_zone),
+				'reg.cardAccountNo':'',
+				'reg.accountName':encodeURIComponent(realName),
+				'reg.imgData3':img3_app,
+				'reg.imgData1':img1_app,
+				'reg.imgData2':img2_app,
+				'reg.imgData4':img4_app,
+				'reg.filename1':filename1,
+				'reg.filename2':filename2,
+				'reg.filename3':filename3,
+				'reg.filename4':filename4,
+			},
+			success:function(data) {
+				$("#loaddingDiv").attr("style","display:none");
+				
+				if (data.code == 'error') {
+					toAlert(data.message);
+				}else {
+					if(data.header.succeed){
+					 	 $(".weui-dialog_tip").attr('style','display:block');
+						 //$(".weui-dialog__ft").find("a").attr("href",'javascript:isGatherService('+data.data.receiveUserNo+')');
+						 $(".weui-dialog__ft").find("a").attr("href",'receive!receive_index.action');
+						 toAlert('申请成功！');
+					}else {
+						toAlert(data.header.errMsg);
+					}
+				}
+				
+			}	,
+			   error:function(error){
+				   $("#loaddingDiv").attr("style","display:none");
+				   toAlert(error);
+			   } 	  
+		});	
+	}
+	
+	function checkcard(){
+		 var bankCardNo= $("#bankCardNo").val();
+		 if(bankCardNo==""){
+			 toAlert('请输入银行卡号！');
+			 return;
+         }
+		
+		 $("#loaddingDiv").attr("style","display:block");
+		 
+		 $.ajax({
+			url: '/superbank/wx/receive!checkCardGetInfo.action', 
+	        dataType:'json',
+	        data:{
+				'bankCardNo':bankCardNo,
+				'cardType':'2',
+			},
+			success:function(data) {
+				$("#loaddingDiv").attr("style","display:none");
+				
+				if(data.data==''){
+  					toAlert('找不到开户行');
+   				 	
+   				}else if(data.data=='不支持信用卡'){
+  					toAlert('不支持信用卡，请更换！');
+   				 	
+   				}else {
+					$("#openingBank").html(data.data);
+				}
+			}	,
+			   error:function(error){
+				   $("#loaddingDiv").attr("style","display:none");
+				   toAlert(error);
+			   } 	  
+		});	
+	}
+	
+	var bankId='';
+	var bankName='';
+	$('#open_account_zone').bind('input propertychange', function() {  
+		var bankCardNo= $("#bankCardNo").val();
+		 if(bankCardNo==""){
+			 toAlert('请输入银行卡号！');
+			 return;
+        }
+		 
+		 var open_account_zone= $("#open_account_zone").val();
+		 if(open_account_zone==""){
+		 	 toAlert('请选择开户地区！');
+		 	 return;
+        }
+		 
+		 var openAccountZoneArr = open_account_zone.split(',');
+		 
+		
+		 $("#loaddingDiv").attr("style","display:block");
+		 
+		 $.ajax({
+			url: '/superbank/wx/receive!bankNameByCard.action', 
+	        dataType:'json',
+	        data:{
+				'bankCardNo':bankCardNo,
+				'cityName':encodeURIComponent(openAccountZoneArr[1]),
+			},
+			success:function(data) {
+				$("#loaddingDiv").attr("style","display:none");
+				
+				if(data.data==''){
+				 	toAlert('找不到支行信息');
+				}else {
+					if (data.data.length > 0) {
+						var htmlStr = '<input type="hidden" name="Day_id" id="DayId" value=""> ';
+					    htmlStr += '<span id="showDay">请选择支行</span>  ';
+					                        
+                        $(".pc-box").html(htmlStr);
+                        
+						var zhData = '[';
+					    
+					    for (var i=0;i<data.data.length;i++) {
+					    	zhData += '{"id":"'+data.data[i].cnapsNo+'", "value":"'+data.data[i].bankName+'"},';
+						}
+					    
+					    zhData = zhData.substring(0,zhData.length-1);
+					    
+					    zhData += ']';
+					    
+					    var jsonData = JSON.parse(zhData);
+						
+						var showDayDom = document.querySelector('#showDay');
+						var dayIdDom = document.querySelector('#DayId');
+						showDayDom.addEventListener('click', function () {
+						    $("#showDay").css("color","#333");
+						    var bankSelect = new IosSelect(1, 
+						        [jsonData],
+						        {
+						            container: '.container',
+						            // title: '银行卡选择',
+						            itemHeight: 30,
+						            itemShowCount: 8,
+						            oneLevelId: DayId,
+						            callback: function (selectOneObj) {
+						            	bankId = selectOneObj.id;
+									    bankName = selectOneObj.value;
+									    
+						                dayIdDom.value = selectOneObj.id;
+						                showDayDom.innerHTML = selectOneObj.value;
+						                showDayDom.dataset['id'] = selectOneObj.id;
+						                showDayDom.dataset['value'] = selectOneObj.value;
+						            }
+						    });
+						});
+					}
+				}
+			}	,
+			   error:function(error){
+				   $("#loaddingDiv").attr("style","display:none");
+				   toAlert(error);
+			   } 	  
+		});	
+	    
+	});
+	
+	//拍照或从手机相册中选图接口  
+    function wxChooseImage(_type) {  
+        wx.chooseImage({  
+            count: 1,  
+            needResult: 1,  
+            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
+            sourceType: [ 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
+            success: function (data) {  
+                localIds = data.localIds[0].toString(); // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片  
+                //previewImg(localIds,_type);
+                wxuploadImage(localIds,_type);  
+            },  
+            fail: function (res) {  
+                alterShowMessage("操作提示", JSON.stringify(res), "1", "确定", "", "", "");  
+            }  
+
+        });  
+    }  
+    
+	
+    var u = navigator.userAgent;
+    var ios = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+    
+  //上传图片接口  
+    function wxuploadImage(e,_type) {  
+         
+        wx.uploadImage({  
+            localId: e, // 需要上传的图片的本地ID，由chooseImage接口获得  
+            isShowProgressTips: 1, // 默认为1，显示进度提示  
+            success: function (res) {  
+                var mediaId = res.serverId; // 返回图片的服务器端ID  
+                
+                var localData;
+    	  		if(ios || window.__wxjs_is_wkwebview){
+    	  			 wx.getLocalImgData({
+                         localId: e,
+                         success: function (locRes) {
+                             localData = locRes.localData.replace('jgp', 'jpeg');
+                             $("#img" + _type).attr("src",localData);
+                         },
+                         fail: function (res) {
+                             toAlert('该图片暂时无法预览')
+                         }
+                     });
+    	  		}else{
+    	  			$("#img" + _type).attr("src",e);
+    	  		}
+                
+                $("#input" + _type).val(mediaId);
+            },  
+            fail: function (error) {  
+                picPath = '';  
+                localIds = '';  
+                alert(Json.stringify(error));  
+
+            }  
+
+        });  
+    }
+  
+    /* function previewImg(e,_type) {
+  	  wx.getLocalImgData({
+
+  		    localId: e, // 图片的localID
+
+  		    success: function (res) {
+  		        var localData = res.localData; // localData是图片的base64数据，可以用img标签显示
+  		        $("#img" + _type).attr("src", localData);  
+  		    }
+
+  		});
+    } */
+    
+    
+    function isGatherService(merchantNo){
+    	window.location = "http://192.168.3.42:8080/yfb-repay/pay/valMerStatus.do?merchantNo="+merchantNo+"&mbsc_phoneOS=2";
+    	
+    	/* $.ajax({
+    		url: 'http://192.168.3.42:8080/yfb-repay/merchant/isGatherService?merchantNo='+merchantNo,
+    		method: 'GET',
+    		dataType: 'jsonp',
+			success:function(data) {
+	            var status = data.status;
+	            if(status === 200){
+	            	var gatherStatus = data.data.gatherStatus;
+	        		var bpId = data.data.bpId;
+	        		var merchant_no_core = data.data.merchant_no_core;
+	            	if(gatherStatus =='0000'){
+	            		  window.location = "http://192.168.3.42:8080/yfb-repay/merchant/jumpGatherService?merchantNo="+merchantNo+"&oemNo=$!oemNo";
+	            	}else if(gatherStatus == 1 || gatherStatus == 2 || gatherStatus == 3){//审核中
+	            		 window.location = "http://192.168.3.42:8080/yfb-repay/merchant/repayfailMerCombo?repmerchantNo="+merchantNo+"&merchantNo="+merchant_no_core+"&oemNo=$!oemNo&bpId="+bpId+"&type="+gatherStatus;
+	            	}else if(gatherStatus == 4){//审核成功
+	            		window.location = "http://192.168.3.42:8080/yfb-repay/pay/valMerStatus.do?merchantNo="+merchant_no_core+"&mbsc_phoneOS=2";
+	            	}
+	            }else{
+	            	toAlert(data.msg);
+	            }
+			}	,
+			   error:function(error){
+				   $("#loaddingDiv").attr("style","display:none");
+				   toAlert(error);
+			   } 	
+        }) */
+    }
+
+	$("#input1_app").change(function(){
+	   readURL(this,'1');
+	});
+	
+	$("#input2_app").change(function(){
+	   readURL(this,'2');
+	});
+	
+	$("#input3_app").change(function(){
+	   readURL(this,'3');
+	});
+	
+	$("#input4_app").change(function(){
+	   readURL(this,'4');
+	});
+	
+	var filename1='',filename2='',filename3='',filename4='';
+	
+	function readURL(input,type) {
+	    var files = !!this.files ? this.files : [];
+	         
+	    // Create a new instance of the FileReader
+	    var reader = new FileReader();
+	 
+	    // Read the local file as a DataURL
+	    reader.readAsDataURL(input.files[0]);
+	     
+	    var blob = window.URL.createObjectURL(input.files[0]);//转换为二进制blob文件
+	    var img=new Image();
+	    img.src=blob;
+	    img.onload = function(){
+	        var cvs = document.createElement('canvas');
+	        var ctx = cvs.getContext("2d");
+	        cvs.width=img.width*.2;
+	        cvs.height=img.height*.2;
+	        ctx.drawImage(this, 0, 0,img.width*.2,img.height*.2);
+	        var newImageData = cvs.toDataURL('image/jpeg',1);
+	         
+	        //input file不能用于上传base64，所以要再加一个input，同时把当前file的input赋值空，防止原图片也上传
+	        this.value="";
+	        
+        	$('#img'+type+'_app').attr('src', newImageData);
+	        
+	    }
+	    // When loaded, set image data as background of div
+	    var filenameArr = input.value.split('\\');
+		var filename = filenameArr[filenameArr.length-1];
+	    
+	    reader.onloadend = function(){
+			$('#img'+type+'_app').attr('src', this.result);
+			if(type=='1'){
+				filename1 = filename;
+        	}else if(type=='2'){
+				filename2 = filename;
+        	}else if(type=='3'){
+				filename3 = filename;
+        	}else if(type=='4'){
+				filename4 = filename;
+        	}
+	    }
+	}
+</script>
+
+
+<div id="HUABAN_WIDGETS"><div class="HUABAN-f-button" style="display: none;">采集</div><style>#HUABAN_WIDGETS  {font-family: "helvetica neue",arial,sans-serif; color: #444; font-size: 14px;} #HUABAN_WIDGETS * {box-sizing: content-box;} #HUABAN_WIDGETS .HUABAN-main {position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: #e5e5e5; background: rgba(229,229,229,.95); max-height: 100%; overflow: hidden; z-index: 9999999999999;} #HUABAN_WIDGETS a img {border: 0;} #HUABAN_WIDGETS .HUABAN-header {height: 50px; background: white; box-shadow: 0 0 4px rgba(0,0,0,.2); width: 100%; left: 0; top: 0; position: absolute;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-inner {margin: 0 auto; position: relative;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-close {width: 60px; height: 50px; border-left: 1px solid #ddd; position: absolute; right: 0; top: 0; background: url(https://huaban.com/img/widgets/btn_close.png) 20px 14px no-repeat; cursor: pointer;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-close:hover {background-position: 20px -26px;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-close:active {background-position: 20px -66px;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-logo {display: block; position: absolute; top: 12px;} #HUABAN_WIDGETS .HUABAN-waterfall-holder {position: relative; overflow-y: auto; height: 100%;} #HUABAN_WIDGETS .HUABAN-waterfall {position: relative; margin-top: 50px;} #HUABAN_WIDGETS .HUABAN-waterfall .HUABAN-empty {position: absolute; left: 50%; top: 30px; height: 36px; line-height: 36px; width: 216px; text-align: left; margin-left: -128px; color: #777; background: url(https://huaban.com/img/widgets/icon_notice.png) 12px 8px no-repeat white; padding-left: 40px; font-size: 15px;} #HUABAN_WIDGETS .HUABAN-btn {display: inline-block; border-radius: 2px; font-size: 14px; padding: 0 12px; height: 30px; line-height: 30px; cursor: pointer; text-decoration: none; white-space: nowrap; -moz-user-select: none; -webkit-user-select: none; user-select: none; text-align: center; background: #D53939; color: white;} #HUABAN_WIDGETS .HUABAN-btn:hover {background: #E54646;} #HUABAN_WIDGETS .HUABAN-btn:active {background: #C52424;} #HUABAN_WIDGETS .HUABAN-wbtn {background: #EDEDED; color: #444;} #HUABAN_WIDGETS .HUABAN-wbtn:hover {background: #F2F2F2;} #HUABAN_WIDGETS .HUABAN-wbtn:active {background: #DDD;} #HUABAN_WIDGETS .HUABAN-f-button {position: absolute; display: none; z-index: 9999999999998; box-shadow: 0 0 0 2px rgba(255,255,255,.2); background: #aaa; background: rgba(0,0,0,.3); color: white; cursor: pointer; padding: 0 12px; height: 30px; line-height: 30px; border-radius: 2px; font-size: 14px} #HUABAN_WIDGETS .HUABAN-f-button:hover {background-color: #999; background-color: rgba(0,0,0,.5);} #HUABAN_WIDGETS .HUABAN-f-button:active {background-color: rgba(0,0,0,.6);} #HUABAN_WIDGETS .HUABAN-red-normal-icon-button {width: 36px; height: 24px; border: 0px; line-height: 24px; padding-left: 24px; padding-right: 0px; text-align: left; background: url(https://huaban.com/img/widgets/widget_icons.png) 0 -200px no-repeat; box-shadow: none !important; font-size: 14px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-red-normal-icon-button:hover {background-position: -130px -200px;} #HUABAN_WIDGETS .HUABAN-red-normal-icon-button:active {background-position: -260px -200px;} #HUABAN_WIDGETS .HUABAN-red-large-icon-button {width: 80px; height: 24px; border: 0px; line-height: 24px; padding-left: 24px; padding-right: 0px; text-align: left; background: url(https://huaban.com/img/widgets/widget_icons.png) 0 -150px no-repeat; box-shadow: none !important; font-size: 14px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-red-large-icon-button:hover {background-position: -130px -150px;} #HUABAN_WIDGETS .HUABAN-red-large-icon-button:active {background-position: -260px -150px;} #HUABAN_WIDGETS .HUABAN-red-small-icon-button {width: 30px; height: 21px; border: 0px; line-height: 21px; padding-left: 20px; padding-right: 0px; text-align: left; background: url(https://huaban.com/img/widgets/widget_icons.png) 0 -250px no-repeat; box-shadow: none !important; font-size: 12px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-red-small-icon-button:hover {background-position: -130px -250px;} #HUABAN_WIDGETS .HUABAN-red-small-icon-button:active {background-position: -260px -250px;} #HUABAN_WIDGETS .HUABAN-white-normal-icon-button {width: 36px; height: 24px; border: 0px; line-height: 24px; padding-left: 24px; padding-right: 0px; text-align: left; background: url(https://huaban.com/img/widgets/widget_icons.png) 0 -500px no-repeat; box-shadow: none !important; color: #444; font-size: 14px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-white-normal-icon-button:hover {background-position: -130px -500px;} #HUABAN_WIDGETS .HUABAN-white-normal-icon-button:active {background-position: -260px -500px;} #HUABAN_WIDGETS .HUABAN-white-large-icon-button {width: 80px; height: 24px; border: 0px; line-height: 24px; padding-left: 24px; padding-right: 0px; text-align: left; background: url(https://huaban.com/img/widgets/widget_icons.png) 0 -450px no-repeat; box-shadow: none !important; color: #444; font-size: 14px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-white-large-icon-button:hover {background-position: -130px -450px;} #HUABAN_WIDGETS .HUABAN-white-large-icon-button:active {background-position: -260px -450px;} #HUABAN_WIDGETS .HUABAN-white-small-icon-button {width: 30px; height: 21px; border: 0px; line-height: 21px; padding-left: 20px; padding-right: 0px; text-align: left; background: url(https://huaban.com/img/widgets/widget_icons.png) 0 -550px no-repeat; box-shadow: none !important; color: #444; font-size: 12px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-white-small-icon-button:hover {background-position: -130px -550px;} #HUABAN_WIDGETS .HUABAN-white-small-icon-button:active {background-position: -260px -550px;} #HUABAN_WIDGETS .HUABAN-cell {width: 236px; position: absolute; background: white; box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: left .3s ease-in-out, top .3s linear;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-img-holder {overflow: hidden; position: relative;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-img-holder:hover img.HUABAN-cell-img {opacity: .8} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-video-icon {width: 72px; height: 62px; position: absolute; left: 50%; top: 50%; margin: -31px auto auto -36px; background: url(https://huaban.com/img/widgets/media_video.png) 0 0 no-repeat; display: none;} #HUABAN_WIDGETS .HUABAN-cell.HUABAN-video .HUABAN-video-icon {display: block;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-over {display: none;} #HUABAN_WIDGETS .HUABAN-cell:hover .HUABAN-over {display: block;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-over .HUABAN-btn {width: 60px; height: 34px; padding: 0; position: absolute; left: 50%; top: 50%; margin: -18px 0 0 -31px; line-height: 34px; box-shadow: 0 0 0 2px rgba(255,255,255,.2); font-size: 16px;} #HUABAN_WIDGETS .HUABAN-cell.HUABAN-long .HUABAN-img-holder {height: 600px;} #HUABAN_WIDGETS .HUABAN-cell.HUABAN-long .HUABAN-img-holder:after {content: ""; display: block; position: absolute; width: 236px; height: 12px; left: 0; bottom: 0; background: url(https://huaban.com/img/widgets/long_image_shadow_2.png) repeat-x 4px top;} #HUABAN_WIDGETS .HUABAN-cell img {width: 236px; display: block;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-size {margin: 8px 16px; font-size: 12px; color: #999} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-description {display: block; width: 202px; margin: 0 6px 6px; padding: 6px 10px; border: 0; resize: none; outline: 0; border: 1px solid transparent; line-height: 18px; font-size: 13px; overflow: hidden; word-wrap: break-word; background: url(https://huaban.com/img/widgets/icon_edit.png) 500px center no-repeat;} #HUABAN_WIDGETS .HUABAN-cell:hover .HUABAN-description {background-color: #fff9e0; background-position: right top;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-description:focus {background-color: #F9F9F9; background-position: 500px center;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-select-btn {width: 34px; height:34px; background: url(https://huaban.com/img/widgets/checkbox.png) 0 0 no-repeat; position: absolute; right: 5px; top: 5px; cursor: pointer;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-pinned-label {position: absolute; left: 0; top: 10px; height: 24px; line-height: 24px; padding: 0 10px; background: #CE0000; background: rgba(200, 0, 0, 0.9); color: white; font-size: 12px; display: none;} #HUABAN_WIDGETS .HUABAN-cell.HUABAN-pinned .HUABAN-pinned-label {display: block;} #HUABAN_WIDGETS .HUABAN-selected .HUABAN-select-btn {background-position: 0 -40px;} #HUABAN_WIDGETS .HUABAN-multi .HUABAN-cell .HUABAN-img-holder {cursor: pointer;} #HUABAN_WIDGETS .HUABAN-multi .HUABAN-cell .HUABAN-cell-pin-btn {display: none;} #HUABAN_WIDGETS .HUABAN-multi .HUABAN-cell .HUABAN-over {display: block;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-multi-buttons {position: absolute; top: 10px; left: 0; display: none;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-multi-buttons .HUABAN-btn {margin-right: 10px;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-multi-noti {display: none; height: 50px; line-height: 50px; text-align: center; font-size: 16px; color: #999; font-weight: bold;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-multi-noti span {font-weight: normal;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-multi-noti i {font-style: normal;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-notice {padding: 0 10px; height:30px; line-height: 30px; position: absolute; left: 50%; top: 10px; margin-left: -83px; background: #fff9e2; text-align: center;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-notice i {display: inline-block; width: 18px; height: 18px; background: url(https://huaban.com/img/widgets/icon_notice.png) 0 0 no-repeat; vertical-align: top; margin: 6px 6px 0 0;} #HUABAN_WIDGETS .HUABAN-switcher {height: 50px; width: 100px; position: relative;} #HUABAN_WIDGETS .HUABAN-switcher .HUABAN-title {position: absolute; right: 75px; top: 13px; color: #999; white-space: nowrap; line-height: 24px; opacity: 0; visibility: hidden;} #HUABAN_WIDGETS .HUABAN-switcher:hover .HUABAN-title {visibility: visible; opacity: 1; -webkit-transition: opacity .2s linear; -webkit-transition-delay: .2s; transition: opacity .2s linear; transition-delay: .2s;} #HUABAN_WIDGETS .HUABAN-switcher .HUABAN-bar {width: 40px; height: 24px; background: #EB595F; border-radius: 12px; color: white; position: absolute; right: 0; top: 13px; cursor: pointer; font-size: 14px; -webkit-transition: all .2s linear; transition: all .2s linear;} #HUABAN_WIDGETS .HUABAN-switcher:hover .HUABAN-bar {width: 64px;} #HUABAN_WIDGETS .HUABAN-switcher.HUABAN-on .HUABAN-bar {background: #7DD100;} #HUABAN_WIDGETS .HUABAN-switcher .HUABAN-bar .HUABAN-round {width: 20px; height: 20px; background: white; border-radius: 50%; position: absolute; left: 2px; top: 2px; -webkit-transition: left .2s linear; box-shadow: 0px 0px 3px rgba(0,0,0,0.15); transition: left .2s linear; box-shadow: 0px 0px 3px rgba(0,0,0,0.15);} #HUABAN_WIDGETS .HUABAN-switcher.HUABAN-on .HUABAN-bar .HUABAN-round {left: 17px;} #HUABAN_WIDGETS .HUABAN-switcher.HUABAN-on:hover .HUABAN-bar .HUABAN-round {left: 41px;} #HUABAN_WIDGETS .HUABAN-switcher .HUABAN-bar .HUABAN-text-1 {height: 24px; line-height: 24px; position: absolute; right:17px; top: 0; opacity: 0; visibility: hidden; -webkit-transition: all .2s linear; transition: all .2s linear;} #HUABAN_WIDGETS .HUABAN-switcher:hover .HUABAN-bar .HUABAN-text-1 {right: 9px; opacity: 1; visibility: visible;} #HUABAN_WIDGETS .HUABAN-switcher.HUABAN-on:hover .HUABAN-bar .HUABAN-text-1 {right: 17px; opacity: 0; visibility: hidden;} #HUABAN_WIDGETS .HUABAN-switcher .HUABAN-bar .HUABAN-text-2 {height: 24px; line-height: 24px; position: absolute; left:17px; top: 0; opacity: 0; visibility: hidden; -webkit-transition: all .2s linear; transition: all .2s linear;} #HUABAN_WIDGETS .HUABAN-switcher:hover .HUABAN-bar .HUABAN-text-2 {left: 17px; opacity: 0; visibility: hidden;} #HUABAN_WIDGETS .HUABAN-switcher.HUABAN-on:hover .HUABAN-bar .HUABAN-text-2 {left: 9px; opacity: 1; visibility: visible;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-switcher {position: absolute; right: 0; top: 0;} <!--[if IE 6]>#HUABAN_WIDGETS .HUABAN-red-normal-icon-button, .HUABAN-red-large-icon-button, .HUABAN-red-small-icon-button, .HUABAN-white-normal-icon-button, .HUABAN-white-large-icon-button, .HUABAN-white-small-icon-button { background-image: url({{imgBase}}/widget_icons_ie6.png) <![endif]--></style></div></body></html>

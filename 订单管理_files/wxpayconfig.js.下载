@@ -1,0 +1,80 @@
+var _generalid = 4; //公众号id
+var appId = "";
+var noncestr = "";
+var signature = "";
+var timestamp = "";
+var city = "";
+
+function getRootPath_web() {
+    //获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
+    var curWwwPath = window.document.location.href;
+    //获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+    var pathName = window.document.location.pathname;
+    var pos = curWwwPath.indexOf(pathName);
+    //获取主机地址，如： http://localhost:8083
+    var localhostPaht = curWwwPath.substring(0, pos);
+    //获取带"/"的项目名，如：/uimcardprj
+    var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+    return (localhostPaht + projectName);
+}
+
+//签名验证
+function wxconfig() {
+	$.ajax({
+		url : getRootPath_web()+"/wx/wx_util!getWxConfig.action",
+		type : "POST",
+		dataType : "json",
+		data : {
+			generalid : _generalid,
+			url : window.location.href
+		},
+		success : function(data) {
+			appId = data.appId;
+			noncestr = data.noncestr;
+			signature = data.signature;
+			timestamp = data.timestamp;
+			wx.config({
+				debug : false, // 开启调试模式
+				appId : appId, // 必填，公众号的唯一标识
+				timestamp : timestamp, // 必填，生成签名的时间戳
+				nonceStr : noncestr, // 必填，生成签名的随机串
+				signature : signature,// 必填，签名，
+				jsApiList : [ 'checkJsApi', 'hideMenuItems', 'showMenuItems',
+						'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem',
+						'translateVoice', 'startRecord', 'stopRecord',
+						'onRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice',
+						'uploadVoice', 'hideOptionMenu', 'showOptionMenu',
+						'closeWindow', 'scanQRCode', 'chooseWXPay',
+						'openProductSpecificView', ]
+			// 必填(分享给朋友，分享到朋友圈)
+			});
+		}
+	})
+
+}
+
+//关闭当前网页窗口接口
+function closeWindow() {
+	wx.closeWindow();
+}
+
+function chooseWXPayShop(timestamp, nonceStr, prepay_id, signType, paySign,
+		url, url2) {
+	wx.chooseWXPay({
+		"timestamp" : timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+		"nonceStr" : nonceStr, // 支付签名随机串，不长于 32 位
+		"package" : 'prepay_id=' + prepay_id, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+		"signType" : signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+		"paySign" : paySign, // 支付签名
+		success : function(res) {
+			if (res.errMsg == 'chooseWXPay:ok') {
+				window.location.replace(url);
+			}
+			// 支付成功后的回调函数
+		},
+		cancel : function(res) {
+			window.location.replace(url2);
+		}
+
+	});
+}

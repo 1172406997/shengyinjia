@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://superbank.olvip.vip/superbank/wx/member!personalCenter.action -->
+<html lang="en" style="font-size: 140px;" class="hb-loaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>会员中心</title>
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/layer.css">
+    <link rel="stylesheet" href="./static/css/swiper.css">
+    <script src="./static/js/jquery-2.1.1.js"></script>
+    
+    <script src="./static/js/jweixin-1.2.0.js"></script>
+    <script id="wxScript" type="text/javascript" src="./static/js/wxconfig.js" sharepage="index" orgid="231766" userid="360152" sharelogo="http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517548228&amp;OSSAccessKeyId=Ck76WULSZApw3ZFv&amp;Signature=ffzvRRUWpLNMngq7nOu6Qtj9%2Bdw%3D"></script>
+
+<link rel="stylesheet" href="./static/css/layer(1).css" id="layuicss-skinlayercss"></head>
+<body huaban_collector_injected="true">       
+<div>
+<div id="loaddingDiv" style="display:none">
+        <div class="loading">
+        </div>
+        <div class="loadingImg"><img src="./会员中心_files/loading.gif" alt=""></div>
+    </div>
+    
+    <div class="menber_logoWrap">
+        <div class="menber_logoinfo">
+          	<div class="menber_logoLeft">
+                <div class="menber_logoLeft_logo">
+                    <div class="menber_logoLeft_logobg"></div>
+                    <img id="userLogoImg" src="./会员中心_files/132" alt="">
+                </div> 
+                <div class="menber_logoLeft_name">清平&amp;乘锦</div>
+                <div class="menber_logoLeft_id" id="menberId">编号<span>334138</span></div>
+            </div>
+
+            
+            
+            
+            
+            
+            <!-- menber_banker银行家 menber_zy专员 menber_jl经理 -->
+        </div>
+    </div>
+    <div>
+        <div class="menber_info">
+            <div>
+                <div class="menber_left" id="tangy">
+                    <div>总收入（元）</div>
+            			<span>0.00</span>
+                	</div>
+                <div class="menber_kitingWrap">
+                    <a href="http://superbank.olvip.vip/superbank/wx/member!getWithdrawals.action"><div class="menber_kiting" id="menber_kiting">提现<img src="./会员中心_files/triangle.png" alt=""></div></a> 
+                </div>
+            </div>
+            <div class="menber_info_footer">
+                <div class="menber_left" id="zhp">
+                    <div>已结算（元）</div>
+                    <span>0.00</span>
+                </div>
+                <div class="menber_right" id="ty">
+                    <div>可结算（元）</div>
+            		<span>0.00</span>
+                </div>    
+            </div>
+            
+        </div>
+        <div>
+            <ul class="menber_mid">
+                <li class="menber_omw">
+                    <a href="http://superbank.olvip.vip/superbank/wx/order!order_management.action">
+                          <!-- 显示隐藏menber_dis -->
+                        <div class="menber_ordermanage"><b></b><i class="menber_dis"></i></div>
+                        <span>订单管理</span>
+                    </a>
+                </li>
+                <li class="menber_personInfo ">
+                    <a href="http://superbank.olvip.vip/superbank/wx/member!personalInformation.action">
+                        <div><b></b></div>
+                        <span>个人信息</span>
+                    </a>
+                </li>
+                <li class="menber_sc">
+                    <a href="http://superbank.olvip.vip/superbank/wx/member!getUpdateBankCard.action">
+                        <div><b></b></div>
+                        <span>修改结算卡</span>
+                    </a>
+                </li>
+                <li class="menber_cm" id="customerLi" style="display:none">
+                    <a href="http://superbank.olvip.vip/superbank/wx/member!getKhgl.action">
+                        <div><b></b></div>
+                        <span>客户管理</span>
+                    </a>
+                </li>
+                <li class="menber_vc" id="vipcustomerLi">
+                    <a href="http://superbank.olvip.vip/superbank/wx/member!getCustomer.action">
+                        <div><b></b></div>
+                        <span>专属客服</span>
+                    </a>
+                </li>
+                <li class="menber_lt" id="letterLi" style="display:none">
+                    <a href="http://superbank.olvip.vip/superbank/wx/member!letter_of_authorization.action">
+                        <div><b></b></div>
+                        <span>授权证书</span>
+                    </a>
+                </li>
+                <li class="menber_ps" id="posterLi" style="display:none">
+	               <a href="http://superbank.olvip.vip/superbank/wx/index!exclusivePosters.action">
+	                    <div><b></b></div>
+	                    <span>专属海报</span>
+	               </a>
+	           </li>
+                <li class="menber_sm">
+                    <a href="http://superbank.olvip.vip/superbank/wx/member!xtgg.action">
+                        <div><b></b></div>
+                        <span>系统公告</span>
+                    </a>
+                </li>
+                <li class="menber_up" id="updateLi" style="display:none">
+                    <a href="javascript:updateUserInfo()">
+                        <div><b></b></div>
+                        <span>更新资料</span>
+                    </a>
+                </li>
+                <li class="menber_gd">
+                    <a href="http://superbank.olvip.vip/superbank/wx/guide!newGuideLines.action">
+                        <div><b></b></div>
+                        <span>新手指引</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="menber_footer">
+            <div class="menber_footer_logo"><img id="memberLogoImg" src="./static/image/abcd_1515090886050_33145.jpg" alt=""></div>
+            <div>客服电话:<span id="servicePhoneSpan">020-38218669</span> 商务合作:<span id="businessEmailSpan">120900767@qq.com</span></div>
+            <div>All Rights Reserved.</div>
+        </div>
+    </div>
+    <div class="nav" id="nav" style="visibility: visible; display: block;">
+        <a href="http://superbank.olvip.vip/superbank/wx/index!index.action"><img src="./static/image/home_icon@2x.png" alt=""></a>
+        <a href="javascript:void(0);" onclick="javascript:history.go(-1);"><img src="./static/image/back_icon@2x.png" alt=""></a>
+    </div>
+    
+    <!-- 弹出框 -->
+	<div class="weui-mask "></div>
+	<div class="weui-dialog ">
+	    <div class="weui-dialog__hd">
+	        <div class="weui-dialog__title">温馨提示</div>
+	    </div>
+	    <div class="weui-dialog__bd"></div>
+	    <div class="weui-dialog__ft">
+	        <a href="javascript:;" class="weui-dialog__btn primary">确定</a>
+	    </div>
+	</div>
+	<!-- 弹出框end -->
+	
+	<!-- 提示弹出框 -->
+     <div class="index-mask "></div>
+     <div class="index-dialog ">
+         <div class="index-dialog__hd">
+             <div class="index_popupTitle">
+                 <span>公众号二维码</span>
+                 <div class="index_popupClose"><img src="./static/image/close@2x.png" alt=""></div>
+             </div>
+         </div>
+         <div class="index_popUpBd">
+             <div class="index_pop_pic"><img id="publicQrCode" src="./static/image/Qrcode@2x.png" alt=""></div>
+             <div class="index_pop_text1">长按二维码关注公众号！</div>
+             <div class="index_pop_text2">为了给您更好的服务，请先关注平台公众号哦!</div>
+         </div>
+     </div>
+     <!-- 提示弹出框end -->
+</div>
+<script src="./static/js/jquery.cookie.js"></script>
+<script src="./static/js/layer.js"></script>
+<script src="./static/js/swiper.js"></script>
+<script src="./static/js/Inertia.js"></script>
+<script id="commonScript" src="./static/js/adaptive.js" source=""></script>
+<script>
+//滑动的小球
+new Inertia(document.getElementById('nav'));
+//滑动的小球end
+$("#tanner").click(function(){
+	window.location.href="/superbank/wx/member!getmembeLevel.action";
+});
+$("#tangy").click(function(){
+	window.location.href="/superbank/wx/member!getWithdrawals.action";
+});
+$("#zhp").click(function(){
+	window.location.href="/superbank/wx/member!getWithdrawals.action";
+});
+$("#ty").click(function(){
+	window.location.href="/superbank/wx/member!getWithdrawals.action";
+});
+
+$(".menber_mid>li").on("touchstart",function(){
+    $(this).addClass("active");
+})
+$(".menber_mid>li").on("touchend",function(){
+    $(this).removeClass("active");
+})
+$(".index_popupClose").click(function(){
+    $(".index-mask").removeClass("index-mask--visible");
+    $(".index-dialog").removeClass("index-dialog--visible");
+});
+
+$(function(){
+	$.cookie("orderType", '', { expires: 7 });
+   	$.cookie("status", '', { expires: 7 });
+   	$.cookie("className", '', { expires: 7 });
+   	$.cookie("subClassName", '', { expires: 7 });
+   	
+	if ('10' == '10') {//普通用户，隐藏 客户管理、专属海报、授权证书
+		$("#customerLi").attr('style','display:none');
+		$("#posterLi").attr('style','display:none');
+		$("#letterLi").attr('style','display:none');
+	}else {
+		$("#updateLi").attr('style','display:block');
+	}
+	if('0'==1){
+		$(".menber_ordermanage>i").removeClass("menber_dis");
+	}else if('0'==0){
+		$(".menber_ordermanage>i").addClass("menber_dis");
+	}
+	
+	if ('http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090886050_33145.jpg?Expires=1517548228&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=s2oyPYcSP5OCI2YxFXlG%2FGOyyZU%3D' != '' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090886050_33145.jpg?Expires=1517548228&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=s2oyPYcSP5OCI2YxFXlG%2FGOyyZU%3D' != null && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090886050_33145.jpg?Expires=1517548228&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=s2oyPYcSP5OCI2YxFXlG%2FGOyyZU%3D' != 'null') {
+		$("#memberLogoImg").attr('src','http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090886050_33145.jpg?Expires=1517548228&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=s2oyPYcSP5OCI2YxFXlG%2FGOyyZU%3D');
+	}
+	
+	if ('020-38218669' != '' && '020-38218669' != null && '020-38218669' != 'null') {
+		$("#servicePhoneSpan").html('020-38218669');
+	}
+	
+	if ('120900767@qq.com' != '' && '120900767@qq.com' != null && '120900767@qq.com' != 'null') {
+		$("#businessEmailSpan").html('120900767@qq.com');
+	}
+});
+
+function updateUserInfo() {
+	$("#loaddingDiv").attr("style","display:block");
+	
+	$.ajax({
+		url: '/superbank/wx/index!getSubscribeStatus.action', 
+        data: {
+        	},
+        dataType: 'json',
+        success: function (data) {
+        	if(data.subscribe=='0'){
+        		$("#loaddingDiv").attr("style","display:none");
+        		if (data.isMember == '1') {//是会员，才提示
+        			//提示
+				 	 $("#publicQrCode").attr('src','http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090923533_60097.jpg?Expires=1517548228&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=Y%2Fkm3H0KFD0mZQ8R0SmcqmqtH%2Bc%3D');
+           			 indexPopup('javascript:toSubscribe()');
+        		}
+			}else if(data.subscribe=='1'){
+				$.ajax({
+						url: '/superbank/wx/index!getUserInfoByWx.action', 
+				        dataType:'json',
+				        data:{
+					},
+					success:function(data) {
+						$("#loaddingDiv").attr("style","display:none");
+						if(data.code=='success'){
+							$("#userLogoImg").attr('src',data.userLogo);
+							$(".menber_logoLeft_name").html(data.nickName);
+							toAlert(data.message);
+						}else {
+							toAlert(data.message);
+						}
+					},error:function(error){
+					    $("#loaddingDiv").attr("style","display:none");
+					    toAlert('更新资料失败');
+			    	} 	  
+				});	
+			}else {
+				$("#loaddingDiv").attr("style","display:none");
+				toAlert("更新资料失败");
+			}
+        },
+        error: function(xhr, type){
+        	$("#loaddingDiv").attr("style","display:none");
+        	toAlert("更新资料失败");
+        }
+	});
+	
+}
+</script>

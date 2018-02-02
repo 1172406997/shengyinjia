@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://superbank.olvip.vip/superbank/wx/index!index.action -->
+<html lang="en" style="font-size: 50px;" class="hb-loaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>超级盛银家</title>
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/layer.css">
+    <link rel="stylesheet" href="./static/css/swiper.css">
+    <script src="./static/js/jquery-2.1.1.js"></script>
+    
+    <script src="./static/js/jweixin-1.2.0.js"></script>
+    <script id="wxScript" type="text/javascript" src="./static/js/wxconfig.js" sharepage="index" orgid="231766" userid="360152" sharelogo="http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517550754&amp;OSSAccessKeyId=Ck76WULSZApw3ZFv&amp;Signature=UxsbTH%2FYDrRwE1V%2F2DGK9v2lJFw%3D"></script>
+    <style>
+    .swiper-wrapper{padding: 0;}
+    @-webkit-keyframes fadeInOut {
+		0% {
+		    opacity:1;
+		}
+		25% {
+		    opacity:0.5;
+		}
+		50% {
+		    opacity: 0.3;    
+		}
+		100% {
+		    opacity:0;
+    	}
+	}
+	.begin_logo {
+	 width: 100%;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    z-index: 99;
+	    -webkit-animation-delay:2s;
+	    -webkit-animation-name: fadeInOut;
+	    -webkit-animation-timing-function:ease-in;
+	    -webkit-animation-iteration-count: 1;
+	    -webkit-animation-duration: 2s;
+	    -webkit-animation-direction: normal;
+	}  
+
+    </style>
+<link rel="stylesheet" href="./static/css/layer(1).css" id="layuicss-skinlayercss"></head>
+<body huaban_collector_injected="true">       
+<div>
+	<div id="loaddingDiv" style="display:none">
+        <div class="loading">
+        </div>
+        <div class="loadingImg"><img src="./static/image/loading.gif" alt=""></div>
+    </div> 
+    
+    <div class="index_logoWrap">
+        <div class="index_logoinfo">
+            <div class="index_logoLeft">
+            	<img id="homeLogoImg" src="./static/image/abcd_1515091529042_63189.jpg" alt="">
+            </div>
+            <p class="index_logo">
+                <img src="./static/image/132" alt="">
+            </p>
+        </div>
+    </div>
+    <div class="index_infoWrap">
+       <ul class="index_info">
+           <li id="creditcardLi">
+               <a href="createCard.html">
+                    <div><img src="./static/image/card_check@2x.png" alt=""></div>
+                    <span>办信用卡</span>
+               </a>
+           </li>
+           <li id="loanLi">
+               <a href="loanapplication.html">
+                    <div><img src="./static/image/loan@2x.png" alt=""></div>
+                    <span>贷款申请</span>
+               </a>
+           </li>
+           <li>
+               <a href="paymentapplication.html">
+                    <div><img src="./static/image/violation_payment@2x.png" alt=""></div>
+                    <span>商户收款</span>
+               </a>
+           </li>
+            <li>
+                <a href="http://openh5.ygs001.com/open/wx/index!index.action?merchantKey=YHJ231766">
+                    <div><img src="./static/image/parking_img@2x.png" alt=""></div>
+                    <span>违章代缴</span>
+                </a>
+            </li>
+           <li id="creditcardSearchLi">
+               <a href="queries_card.html">
+                    <div><img src="./static/image/card_search@2x.png" alt=""></div>
+                    <span>办卡查询</span>
+               </a>
+           </li>
+           <li id="repayLi">
+               <!-- <a href="repayment!repaymentBuy.action"> -->
+               <a href="javascript:toclickRepayment()">
+                    <div><img src="./static/image/card_repayment@2x.png" alt=""></div>
+                    <span>信用卡还款</span>
+               </a>
+           </li>
+           <li>
+               <a href="member_center.html">
+                    <div><img src="./static/image/member_center@2x.png" alt=""></div>
+                    <span>会员中心</span>
+               </a>
+           </li>
+           <li>
+               <a href="javascript:clickMemberUp()">
+                    <div><img src="./static/image/paperLevel@2x.png" alt=""></div>
+                    <span>会员升级</span>
+               </a>
+           </li>
+          
+       </ul>
+    </div>
+    <div>
+        <div class="index_footerTitle">最新活动</div>
+          
+
+        <div class="swiper-container swiper-container-horizontal">
+            <div class="swiper-wrapper" style="transform: translate3d(-750px, 0px, 0px); transition-duration: 0ms;">
+            	<div class="swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev" onclick="toLink(&#39;https://a.zhongan.com/p/85132614?bizOrigin=APPgoodsYL&#39;)" data-swiper-slide-index="0" style="width: 375px;">
+            		<div class="index_footer">
+            			<img src="./static/image/banner_nor@2x.png" alt=""></div>
+            	</div>
+            	<div class="swiper-slide swiper-slide-duplicate-active swiper-slide-prev swiper-slide-duplicate-next" onclick="toLink(&#39;https://a.zhongan.com/p/85132614?bizOrigin=APPgoodsYL&#39;)" data-swiper-slide-index="0" style="width: 375px;">
+            		<div class="index_footer"><img src="./static/image/banner_nor@2x.png" alt=""></div>
+            	</div>
+            	<div class="swiper-slide swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate-prev" onclick="toLink(&#39;https://a.zhongan.com/p/85132614?bizOrigin=APPgoodsYL&#39;)" data-swiper-slide-index="0" style="width: 375px;">
+            		<div class="index_footer">
+            			<img src="./static/image/banner_nor@2x.png" alt=""></div>
+            	</div>
+            </div>
+            <!-- <div class="swiper-pagination"></div> -->
+
+        </div>
+    </div>
+    <!-- 提示弹出框 -->
+     <div class="index-mask "></div>
+     <div class="index-dialog ">
+         <div class="index-dialog__hd">
+             <div class="index_popupTitle">
+                 <span>公众号二维码</span>
+                 <div class="index_popupClose"><img src="./static/image/close@2x.png" alt=""></div>
+             </div>
+         </div>
+         <div class="index_popUpBd">
+             <div class="index_pop_pic"><img id="publicQrCode" src="./static/image/Qrcode@2x.png" alt=""></div>
+             <div class="index_pop_text1">长按二维码关注公众号！</div>
+             <div class="index_pop_text2">为了给您更好的服务，请先关注平台公众号哦!</div>
+         </div>
+     </div>
+     <!-- 提示弹出框end -->
+     
+     <!-- 弹出框 -->
+	<div class="weui-mask "></div>
+	<div class="weui-dialog ">
+	    <div class="weui-dialog__hd">
+	        <div class="weui-dialog__title">温馨提示</div>
+	    </div>
+	    <div class="weui-dialog__bd"></div>
+	    <div class="weui-dialog__ft">
+	        <a href="javascript:;" class="weui-dialog__btn primary">确定</a>
+	    </div>
+	</div>
+	<!-- 弹出框end -->
+	<div class="begin_logo index_dis" id="div1">
+	    <div class="begin_logo_bg"><img id="pic1" src="./static/image/abcd_1515090916873_86803.jpg" alt=""></div>
+	    <!-- <div class="begin_logoWrap">
+	        <img id="pic2" src="" alt="">
+	    </div>  -->
+	</div> 
+</div>
+<script src="./static/js/layer.js"></script>
+<script src="./static/js/swiper.js"></script>
+<script id="commonScript" src="./static/js/adaptive.js" source=""></script>
+<script>
+
+$(".index_popupClose").click(function(){
+    $(".index-mask").removeClass("index-mask--visible");
+    $(".index-dialog").removeClass("index-dialog--visible");
+});
+
+$(function(){
+//      if ('http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yBIbUpQWrwbV3vqjkKObGs6sp14%3D' != '' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yBIbUpQWrwbV3vqjkKObGs6sp14%3D' != 'null' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yBIbUpQWrwbV3vqjkKObGs6sp14%3D' != null) {
+//      	$("#pic1").attr('src','http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yBIbUpQWrwbV3vqjkKObGs6sp14%3D');
+//  	}
+        /* if ('http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D' != '' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D' != 'null' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D' != null) {
+    		$("#pic2").attr('src','http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D');
+    	} */
+});
+
+var t_img; // 定时器
+var isLoad = true; // 控制变量
+
+// 判断图片加载状况，加载完成后回调
+isImgLoad(function(){
+    // 加载完成
+    var isOpenAd = sessionStorage.getItem("isOpenAd");
+        if(isOpenAd!="true" ){
+            $(".begin_logo").removeClass("index_dis");
+            var o = document.getElementById("div1");
+            o.addEventListener("webkitAnimationEnd", function() {
+                $(".begin_logo").addClass("index_dis");
+                sessionStorage.setItem("isOpenAd", "true"); 
+            });
+        }
+});
+
+// 判断图片加载的函数
+function isImgLoad(callback){
+    // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+    // 查找所有封面图，迭代处理
+    $('.pic1').each(function(){
+        // 找到为0就将isLoad设为false，并退出each
+        if(this.height === 0){
+            isLoad = false;
+            return false;
+        }
+    });
+    // 为true，没有发现为0的。加载完毕
+    if(isLoad){
+        clearTimeout(t_img); // 清除定时器
+        // 回调函数
+        callback();
+    // 为false，因为找到了没有加载完成的图，将调用定时器递归
+    }else{
+        isLoad = true;
+        t_img = setTimeout(function(){
+            isImgLoad(callback); // 递归扫描
+        },500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+    }
+}
+
+/* $(function(){
+    window.onload = function(){
+        var img=new Image();
+        if ('http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yBIbUpQWrwbV3vqjkKObGs6sp14%3D' != '' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yBIbUpQWrwbV3vqjkKObGs6sp14%3D' != 'null' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yBIbUpQWrwbV3vqjkKObGs6sp14%3D' != null) {
+        	$("#pic1").attr('src','http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yBIbUpQWrwbV3vqjkKObGs6sp14%3D');
+        	img.src = 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yBIbUpQWrwbV3vqjkKObGs6sp14%3D';
+    	}
+        if ('http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D' != '' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D' != 'null' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D' != null) {
+    		$("#pic2").attr('src','http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D');
+    	}
+        
+        console.log(img)
+        if(img.width==0){
+          //alert('图片加载失败')
+        }else{
+          //alert('图片加载成功')
+        var isOpenAd = sessionStorage.getItem("isOpenAd");
+        if(isOpenAd!="true" ){
+            $(".begin_logo").removeClass("index_dis");
+            var o = document.getElementById("div1");;
+            o.addEventListener("webkitAnimationEnd", function() {
+                $(".begin_logo").addClass("index_dis");
+                sessionStorage.setItem("isOpenAd", "true"); 
+            });
+        }
+        }
+    }
+}); */
+/* 	$(function(){
+		var isOpenAd = sessionStorage.getItem("isOpenAd");
+		
+	    if(isOpenAd!="true" ){
+	    	$(".begin_logo").removeClass("index_dis");
+	        // alert(111);
+	        var o = document.getElementById("div1");;
+	        o.addEventListener("webkitAnimationEnd", function() {
+	            $(".begin_logo").addClass("index_dis");
+	            sessionStorage.setItem("isOpenAd", "true"); 
+	        });
+	    }
+	    
+	}); */
+   
+    function popup4() {
+        $(".surpass_Popup").removeClass("surpass_Popup_in").addClass("surpass_Popup_fade");
+        $(".surpass_Popup-backdrop").removeClass("surpass_Popup_in2").removeClass("surpass_Popup_fade").addClass("surpass_Popup_fade");
+    }
+
+    $(".surpass_Popup-footer").on("click", "#close4", function () {//这个是关闭弹出框
+        $(".surpass_Popup-dialog").animate({top: -1000});
+        setTimeout("popup4()", 200);
+    });
+    $(".indexState").click(function(){
+        $("#loaddingDiv").css("display","block")
+        $(".surpass_Popup-backdrop").toggleClass("surpass_Popup_in2");
+        $(".surpass_Popup").toggleClass("surpass_Popup_in");
+        $(".surpass_Popup-dialog").animate({top: 150});
+    })
+    $(".surpass_masked").click(function(){
+        $(".surpass_Popup-dialog").animate({top: -1000});
+        setTimeout("popup4()", 200);
+    })
+    $(".in_check").click(function(){
+        if($(this).attr('src')=="/superbank/resources/img/xuanzhong.png"){
+            $(this).attr('src',"/superbank/resources/img/meixuan.png")
+        }else{
+            $(this).attr('src',"/superbank/resources/img/xuanzhong.png")
+        }
+    })
+    $(".index_logo").click(function(){
+    	window.location.href="/superbank/wx/member!personalInformation.action";
+    });
+    
+    function toclickRepayment() {
+    	toAlert('即将推出，敬请期待！');
+    }
+    
+    function clickMemberUp() {
+    	if ('10' == '10') {
+    		location.href = 'member!personalInformation.action';
+    	}else {
+    		location.href = 'member!getmembeLevel.action';
+    	}
+    }
+    
+    function toSubscribe() {
+    	location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=null#wechat_redirect';
+    }
+    
+    $(function(){
+    	if ('超级盛银家' != '' && '超级盛银家' != 'null') {
+    		document.title = '超级盛银家';
+    	}else {
+    		document.title = '超级银行家';
+    	}
+    	
+    	if ('' == 'appstore') {
+    		$("#creditcardLi").attr('style','display:none');
+    		$("#loanLi").attr('style','display:none');
+    		$("#creditcardSearchLi").attr('style','display:none');
+    		$("#repayLi").attr('style','display:none');
+    	}
+    	
+    	if ('http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D' != '' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D' != 'null' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D' != null) {
+    		$("#homeLogoImg").attr('src','http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=w5GLE3iE4vD3USj%2Fu7QQxGDCjcE%3D');
+    	}
+    	
+    	/* if ('' == '0') {
+    		//有返回未关注，提示
+    		indexPopup('javascript:toSubscribe()');
+    	}else if ('' != '1') { */
+    		//没返回，则去获取状态
+    		getSubscribeStatus();
+    	/* } */
+    	
+    	getBannerInfo();
+    });
+    
+    function getBannerInfo() {
+    	//$("#loaddingDiv").attr("style","display:block");
+  		 //这里处理banner获取到的资源信息
+  		 $.ajax({
+	  			url: '/superbank/wx/index!getBannerInfo.action', 
+	  	        dataType:'json',
+	  	        data:{
+  			},
+  			success:function(data) {
+  				//$("#loaddingDiv").attr("style","display:none");
+  				
+  				var htmlStr = '';
+  				
+  				if(data.code=='success'){
+  				 	 if (data.data.length > 0 && '' != 'appstore') {
+  				 		 
+  				 		 for(var i=0;i<data.data.length;i++) {
+  				 			 htmlStr += '<div class="swiper-slide" onclick="toLink(\''+data.data[i].link+'\')">';
+  				 			 htmlStr += '<div class="index_footer">';
+  				 			 htmlStr += '<img src="'+data.data[i].imgUrl+'" alt="">';
+  				 			 htmlStr += '</div>';
+  				 			 htmlStr += '</div>';
+  				 		 }
+  				 		 
+  				 	 }else {
+  				 		 
+  				 		 
+			 			
+			 			if ('' != 'appstore') {
+			 				htmlStr += '<div class="swiper-slide" onclick="toLink(\'https://a.zhongan.com/p/85132614?bizOrigin=APPgoodsYL\')">';
+				 			htmlStr += '<div class="index_footer">';
+			 				htmlStr += '<img src="/superbank/resources/img/banner_nor@2x.png" alt="">';
+			 			}else {
+			 				htmlStr += '<div class="swiper-slide" >';
+				 			htmlStr += '<div class="index_footer">';
+			 				htmlStr += '<img src="/superbank/resources/img/banner-sksq@2x.png" alt="">';
+			 			}
+			 			 
+			 			 htmlStr += '</div>';
+			 			 htmlStr += '</div>';
+  				 	 }
+  				 	 
+  				 	 $(".swiper-wrapper").html(htmlStr);
+				 		 
+			 		 //幻灯片切换
+			 	     var swiper = new Swiper('.swiper-container', {
+			 	           autoplay: 5000,
+			 	           loop : true,
+			 	           pagination: '.swiper-pagination',
+			 	           paginationClickable: true
+			 	       });
+  				}
+  			},error:function(error){
+			    //$("#loaddingDiv").attr("style","display:none");
+			    toAlert(error);
+		    } 	  
+  		});	
+    }
+     var swiper = new Swiper('.swiper-container', {
+			 	           autoplay: 5000,
+			 	           loop : true,
+			 	           pagination: '.swiper-pagination',
+			 	           paginationClickable: true
+			 	       });
+  //获取公众号关注状态
+    function getSubscribeStatus() {
+    	$.ajax({
+    		url: '/superbank/wx/index!getSubscribeStatus.action', 
+            data: {
+            	},
+            dataType: 'json',
+            success: function (data) {
+            	if(data.subscribe=='0'){
+            		if (data.isMember == '1') {//是会员，才提示
+            			//提示
+    				 	 $("#publicQrCode").attr('src','http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090923533_60097.jpg?Expires=1517550754&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=3bJxRvWhRkLb%2BrfARkFRad1bS9c%3D');
+               			 indexPopup('javascript:toSubscribe()');
+            		}
+ 				}
+            },
+            error: function(xhr, type){
+            }
+		});
+  		 
+    }
+    
+    function toLink(_url) {
+    	if (_url != '' && _url != 'null') {
+    		location.href = _url;
+    	}
+    }
+    
+  
+</script>
