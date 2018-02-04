@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://superbank.olvip.vip/superbank/wx/member!getUpdateBankCard.action -->
+<html lang="en" style="background-color: rgb(255, 255, 255); font-size: 165.333px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">                                                              
+
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>修改结算卡</title>
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/layer.css">
+    <link rel="stylesheet" href="./static/css/swiper.css">
+    <script src="./static/js/jquery-2.1.1.js"></script>
+    <script src="./static/js/jweixin-1.2.0.js"></script>
+    <script id="wxScript" type="text/javascript" src="./static/js/wxconfig.js" sharepage="index" orgid="231766" userid="360152" sharelogo="http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517737896&amp;OSSAccessKeyId=Ck76WULSZApw3ZFv&amp;Signature=wx0I27REkEMts9NSWab%2FMrAg7QE%3D"></script>
+<link rel="stylesheet" href="./static/css/layer(1).css" id="layuicss-skinlayercss"></head>
+<body>       
+<div>
+    
+    <div>
+        <div>
+            <div class="error_head"><img src="./static/image/no_banks.png" alt=""></div>
+            <div class="error_info">
+                <!-- <div>系统异常</div> -->
+                <div>您还未添加银行卡~</div>
+            </div>
+            <div class="cash_footer" style="background-color: #fff;">
+                <div class="cash_btn"><input class="tanner active" type="button" value="+添加银行卡"></div>
+            </div>
+        </div>
+    </div>
+    <div class="nav" id="nav" style="visibility: visible; display: block;">
+        <a href="index.html"><img src="./static/image/home_icon@2x.png" alt=""></a>
+        <a href="javascript:void(0);" onclick="javascript:history.go(-1);"><img src="./static/image/back_icon@2x.png" alt=""></a>
+    </div>
+</div>
+<script src="./static/js/layer.js"></script>
+<script src="./static/js/swiper.js"></script>
+<script src="./static/js/Inertia.js"></script>
+<script id="commonScript" src="./static/js/adaptive.js" source=""></script>
+<script>
+//滑动的小球
+new Inertia(document.getElementById('nav'));
+//滑动的小球end
+    $(".tanner").click(function(){
+//	window.location.href="/superbank/wx/member!bindBankCard.action";
+	window.location.href="bind_bankcard.html";
+	});
+</script>
+
+</body></html>

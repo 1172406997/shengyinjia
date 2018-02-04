@@ -108,7 +108,8 @@
 			for (var i = 0; i < _jsonObject.data.length; i++ ) {
 				htmlStr += '<li class="loans_fastInfoLeft" >';
 				
-				htmlStr += '<a href="loan!loans_application_add.action?loanSourceId='+_jsonObject.data[i].id+'&registerLink='+_jsonObject.data[i].registerLink+'&loanLink='+_jsonObject.data[i].loanLink+'&h5Link='+_jsonObject.data[i].h5Link+'"> ';
+//				htmlStr += '<a href="loan!loans_application_add.action?loanSourceId='+_jsonObject.data[i].id+'&registerLink='+_jsonObject.data[i].registerLink+'&loanLink='+_jsonObject.data[i].loanLink+'&h5Link='+_jsonObject.data[i].h5Link+'"> ';
+				htmlStr += '<a href="loans_detail.html"';
 				htmlStr += '<div class="loans_fastInfo_logo2"><img src="'+_jsonObject.data[i].showLogo+'" alt=""></div>';
 				htmlStr += '<div class="loans_fastInfo_text2">';
 				htmlStr += '<div class="loans_title">'+_jsonObject.data[i].loanProduct+'</div>';
@@ -144,7 +145,7 @@
 							+ '\',\''+userType
 							+'\')" class="visa_bonus">';
 					htmlStr += '<div class="loans_bonusInfo">';
-					htmlStr += '<img src="/superbank/resources/img/bonus.png" alt=""><div><span>'+_jsonObject.data[i].loanBonus+'%</span><i></i></div>';
+					htmlStr += '<img src="static/image/bonus.png" alt=""><div><span>'+_jsonObject.data[i].loanBonus+'%</span><i></i></div>';
 					htmlStr += '</div>';
 					htmlStr += '</div>';
 				}

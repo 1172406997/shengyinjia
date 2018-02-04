@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)http://superbank.olvip.vip/superbank/wx/member!view_application.action -->
+<html lang="en" style="font-size: 53.3333px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>专员申请</title>
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/layer.css">
+    <link rel="stylesheet" href="./static/css/swiper.css">
+    <script src="./static/js/jquery-2.1.1.js"></script>
+    <script src="./static/js/qrcode.js"></script>
+    <script src="./static/js/jweixin-1.2.0.js"></script>
+    <script id="wxScript" type="text/javascript" src="./static/js/wxconfig.js" sharepage="index" orgid="231766" userid="360152" nickname="清平&amp;乘锦" sharelogo="http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517648961&amp;OSSAccessKeyId=Ck76WULSZApw3ZFv&amp;Signature=j6ZTgjIoNAX8Ml7LOPX18UNhht4%3D"></script>
+    
+    <script src="./static/js/wxpayconfig.js"></script>
+<link rel="stylesheet" href="./static/css/layer(1).css" id="layuicss-skinlayercss"></head>
+<body>       
+
+<div>
+	<div id="loaddingDiv" style="display:none">
+        <div class="loading">
+        </div>
+        <div class="loadingImg"><img src="./static/image/loading.gif" alt=""></div>
+    </div>
+    
+    <div class="cus_logoWrap">
+        <div class="cus_logoinfo">
+            <div class="cus_logoLeft"><img id="orgLogoImg" src="./static/image/abcd_1515091529042_63189.jpg" alt=""></div>
+            <!-- <p class="index_logo">
+                <img src="/superbank/resources/img/logo.png" alt="">
+            </p> -->
+        </div>
+    </div>
+    <div class="cus_infoWrap">
+       <div class="cus_info">
+            <div class="cus_infoTitle">专员申请</div>
+            <div class="cus_infoMoney"><i>￥</i><span id="customerFeeSpan">198.00</span><b>/年</b></div>
+            <div class="cus_infoTip">
+				<i>*</i>
+                <span>在付款前请仔细确认专属客服信息,完成任务后<span id="customerFeeSpan1">198.00</span>元可全额退款，详情请查看下方退款规则！</span>
+			</div>
+       </div>
+    </div>
+    <div class="cus_footerWrap">
+        <div class="cus_footer">
+        	<div class="cus_agreementWrap" style="display:block">
+                <div class="cus_agreement"><i class="active"></i> 点击支付即同意<a href="http://superbank.olvip.vip/superbank/wx/index!agreement.action">《平台服务协议》</a></div>
+            </div>
+            
+            <div class="cus_theCard">
+	            <div class="cus_logo"><img id="userLogoImg" src="./static/image/132" alt=""></div>
+	            <ul class="cus_footerInfo">
+	                <li id="cus_li1"><div class="cus_vipImg"><span id="userNameSpan">李月月</span><img src="./static/image/v_id.png" alt=""></div><span>专属客服</span></li>
+	                <li>
+	                    <div>客服工号：</div>
+	                    <span id="userCodeSpan">334138</span>
+	                </li>
+	                <!-- <li>
+	                    <div>身份证号：</div>
+	                    <span id="idCardNoSpan"></span>
+	                </li> -->
+	                <li>
+	                    <div>手机号码：</div>
+	                    <span id="phoneSpan" 今日人气="">185****7956</span>
+	                </li>
+	            </ul>
+	            <div class="cus_codePic" id="qrcode" title="http://superbank.olvip.vip/superbank/wx/index!index.action?orgId=231766&amp;userId=360152"><canvas width="200" height="200" style="display: none;"></canvas><img alt="Scan me!" style="display: block;" src="data:image/png;base64,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"></div>
+	            <div class="cus_footer_tab">
+	                <div class="cus_footer_tabLeft">
+	                    <img src="./static/image/wechat.png" alt="">
+	                    <span>微信号</span>
+	                </div>
+	                <div class="cus_footer_tabRight">
+	                	<a class="phoneClass" href="tel:18569947956">
+		                    <img src="./static/image/mobile.png" alt="">
+		                    <span>电话聊</span>
+	                    </a>
+	                </div>
+	            </div>
+	        </div>    
+            <!-- <div class="cus_agreementWrap">
+                <div class="cus_agreement"><i class="active"></i> 点击支付即同意<a href="agreement.html">《用户协议》</a></div>
+            </div> -->
+            <div class="cus_text"><i>*</i>点击右上角即可分享给好友</div>
+            <div class="cus_footer_pic">
+                
+                <div>
+	                <div class="cus_footer_title cus_footer_title_mt"><img src="./专员申请_files/advice@2x.png" alt="">产品介绍</div>
+	                <div class="cus_footer_text">
+	                    一款集信用卡办理、小额贷款、商户收款、违章代缴等于一体的综合服务平台。
+	                </div>
+	            </div>
+	            <div>
+	                <div class="cus_footer_title"><img src="./static/image/advantage@2x.png" alt="">产品优势</div>
+	                <div class="cus_footer_text">
+	                    <div class="cus_footer_ul">
+	                        <span>低门槛</span>
+	                        <div>微投入，只需缴纳<span id="customerFeeSpan2">198.00</span>元/人即可参与；</div>
+	                    </div>
+	                    <div class="cus_footer_ul">
+	                        <span>业务全</span>
+	                        <div>集合信用卡办理、违章代缴、贷款及收款等；</div>
+	                    </div>
+	                    <div class="cus_footer_ul">
+	                        <span>收益多</span>
+	                        <div>所属层级范围内每级都可拿分润；</div>
+	                    </div>
+	                    <div class="cus_footer_ul">
+	                        <span>无消费</span>
+	                        <div>客户无消费压力，分享即可获取收益。</div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div>
+	                <div class="cus_footer_title"><img src="./static/image/gift@2x.png" alt="">代理权益</div>
+	                <div class="cus_footer_text">
+	                    <div>
+	                        升级为代理获取相应的分润比
+	                    </div>
+	                    <div class="cus_footer_three">
+	                        <span>专员收益</span>
+	                        <div>推荐办信用卡、贷款、收款等业务按总奖金的60%分配</div>
+	                    </div>
+	                    <div class="cus_footer_three">
+	                        <span>经理收益</span>
+	                        <div>推荐办信用卡、贷款、收款等业务按总奖金的85%分配；</div>
+	                    </div>
+	                    <div class="cus_footer_three">
+	                        <span>银行家收益</span>
+	                        <div>推荐办信用卡、贷款、收款等业务按总奖金的95%分配；</div>
+	                        <div class="cus_footer_threeTip">（备注：只有成为代理后才能拿对应分润，普通会员不参与）</div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div>
+	                <div class="cus_footer_title"><img src="./static/image/refund@2x.png" alt="">退款规则</div>
+	                <div class="cus_footer_text">
+	                    <div>
+	                        ①每月10-20号之间申请、查询并审核通过，成功办理（直推）5张信用卡，以本平台办卡查询结果为准；
+	                    </div>
+	                    <div>
+	                        ②自代理起1年内申请、查询并审核通过，成功办理（直推）20张信用卡，以本平台办卡查询结果为准；
+	                    </div>
+	                    <div>
+	                        以上条件满足任意一条即可全额实时退还代理费<span id="customerFeeSpan3">198.00</span>元；
+	                    </div>
+	                    <div>
+	                        最终解释权归本平台所有。
+	                    </div>
+	                </div>
+	            </div>
+            </div>
+            
+            <!-- 立即邀请好友加入超级银行家 shareBtn()弹出分享按钮 -->
+            <!-- 点击右上角分享消失 cus_btn增加cus_mt -->
+            
+        </div>
+        <div class="cus_btn" style="display:block"><input id="clickBtn" class="active" type="button" value="立即加入"></div>
+        <div class="nav" id="nav" style="visibility: visible; display: block;">
+	       <a href="index.html"><img src="./static/image/home_icon@2x.png" alt=""></a>
+	       <a href="javascript:void(0);" onclick="javascript:history.go(-1);"><img src="./static/image/back_icon@2x.png" alt=""></a>
+	   </div>
+    </div>
+   <!-- 提示弹出框end -->
+   <!-- 微信弹出框 -->
+   <div class="plan_Popup">
+       <div class="plan_Popup-dialog ">
+           <div class="plan_Popup-content">
+               <div class="plan_Popup-body">  
+                   <div class="order_Poptext">
+                       <span>申请人二维码</span>
+                       <div id="close2"><img src="./static/image/close@2x.png" alt=""></div>
+                   </div>  
+                   <div class="order_wechatPic">
+                        <img id="qrCodeImg" src="./static/image/Qrcode@2x.png" alt="">
+                    </div>
+                    <!--1.如果没有图片就提示这句话： 请使用下方微信号，加我微信 order_hide控制隐藏 没有微信号的时候加隐藏和active 2.什么都没有的情况：只显示默认图片和提示语：该用户未完善资料，可通过手机号联系！ -->
+                    <div class="order_weichatTip">请使用下方微信号，加我微信</div>
+                    <div id="wechatNoDiv">
+                        <div class="order_weichat">微信号:<span id="order_weichatNum" class="order_weichatNum">mmmhhhxx</span></div>
+                        <div class="order_copy"><a data-clipboard-action="copy" data-clipboard-target="#order_weichatNum" href="javascript:void(0);">复制微信号</a></div>
+                    </div> 
+               </div>
+           </div>
+       </div>
+       <div class="plan_masked"></div>
+   </div> 
+   <!-- 微信弹出框end -->
+   
+   <div class="payfor_Popup">
+      <div class="payfor_Popup-dialog " style="width:5.9rem;">
+          <div class="payfor_Popup-content">
+              <div class="payfor_Popup-body">
+                  <div class="payfor_Poptext">
+                      <span>请确认微信支付是否已完成</span>
+                  </div>
+                  <div class="indexPopup_info">
+                      <div class="payfor_text1" onclick="toCheckWxStatus()">已完成支付</div>
+                      <div class="payfor_text2" onclick="payAgain()">支付遇到问题，重新支付</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="payfor_masked"></div>
+  </div> 
+     <!-- 分享弹出出框 -->
+   <div class="share-mask "></div>
+   <div class="share-dialog ">
+       <div class="share_line"><img src="./static/image/get_line@2x.png" alt=""></div>
+       <div class="share_text">
+           <div>请点击右上角分享按钮分享</div>
+           <div>给朋友即可成为该朋友上级哦！</div>
+       </div>
+       <div class="share_btn"><img src="./static/image/know_img@2x.png" alt=""></div>
+   </div>
+   <!-- 分享弹出框end -->
+   
+   <!-- 弹出框 -->
+	<div class="weui-mask "></div>
+	<div class="weui-dialog ">
+	    <div class="weui-dialog__hd">
+	        <div class="weui-dialog__title">温馨提示</div>
+	    </div>
+	    <div class="weui-dialog__bd"></div>
+	    <div class="weui-dialog__ft">
+	        <a href="javascript:;" class="weui-dialog__btn primary">确定</a>
+	    </div>
+	</div>
+	<!-- 弹出框end --> 
+</div>
+
+<script src="./static/js/layer.js"></script>
+<script src="./static/js/swiper.js"></script>
+<script src="./static/js/cityjson"></script>
+<script src="./static/js/clipboard.min.js"></script>
+<script id="commonScript" src="./static/js/adaptive.js" source=""></script>
+<script src="./static/js/Inertia.js"></script>
+<script>
+	//滑动的小球
+	new Inertia(document.getElementById('nav'));
+	//滑动的小球end
+	//复制微信到剪贴板
+	var clipboard = new Clipboard('.order_copy>a');
+	
+	clipboard.on('success', function(e) {
+	    toAlert("已复制好，可粘贴。")
+	});
+	
+	clipboard.on('error', function(e) {
+	    /* console.log(e); */
+	});
+    // 同意协议
+    $(".cus_agreement>i").click(function(){
+        if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            
+            $("#clickBtn").removeClass("active");
+	    	$("#clickBtn").attr("disabled",true);
+        }else{
+            $(this).addClass("active");
+            
+            $("#clickBtn").addClass("active");
+	    	$("#clickBtn").attr("disabled",false);
+	    	
+        }
+        
+    })
+    // 提示弹出框
+    /* $(".cus_footer_tabRight").click(function(){
+        $(".weui-mask").addClass("weui-mask--visible");
+        $(".weui-dialog").addClass("weui-dialog--visible");
+    }) */
+    $(".weui-dialog__ft").click(function(){
+        $(".weui-mask").removeClass("weui-mask--visible");
+        $(".weui-dialog").removeClass("weui-dialog--visible");
+    })
+    $(".weui-dialog_cancel").click(function(){
+        $(".weui-mask").removeClass("weui-mask--visible");
+        $(".weui-dialog").removeClass("weui-dialog--visible");
+    });
+      // 微信弹窗
+      function popup5() {
+        $(".plan_Popup").removeClass("plan_Popup_in").addClass("plan_Popup_fade");
+        $(".plan_Popup-backdrop").removeClass("plan_Popup_in2").removeClass("plan_Popup_fade").addClass("fa_Popup_fade");
+    }
+    $(".order_Poptext").on("click", "#close2", function () {//这个是关闭弹出框
+        $(".plan_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup5()", 200);
+    });
+    $(".cus_footer_tabLeft").click(function () {
+        $(".plan_Popup-backdrop").toggleClass("plan_Popup_in2");
+        $(".plan_Popup").toggleClass("plan_Popup_in");
+        $(".plan_Popup-dialog").animate({bottom:0});
+    });
+    $(".plan_masked").click(function(){
+        $(".plan_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup5()", 200);
+    })
+    
+    
+    // 支付确认
+      function popup6() {
+        $(".payfor_Popup").removeClass("payfor_Popup_in").addClass("payfor_Popup_fade");
+        $(".payfor_Popup-backdrop").removeClass("payfor_Popup_in2").removeClass("payfor_Popup_fade").addClass("surpass_Popup_fade");
+    }
+
+    $(".payfor_Popup-footer").on("click", "#close6", function () {//这个是关闭弹出框
+        $(".payfor_Popup-dialog").animate({top: -1000});
+        setTimeout("popup6()", 200);
+    });
+    function toastWx(){
+        $(".payfor_Popup-backdrop").toggleClass("payfor_Popup_in2");
+        $(".payfor_Popup").toggleClass("payfor_Popup_in");
+        $(".payfor_Popup-dialog").animate({top: 150});
+    }
+    // end
+    
+    $(function(){
+    	if ('http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517648961&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=RYDW%2Bg66GNJwC5ZGlF7unxw4tNs%3D' != '' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517648961&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=RYDW%2Bg66GNJwC5ZGlF7unxw4tNs%3D' != 'null' && 'http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517648961&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=RYDW%2Bg66GNJwC5ZGlF7unxw4tNs%3D' != null) {
+    		$("#orgLogoImg").attr('src','http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517648961&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=RYDW%2Bg66GNJwC5ZGlF7unxw4tNs%3D');
+    	}
+    	
+    	makeCodeById(getRootPath_web() + '/wx/index!index.action?orgId=231766&userId=360152',"qrcode");
+    	
+    	var jsonObject = {"code":"success","message":"查询成功","data":{"userId":360152,"userCode":"334138","userName":"李月月","nickName":"清平&乘锦","phone":"18569947956","v2Phone":null,"idCardNo":null,"weixinCode":"mmmhhhxx","userType":"10","userLogo":"http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIOQsnZwG7fAiaQtIKAGg8P6Khd4jSU8htct0eWJNVOAMEibSFAlyhym79POzZacdDNgtsGtzkCzAkw/132","qrCode":"","orgId":231766,"status":"1","statusAgent":null,"statusRepayment":null,"statusReceive":null,"totalProfit":null,"createBy":0,"createDate":1517535398000,"toagentDate":null,"topOneCode":"320820","topTwoCode":"28010","topThreeCode":"19799","repaymentUserNo":null,"receiveUserNo":null,"userNode":"-320820-28010-19799-0-","wxOpenId":"oLsb20ZwptuGXaI7Mdnnoh-wEIQE","payOpenId":"oHxuSw_APxwbt2SxaW7qn2wuhpWA","payBack":null,"updateDate":1517647125000,"authorizationCode":"dc0b4194-be5a-4592-b32f-66fd34ea216c","agentStartDate":null,"agentEndDate":null,"accountStatus":"1","toManagerDate":null,"toBankerDate":null,"oemDefaultUser":null,"unionid":"ofpOD0zBe1OxSB_Z0ZP7paZerERw","wxCity":"","secondUserNode":"-28010-19799-0-","phoneCode":null,"qrCodeName":null,"wzfOrder":0,"booleans":0,"refereeUserId":null,"orgName":"超级盛银家","superOrgcode":"200012","v2AgentNumber":"231766","v2Orgcode":"610021","agentPrice":"198.00","repaymentCost":"18.00","authorizedUnit":"盛海","authorizedUnitSeal":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090825908_23555.jpg?Expires=1517650726&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=ismqFMBYvQ42kQ4OJxVm5oXW7qM%3D","publicSubscribeKey":null,"isSupportPay":"1","publicQrCode":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090923533_60097.jpg?Expires=1517650726&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=cC9l9WnS89sKz19fMmg2ID1dXHE%3D","businessEmail":"120900767@qq.com","uiStatus":"0","memberCenterLogo":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090886050_33145.jpg?Expires=1517650726&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=bAMH43UbCDUul0NF8Dx3CpOdD74%3D","startPage":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090916873_86803.jpg?Expires=1517650726&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=4vA0KZe7iv9flwV%2B%2Fk7q7%2Bmmnbg%3D","shareMessageLogo":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517650726&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=Xrv7eD%2BkPQPqA8Ge3PRXXnIeBxk%3D","shareTemplateImage1":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1517447736132_8829.jpg?Expires=1517650726&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=77tu2RDZnrJyPJWYvptznTRk7%2Fw%3D","shareTemplateImage2":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090945116_33116.jpg?Expires=1517650726&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=tkoUSeO4YyXg7ZE9km5%2FEDpPe34%3D","shareTemplateImage3":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090949820_87997.jpg?Expires=1517650726&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=OZMLG%2BWdHLwLtLi1EDvr5eFkH9s%3D","companyName":"广州盛海信息科技有限公司","servicePhone":"020-38218669","orgLogo":"http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515091529042_63189.jpg?Expires=1517650726&OSSAccessKeyId=Ck76WULSZApw3ZFv&Signature=yueF3vBRUyQB%2BXlghjeONEcu1W8%3D","isOpenRed":null},"totalCount":null};
+    	
+    	if (jsonObject.code == 'success') {
+    		showWechat(jsonObject.data.weixinCode,jsonObject.data.qrCode,"/superbank");
+    		
+    		$("#userLogoImg").attr('src',jsonObject.data.userLogo);
+    		//$("#qrcodeImg").attr('src',jsonObject.data.qrCode);
+        	$("#userNameSpan").html(jsonObject.data.userName);
+        	$("#userCodeSpan").html(jsonObject.data.userCode);
+        	$("#idCardNoSpan").html(jsonObject.data.idCardNo);
+        	
+        	var phone = '';
+			if (jsonObject.data.phone != null && jsonObject.data.phone.length >= 8) {
+				phone = jsonObject.data.phone.substring(0,3)+'****' + jsonObject.data.phone.substring(7,jsonObject.data.phone.length);
+			}else {
+				phone = jsonObject.data.phone;
+			}
+        	
+        	$("#phoneSpan").html(phone);
+        	$(".phoneClass").attr("href","tel:"+jsonObject.data.phone);
+        	
+        	if (jsonObject.data.isSupportPay == '1') {
+        		if ('360152' != '' && '360152' != 'null' && '360152' != null || '0' == '1' || '' == 'app') {
+        			if ('0' == '1') {
+        				$(".cus_btn").attr('style','display:block');//支持支付时，显示支付按钮
+        			}else {
+        				$(".cus_btn").attr('style','display:block');//支持支付时，显示支付按钮
+    	        		$(".cus_agreementWrap").attr('style','display:block');
+        			}
+        			
+	        	}
+        		
+        	}
+        	
+    	} else {
+    		$(".cus_logo").attr('style','display:none');
+    		$(".cus_footerInfo").attr('style','display:none');
+    		$(".cus_footer_tab").attr('style','display:none');
+    	}
+    	$("#customerFeeSpan").html('198.00');
+    	$("#customerFeeSpan1").html('198.00');
+    	$("#customerFeeSpan2").html('198.00');
+    	$("#customerFeeSpan3").html('198.00');
+    	
+    	
+    	if ('' == '1') {//如果是支付回调
+        	toastWx();
+        }
+    	
+    	if ('0' == '1') {//判断是否需要显示支付按钮
+    		$("#clickBtn").val('立即邀请好友加入');
+    		$("#clickBtn").click(function(){
+    			shareBtn();
+    		});
+    		
+    		document.title='邀请专员';
+    	}else {
+    		$("#clickBtn").val('立即加入');
+    		$("#clickBtn").click(function(){
+    			toPay();
+    		});
+    		
+    		document.title='专员申请';
+    	}
+    })
+    
+    function toPay(){
+    	wxconfig();
+    	
+    	var cip=returnCitySN["cip"]; 
+    	
+    	$("#loaddingDiv").attr("style","display:block");
+    	$.ajax({
+			   type:'POST',
+			   url:'order!saveOrder.action',
+			   dataType:'json',
+			   data: {
+				   "orderType": '1',
+				   },
+			   success:function(obj){
+				   if(obj.code == 'success'){
+					   if ('' == 'app') {//从app进入，调起h5支付
+						   $.ajax({
+							   type:'POST',
+							   url:'index!payWxin.action',
+							   dataType:'json',
+							   data: {
+								   "totalMoney": obj.data.price ,
+								   "payNo": obj.data.orderNo,
+								   "attach": 'customerApp',
+								   "cip":cip,
+								   "orderTo":'YES',
+								   },
+							   success:function(data){
+								   if(data.code == 'success'){
+									   window.location.href=data.url5;
+								   }else {
+									   toAlert(data.message);
+								   }
+								   $("#loaddingDiv").attr("style","display:none");
+							   },
+							   error:function(error){
+								   $("#loaddingDiv").attr("style","display:none");
+								   toAlert(error);
+							   }
+						   });
+					   }else {//否则，使用公众号支付、
+						   $.ajax({
+							   type:'POST',
+							   url:'index!wxPublicSignal.action',
+							   dataType:'json',
+							   data: {
+								   "totalMoney": obj.data.price,
+								   "vOrderNo": obj.data.orderNo,
+								   "attach": 'customerApp',
+								   "cip":cip,
+								   "orderTo":'YES',
+								   "WeChat":'YES',
+								   },
+							   success:function(data){
+								   
+								   if(data.code == '0'){
+									   var url = "/superbank/wx/index!h5Returnback.action?out_urt=" + data.orderNo + "&moeny="+data.totalMoney + "&attach=customerApp";
+					                   var url2 = "/superbank/wx/index!h5Returnback.action?out_urt=" + data.orderNo + "&moeny="+data.totalMoney + "&attach=customerApp";
+									   chooseWXPayShop(data.timestamp, data.nonce_str, data.prepay_id, 'MD5', data.sign, url, url2);
+								   }else {
+									   toAlert(data.message);
+								   }
+								   $("#loaddingDiv").attr("style","display:none");
+							   },
+							   error:function(error){
+								   $("#loaddingDiv").attr("style","display:none");
+								   toAlert(error);
+								   return;
+							   }
+						   });
+						   
+					   }
+				   }else {
+					   $("#loaddingDiv").attr("style","display:none");
+					   toAlert(obj.message);
+				   }
+			   },
+			   error:function(error){
+				   $("#loaddingDiv").attr("style","display:none");
+				   toAlert(error);
+				   return;
+			   }
+		});
+    }
+    
+    
+    function toCheckWxStatus(){
+    	getWxStatus('1');
+    }
+    
+    
+    function payAgain() {
+    	getWxStatus('2');
+    }
+    
+    function getWxStatus(_type) {
+    	$(".payfor_Popup-dialog").animate({top: -1000});
+        setTimeout("popup6()", 200);
+		$("#loaddingDiv").attr("style","display:block");
+        
+        $.ajax({
+            url: 'index!toCheckWxStatus.action',
+            async: false,
+            data: {
+            	'payNo': '',
+            	'moeny': '',
+            	},
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+            	$("#loaddingDiv").attr("style","display:none");
+            	if (data.code == 'success') {
+            		
+            		var totalAmount = data.totalAmount;
+            		var payNo = data.payNo;
+            		var createDate = data.createDate;
+            		
+            		location.href = "index!paySuccess.action?totalAmount="+totalAmount+"&payNo="+payNo+"&createDate="+createDate;
+            	} else {
+            		if (_type == '1') {
+            			toAlert(data.message);
+						return true;
+            		}else {
+            			
+            		}
+            		
+            	}
+            },
+            error: function(xhr, type){
+            	$("#loaddingDiv").attr("style","display:none");
+            }
+        });
+    }
+</script>
+
+</body></html>

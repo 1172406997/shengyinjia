@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://superbank.olvip.vip/superbank/wx/member!personalInformation.action -->
+<html lang="en" style="font-size: 140px;" class="hb-loaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>个人信息</title>
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/layer.css">
+    <script src="./static/js/jquery-2.1.1.js"></script>
+    
+    <script src="./static/js/jweixin-1.2.0.js"></script>
+    <script id="wxScript" type="text/javascript" src="./static/js/wxconfig.js" sharepage="index" orgid="231766" userid="360152" sharelogo="http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517548154&amp;OSSAccessKeyId=Ck76WULSZApw3ZFv&amp;Signature=Bo1YbaNB1XXdj3yxhPs26qfd6z0%3D"></script>
+<link rel="stylesheet" href="./static/css/layer(1).css" id="layuicss-skinlayercss"></head>
+<body huaban_collector_injected="true">       
+<div>
+<div id="loaddingDiv" style="display:none">
+        <div class="loading">
+        </div>
+        <div class="loadingImg"><img src="./static/image/loading.gif" alt=""></div>
+    </div>
+    
+    <div class="personal_logoWrap" onclick="clickCustomer()">
+        <div class="personal_logoinfo">
+            <div class="personal_logoLeft">
+                <div class="personal_logoLeft_logo">
+                    <div class="personal_logoLeft_logobg"></div>
+                    <img src="./static/image/132" alt="">
+                </div> 
+                <div class="personal_logoLeft_name">清平&amp;乘锦</div>
+            </div>
+           <!-- 显示隐藏 personal_dis -->
+            <a class="personal_logoBtn personal_dis" id="yqzy">邀请专员</a>
+            <p class="personal_logo">
+                <img class="personal_logo_first" src="./static/image/ld@2x.png" alt="">
+                	<span id="reqSpan">专员申请</span>
+                <img id="arrowImg" src="./static/image/right_arrow.png" alt="">
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <div class="personal_title"><i></i>提交个人申请资料</div>
+        <form action="http://superbank.olvip.vip/superbank/wx/member!personalInformation.action" class="personal_form">
+            <ul class="personal_info">
+                <li class="personal_li1">
+                    <span>昵　称</span>
+                    <div>
+                    
+                    
+                    	<input type="text" placeholder="请输入您的账号" id="nickName" name="userInfo.nickName" value="清平&amp;乘锦">
+                    
+                         
+                    </div>
+                </li>
+                <li>
+                    <span>姓　名</span>
+                    <div>
+                    
+                    	<input type="text" placeholder="请输入您的姓名" id="userName" name="userInfo.userName" value="">
+                    
+                    
+                    </div>
+                </li>
+                <li>
+                    <span>手机号</span>
+                    <div>
+                    
+                    
+                    	<input type="text" placeholder="请输入常用的手机号码" id="phone" maxlength="11" name="userInfo.phone" pattern="[0-9]*" ng-pattern="/[^a-zA-Z]/" value="">
+                    
+                    
+                    </div>
+                </li>
+                <li id="li4">
+                    <span>验证码</span>
+                    <div class="li4_input">
+                        <input type="text" placeholder="请输入验证码" name="userInfo.phoneCode" id="phoneCode" maxlength="6" pattern="[0-9]*" ng-pattern="/[^a-zA-Z]/">  
+                    </div>
+                    <div class="A_carloginWrap3" id="A_carloginWrap3"><input class="A_codeBtn" id="A_codeBtn" type="button" value="获取验证码"></div>
+                </li>
+                <li class="personal_li5">
+                    <span>微信号</span>
+                    
+                    	<div><input type="text" placeholder="请输入微信号" id="weixinCode" onblur="checkText();" name="userInfo.weixinCode" value=""></div>
+                    
+                    
+                </li>
+                
+            		<li class="personal_li6" id="li6">
+                    <div class="" id="imgH5">
+                        <img id="img1" src="./static/image/add@2x.png" alt="">
+                        <!-- <input id="fileImg" type="file"> -->
+                    	<input type="text" id="input1" readonly="" onclick="wxChooseImage(1)">
+                    </div>
+                    <div class="" id="imgApp" style="display:none">
+                        <img id="img1_app" src="./static/image/add@2x.png" alt="">
+                        <!-- <input id="fileImg" type="file"> -->
+                    	<input type="file" id="input1_app">
+                    </div>
+                </li>
+            	
+            	
+                
+            </ul>   
+            <div class="personal_btn" id="personal_btn"><input class="active" type="button" value="提交资料"></div>
+            <div class="personal_btn" id="personal_btn2" style="display: none;"><input class="active" type="button" value="修改资料"></div>
+        </form>
+    </div>
+    <div class="nav" id="nav" style="visibility: visible; display: block;">
+        <a href="index.html"><img src="./static/image/home_icon@2x.png" alt=""></a>
+        <a href="javascript:void(0);" onclick="javascript:history.go(-1);"><img src="./static/image/back_icon@2x.png" alt=""></a>
+    </div>
+</div>
+<!-- 弹出框 -->
+<div class="weui-mask "></div>
+<div class="weui-dialog ">
+    <div class="weui-dialog__hd">
+        <div class="weui-dialog__title">温馨提示</div>
+    </div>
+    <div class="weui-dialog__bd"></div>
+    <div class="weui-dialog__ft">
+        <a href="javascript:;" class="weui-dialog__btn primary">确定</a>
+    </div>
+</div>
+<!-- 弹出框end -->
+<script src="./static/js/layer.js"></script>
+    <script src="./static/js/swiper.js"></script>
+    <script src="./static/js/mvUpload.js"></script>
+    <script id="commonScript" src="./static/js/adaptive.js" source=""></script>
+    <script src="./static/js/Inertia.js"></script>
+    <script>
+  //滑动的小球
+	new Inertia(document.getElementById('nav'));
+	//滑动的小球end
+    $(function(){
+    	if ('' == 'app') {//当入口是app
+			$("#imgH5").attr('style','display:none');
+			$("#imgApp").attr('style','display:block');
+		}	
+    	
+    	if ('null' == '1') {
+    		$(".personal_logo").addClass('personal_dis');
+    		$(".personal_logoBtn").removeClass('personal_dis');
+    	}else if ('null' == '2') {
+    		$("#arrowImg").attr('style','display:none');
+    		$("#reqSpan").html('专员申请中');
+    	}
+    	
+    	
+    	var userName="null";
+    	if(userName==''||userName=='null'){
+    		//$("#li4").css("display","block");
+    		$("#personal_btn2").css("display","none");
+    		//$("#personal_btn").css("display","block");
+        	//$("#nickName,#userName,#phone,#weixinCode").removeAttr("disabled","disabled");
+    	}else{
+    		$("#li4").css("display","none");
+    		$("#personal_btn2").css("display","block");
+    		$("#personal_btn").css("display","none");
+    		var tel = "null";
+        	if(tel!='null'){
+        		var reg = /(\d{3})\d{4}(\d{4})/; 
+            	var getTel= tel.replace(reg,"$1****$2");
+            	$("#phone").attr("value", getTel );
+        	}
+    		$("#nickName,#userName,#phone,#weixinCode").attr("disabled","disabled");
+    	}
+    	
+    	
+    });
+    
+    $("#personal_btn2").click(function(){
+    	$("#nickName,#userName,#phone,#weixinCode").removeAttr("disabled","disabled");
+    	$("#li4").css("display","block");
+    	$("#personal_btn2").css("display","none");
+		$("#personal_btn").css("display","block");
+		var tel = "null";
+		$("#phone").attr("value", tel);
+    });
+    
+    function clickCustomer() {
+    	var userName="null";
+    	var phone="null";
+    	var weixinCode="null";
+    	var qrCode="null";
+//  	if(userName=='null'&&phone=='null'&&weixinCode=='null'&&qrCode=='null'){
+//  		toAlert("为了更好的交流,请填写资料");
+// 			return false;
+//  	}
+    	if ('null' == '2') {
+    		toAlert('您已提交申请，请耐心等候！');
+    	}else {
+    		location.href = 'specialist_for.html';
+    	}
+    	
+    }
+    
+    function checkText(){
+    	var weixinCode=$("#weixinCode").val();
+        var reg = /([\u4E00-\u9FA5])+/;//只要包含中文或者字母就提示
+        if(reg.test(weixinCode)){
+        	toAlert("不能输入中文,请重新输入");
+        	$("#weixinCode").val("");
+        	return false;
+        }
+    }
+    
+    /* $("#yqzy").click(function(){
+    	var name="null";
+    	if(name==''){
+    		toAlert("为了更好的交流,请填写资料");
+    		return false;
+    	}
+    }); */
+    
+    // 弹出框
+    /* $("#personal_btn").click(function(){
+        $(".weui-mask").addClass("weui-mask--visible");
+        $(".weui-dialog").addClass("weui-dialog--visible");
+    }) */
+    $(".weui-dialog__ft").click(function(){
+        $(".weui-mask").removeClass("weui-mask--visible");
+        $(".weui-dialog").removeClass("weui-dialog--visible");
+    })
+    // $(document).on("click", "#personal_btn", function() {
+    //     $.alert("请输入正确的手机号！", "温馨提示");
+    //   });
+      $(".A_codeBtn").click(function(){
+          	sendCode(this);
+  	});
+    // 点击发送验证码
+    var clock = '';
+      var nums = 60;
+      var btn;
+
+      function sendCode(thisBtn) {
+    	//var accountPhone='';
+      	var phone=$("#phone").val();
+      	/* var phonet="null";
+      	var reg = /(\d{3})\d{4}(\d{4})/; 
+    	var getTel= phonet.replace(reg,"$1****$2");
+    	if(getTel==phone){
+    		accountPhone=phonet;
+    	}else{
+    		accountPhone=phone;
+    	} */
+    	var type='';
+    	var userPhone = "null";
+    	
+    	if(userPhone=='null'){
+    		type="registerUser";
+    	}else{
+    		type="updateUser";
+    	}
+      	if(phone==''){
+      		toAlert('请输入手机号');
+   			return false;
+      	}else{
+		    if(phone.length == 11 && /^(((13[0-9]{1})|(17[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(phone) )  
+		    {  
+		    }else{  
+		        toAlert('请输入正确的手机号');
+	   			return false;
+		    } 
+	  }
+          $("#loaddingDiv").attr("style","display:block");
+          $.ajax({
+               url:'/superbank/wx/member!sendCardMessage.action',
+  	        dataType:'json',
+
+               data:{
+              	 'userInfo.phone':phone,
+              	 'type':type
+              	 },
+               success:function(data){
+            	   $("#loaddingDiv").attr("style","display:none");
+              	 if(data.code=='success'){
+              		 toAlert(data.message);
+              		 btn = thisBtn;
+                     btn.disabled = true; //将按钮置为不可点击
+                     btn.value = nums + '秒重新获取';
+                     clock = setInterval(doLoop, 1000); //一秒执行一次
+              		 return true;
+              	 }else{
+              		 toAlert(data.message);
+              		 return false;
+              	 }
+               }
+           })  
+         
+      }
+
+      function doLoop() {
+          nums--;
+          if (nums > 0) {
+              btn.value = nums + '秒重新获取';
+          } else {
+              clearInterval(clock); //清除js定时器
+              btn.disabled = false;
+              btn.value = '获取验证码';
+              nums = 60; //重置时间
+          }
+      }
+        
+        
+        $("#personal_btn").click(function(){
+        	//var accountPhone='';
+        	var phone=$("#phone").val();
+        	/* var phonet="null";
+          	var reg = /(\d{3})\d{4}(\d{4})/; 
+        	var getTel= phonet.replace(reg,"$1****$2");
+        	if(getTel==phone){
+        		accountPhone=phonet;
+        	}else{
+        		accountPhone=phone;
+        	} */
+        	var imgSrc = '';
+        	var nickName=$("#nickName").val();
+        	var userName=$("#userName").val();
+        	var phoneCode=$("#phoneCode").val();
+        	var weixinCode=$("#weixinCode").val();
+        	var qrCodeName = "null";
+        	var qrCodes = "null";
+        	var userId = "360152";
+        	var qrcName="";
+        	var uyname="null";
+        	var bts='';
+        	if(uyname=="null"){
+        		bts=0;
+        	}else{
+        		bts=1;
+        	}
+        	var src = '';	
+        	
+        	if ('' == 'app') {//当入口是app
+        		src = document.getElementById("img1_app").src;	
+        	}else {
+        		src = document.getElementById("img1").src;	
+        	}
+        	
+        	if(qrCodes==src){
+        		qrcName=qrCodeName;
+        	}
+        	if(nickName==""){
+        	    toAlert('请输入账号');
+        	    return;
+        	}
+        	if(userName==""){
+        	    toAlert('请输入姓名');
+        	    return;
+        	}
+        	if(phone==""){
+        	    toAlert('请输入手机号');
+        	    return;
+        	}else{
+    		    if(phone.length == 11 && /^(((13[0-9]{1})|(17[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(phone) )  
+    		    {  
+    		    }else{  
+    		        toAlert('请输入正确的手机号');
+            	    return;
+    		    } 
+    	  }
+        	if(phoneCode==""){
+        	    toAlert('请输入验证码');
+        	    return;
+        	}
+        	if(weixinCode==""){
+        	    toAlert('请输入微信号');
+        	    return;
+        	}
+        	 /* if(src.substring(src.length-10) == "add@2x.png"){
+        		 toAlert('请上传微信二维码图片');
+        	     return;
+        	}  */
+        	/* if(src.indexOf("base64,")==-1){
+        	    layer.msg('请上传微信二维码图片', {
+                  time: 3000
+              });
+        	    return;
+        	} 
+        	
+        	if (src == '' || src == undefined||src=='null') {
+	              toAlert('图片不能为空，请选择！');
+	        	    return;
+			   }else */ 
+			   
+			   if(uplodurl!=''){
+				 //截取去掉base64,以及前面的字符串
+				 var srcArr = uplodurl.split('base64,');
+				 if(ios || window.__wxjs_is_wkwebview){
+				   imgSrc = srcArr[1];
+				}else{
+					 imgSrc = srcArr[0];
+				}   
+			   }else if ('' == 'app') {//当入口是app
+				 	//截取去掉base64,以及前面的字符串
+			 		var srcArr = src.split('base64,');
+			   		if (srcArr.length > 1) {
+			   			imgSrc = srcArr[1];
+			   		}
+					
+			   }
+        	$("#loaddingDiv").attr("style","display:block");
+        	$.ajax({
+        		type:'POST',
+        		url: '/superbank/wx/member!personalSave.action', 
+               dataType:'json',
+               data:{
+        			'userInfo.nickName':encodeURIComponent(nickName),
+        			'userInfo.userName':encodeURIComponent(userName),
+        			'userInfo.phone':phone,
+        			'userInfo.phoneCode':phoneCode,
+        			'userInfo.weixinCode':weixinCode,
+        			'userInfo.qrCode':imgSrc,
+        			'userInfo.qrCodeName':qrcName,
+        			'userInfo.userId':userId,
+        			'userInfo.booleans':bts,
+        		},
+        		success:function(data) {
+        			$("#loaddingDiv").attr("style","display:none");
+        			if(data.code=='success'){
+        				$(".weui-dialog_tip").attr('style','display:block');
+        				if ('null' == '2' || 'null' == '1') {
+        					$(".weui-dialog__ft").find("a").attr("href",'/superbank/wx/member!personalCenter.action');
+        				}else {
+        					$(".weui-dialog__ft").find("a").attr("href",'/superbank/wx/member!view_application.action');
+        				}
+					    
+					    toAlert(data.message);
+        			}else if(data.code=='error'){
+        				toAlert(data.message);
+        				return false;
+        			}
+        		}	,
+        		   error:function(error){
+        			   $("#loaddingDiv").attr("style","display:none");
+        			   toAlert('调用失败');
+        		   } 	  
+        	});
+        	
+        	
+        });
+        
+        
+      //拍照或从手机相册中选图接口  
+	    function wxChooseImage(_type) {  
+	        wx.chooseImage({  
+	            count: 1,  
+	            needResult: 1,  
+	            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
+	            sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
+	            success: function (data) {  
+	                localIds = data.localIds[0].toString(); // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片  
+	                //previewImg(localIds,_type);
+	                wxuploadImage(localIds,_type);  
+	            },  
+	            fail: function (res) {  
+	                alterShowMessage("操作提示", JSON.stringify(res), "1", "确定", "", "", "");  
+	            }  
+
+	        });  
+	    }  
+	    
+	    
+	    var u = navigator.userAgent;
+	    var ios = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+	    
+	    var uplodurl='';
+		  //上传图片接口  
+		    function wxuploadImage(e,_type) {  
+		         
+		        wx.uploadImage({  
+		            localId: e, // 需要上传的图片的本地ID，由chooseImage接口获得  
+		            isShowProgressTips: 1, // 默认为1，显示进度提示  
+		            success: function (res) {  
+		                var mediaId = res.serverId; // 返回图片的服务器端ID  
+		                
+		                var localData;
+		    	  		
+						wx.getLocalImgData({
+		                         localId: e,
+		                         success: function (locRes) {
+		                             localData = locRes.localData.replace('jgp', 'jpeg');
+									 if(ios || window.__wxjs_is_wkwebview){
+											$("#img1").attr("src",localData);
+									}else{
+											$("#img1").attr("src",e);
+									}
+									 uplodurl=locRes.localData;
+		                         },
+		                         fail: function (res) {
+		                             toAlert('该图片暂时无法预览');
+		                         }
+		                     });
+						  	 
+		                $("#input1").val(mediaId);
+		            },  
+		            fail: function (error) {  
+		                picPath = '';  
+		                localIds = '';  
+		                alert(Json.stringify(error));  
+
+		            }  
+
+		        });  
+		    }
+		  
+		  
+		    $("#input1_app").change(function(){
+		  	   readURL(this,'1');
+		  	});
+		  	
+		  	var filename1='';
+		  	
+		  	function readURL(input,type) {
+		  	    var files = !!this.files ? this.files : [];
+		  	         
+		  	    // Create a new instance of the FileReader
+		  	    var reader = new FileReader();
+		  	 
+		  	    // Read the local file as a DataURL
+		  	    reader.readAsDataURL(input.files[0]);
+		  	     
+		  	    var blob = window.URL.createObjectURL(input.files[0]);//转换为二进制blob文件
+		  	    var img=new Image();
+		  	    img.src=blob;
+		  	    img.onload = function(){
+		  	        var cvs = document.createElement('canvas');
+		  	        var ctx = cvs.getContext("2d");
+		  	        cvs.width=img.width*.2;
+		  	        cvs.height=img.height*.2;
+		  	        ctx.drawImage(this, 0, 0,img.width*.2,img.height*.2);
+		  	        var newImageData = cvs.toDataURL('image/jpeg',1);
+		  	         
+		  	        //input file不能用于上传base64，所以要再加一个input，同时把当前file的input赋值空，防止原图片也上传
+		  	        this.value="";
+		  	        
+		          	$('#img'+type+'_app').attr('src', newImageData);
+		  	        
+		  	    }
+		  	    // When loaded, set image data as background of div
+		  	    var filenameArr = input.value.split('\\');
+		  		var filename = filenameArr[filenameArr.length-1];
+		  	    
+		  	    reader.onloadend = function(){
+		  			$('#img'+type+'_app').attr('src', this.result);
+		  			if(type=='1'){
+		  				filename1 = filename;
+		          	}
+		  	    }
+		  	}
+ 		
+</script>
+

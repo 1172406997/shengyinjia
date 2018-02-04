@@ -80,7 +80,8 @@
 				     var orgId = document.getElementById('wxScript').getAttribute('orgId');
 				     var userId = document.getElementById('wxScript').getAttribute('userId');
 				     var shareLogo = document.getElementById('wxScript').getAttribute('shareLogo');
-				     
+				     var redOrderId = document.getElementById('wxScript').getAttribute('redOrderId');
+				     var receiveId = document.getElementById('wxScript').getAttribute('receiveId');
 				     var title = "";
 				     var desc = "";
 				     var link = "";
@@ -126,7 +127,15 @@
 				    	 title = '善“贷”自己，免费申请，极速贷款！';
 				    	 desc = '纯信用无抵押贷款，随借随还！';
 					     link = getRootPath_web() + '/wx/loan!loans_application.action?orgId='+orgId+"&userId="+userId;
-				     } else {//其他页面
+				     }else if(scriptArgs == 'redIndex'){
+				    	 title = '综合服务平台邀请您来领红包！';
+				         desc = '全民领红包活动进行中，马上来领！';
+				         link = getRootPath_web() + '/wx/index!index.action?orgId='+orgId+"&userId="+userId;
+				     }else if(scriptArgs == 'redPacket'){
+				    	 title = '综合服务平台邀请您来领红包！';
+				         desc = '全民领红包活动进行中，马上来领！';
+				         link = getRootPath_web() + '/red/userSendRed!showReceiveRed2.action?redOrderId='+redOrderId+"&receiveId="+receiveId+"&orgId="+orgId+"&userId="+userId;
+				     }else {//其他页面
 				    	 title = '综合服务平台，梦想开始之地！';
 				         desc = '小投入，大收益，人人都有机会成就梦想！';
 				         link = getRootPath_web() + '/wx/index!index.action?orgId='+orgId+"&userId="+userId;

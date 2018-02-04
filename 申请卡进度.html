@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<!-- saved from url=(0200)http://superbank.olvip.vip/superbank/wx/creditcard!checkCardPlan.action?bankId=15&bankCode=CEB&bankName=%25E5%2585%2589%25E5%25A4%25A7%25E9%2593%25B6%25E8%25A1%258C&idCardNo=&phone=&orderId=&realName= -->
+<html lang="en" style="font-size: 186.667px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>申请卡进度</title>
+    <link rel="stylesheet" href="./申请卡进度_files/common.css">
+    <link rel="stylesheet" href="./申请卡进度_files/layer.css">
+    <link rel="stylesheet" href="./申请卡进度_files/swiper.css">
+    <script src="./申请卡进度_files/jquery-2.1.1.js.下载"></script>
+    <script src="./申请卡进度_files/jweixin-1.2.0.js.下载"></script>
+    <script id="wxScript" type="text/javascript" src="./申请卡进度_files/wxconfig.js.下载" sharepage="index" orgid="231766" userid="360152" sharelogo="http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517648961&amp;OSSAccessKeyId=Ck76WULSZApw3ZFv&amp;Signature=j6ZTgjIoNAX8Ml7LOPX18UNhht4%3D"></script>
+<link rel="stylesheet" href="./申请卡进度_files/layer(1).css" id="layuicss-skinlayercss"></head>
+<body>       
+<div>
+	<div id="loaddingDiv" style="display:none">
+        <div class="loading">
+        </div>
+        <div class="loadingImg"><img src="./申请卡进度_files/loading.gif" alt=""></div>
+    </div> 
+    <!-- <div>           
+        <div class="index_top">
+            申请卡进度 
+        </div>
+        <a class="index_record" href="order_record.html">借款记录</a>
+        <a class="index_record" href="javascript:void(0);"><img src="/superbank/resources/img/set.png" alt=""></a>
+        <a class="index_return" href="index.html">
+            <img src="/superbank/resources/img/arrow_left.png" alt="">
+        </a>
+    </div> -->
+    <div>
+        <div class="plan_top">
+            <div><span>光大银行</span>办卡进度查询</div>
+            <span>输入您申卡时所填写的相关信息</span>
+        </div>
+        <div class="plan_info">
+        	<div class="plan_cardId" id="realNameDiv">
+                <span>姓　名</span>
+                <div>
+                	<input id="realName" type="text" placeholder="请输入真实姓名" value="">
+                </div>
+            </div>
+            <div class="plan_cardId">
+                <span>身份证</span>
+                <div>
+                	<input id="idCardNoShow" type="text" placeholder="请输入身份证号码" value="">
+                	<input id="idCardNo" type="hidden" placeholder="请输入身份证号码" value="">
+                </div>
+            </div>
+            <div id="imgCodeDiv" class="plan_code">
+                <div class="plan_code_left">
+                    <span>验证码</span>
+                    <div><input id="imgCode" type="text" placeholder="请输入图片验证码"></div>
+                </div>
+                <img class="plan_code_first" id="imgValidateCode" src="./申请卡进度_files/1517664369500xy0.3958149477357942.jpg" alt="">
+            </div>
+            <div>
+                <div class="plan_cardId" id="plan_phone" style="display:none">
+                    <span>手机号</span>
+                    <div><input id="phoneShow" type="text" placeholder="请输入手机号" value="" maxlength="11" pattern="[0-9]*" ng-pattern="/[^a-zA-Z]/"></div>
+                    <div><input id="phone" type="hidden" placeholder="请输入手机号" value="" maxlength="11" pattern="[0-9]*" ng-pattern="/[^a-zA-Z]/"></div>
+                </div>
+                <div class="plan_code" id="plan_code">
+                    <div class="plan_code_last">
+                        <span>验证码</span>
+                        <div><input id="validateCode" type="text" placeholder="请输入手机验证码" maxlength="6" pattern="[0-9]*" ng-pattern="/[^a-zA-Z]/"></div>
+                    </div>
+                    <div class="A_carloginWrap3" id="A_carloginWrap3"><input class="A_codeBtn" style="padding-right: 0.3rem;" id="A_codeBtn" type="button" value="获取验证码"></div>
+                </div>
+            </div>
+            <div class="plan_btn"><input class="active" id="personal_btn" type="button" value="查询"></div>
+        </div>
+        <div class="nav" id="nav" style="visibility: visible; display: block;">
+	        <a href="http://superbank.olvip.vip/superbank/wx/index!index.action"><img src="./申请卡进度_files/home_icon@2x.png" alt=""></a>
+	        <a href="javascript:void(0);" onclick="javascript:history.go(-1);"><img src="./申请卡进度_files/back_icon@2x.png" alt=""></a>
+	    </div>
+    </div>
+    <!--查询结果弹窗-->
+    <div class="plan_Popup">
+        <div class="plan_Popup-dialog ">
+            <div class="plan_Popup-content">
+                <div class="plan_Popup-body">  
+                    <div class="plan_Poptext">
+                        <span>查询结果</span>
+                        <div id="close"><img src="./申请卡进度_files/close@2x.png" alt=""></div>
+                    </div>  
+                    <ul class="plan_addOneInfo">
+                        <li id="appCardTypeLi">
+                            <div>申请卡种</div>
+                            <span id="appCardType"></span>
+                        </li>
+                        <li id="reviewDateLi">
+                            <div>审批日期</div>
+                            <span id="reviewDate"></span>
+                        </li>
+                        <li id="appStatusLi">
+                            <div>申请状态</div>
+                            <span id="appStatus"></span>
+                        </li>
+                        <li id="otherLi">
+                            <div>其他说明</div>
+                            <span id="other"></span>
+                        </li>
+                    </ul>
+                    <div>
+                        <div class="plan_popupTip">状态说明：</div>
+                        <ul class="plan_popupTipInfo">
+                            <li><i></i>已通过 (满足发卡行条件，信用卡申请成功，所有层级享受对应奖励金)</li>
+                            <li><i></i>未通过 (不满足申请条件被发卡行拒绝，信用卡申请失败)</li>
+                            <li><i></i><div>等待银行审批银行 (银行数据未同步更新，请2个工作日后再次查询)</div></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="plan_popBtn">
+                    <a class="plan_cancel" href="JavaScript:void(0);" id="close">取消</a>
+                    <a class="plan_sure" href="JavaScript:void(0);" >确认申请</a>
+                </div> -->
+            </div>
+        </div>
+        <div class="plan_masked"></div>
+    </div>
+    
+    <!-- 弹出框 -->
+	<div class="weui-mask "></div>
+	<div class="weui-dialog ">
+	    <div class="weui-dialog__hd">
+	        <div class="weui-dialog__title">温馨提示</div>
+	    </div>
+	    <div class="weui-dialog__bd" style="padding:0 0.25rem;"></div>
+	    <div class="weui-dialog__ft">
+	        <a href="javascript:;" class="weui-dialog__btn primary">确定</a>
+	    </div>
+	</div>
+	<!-- 弹出框end --> 
+</div>
+<script src="./申请卡进度_files/layer.js.下载"></script>
+<script src="./申请卡进度_files/swiper.js.下载"></script>
+<script id="commonScript" src="./申请卡进度_files/adaptive.js.下载" source=""></script>
+<script src="./申请卡进度_files/base64.js.下载"></script>
+<script src="./申请卡进度_files/Inertia.js.下载"></script>
+<script>
+	//滑动的小球
+	new Inertia(document.getElementById('nav'));
+	//滑动的小球end
+	$("input").focus(function(){
+	    $(".nav").hide()
+	});
+	$("input").blur(function(){
+	    $(".nav").show()
+	});
+        // 查询结果弹窗
+    function popup5() {
+        $(".plan_Popup").removeClass("plan_Popup_in").addClass("plan_Popup_fade");
+        $(".plan_Popup-backdrop").removeClass("plan_Popup_in2").removeClass("plan_Popup_fade").addClass("fa_Popup_fade");
+    }
+    $(".plan_Poptext").on("click", "#close", function () {//这个是关闭弹出框
+        $(".plan_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup5()", 200);
+    });
+    function toToast() {
+        $(".plan_Popup-backdrop").toggleClass("plan_Popup_in2");
+        $(".plan_Popup").toggleClass("plan_Popup_in");
+        $(".plan_Popup-dialog").animate({bottom:0});
+    };
+    $(".plan_masked").click(function(){
+        $(".plan_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup5()", 200);
+    })
+    // end
+    var sendPhone = '';
+    
+   $(".A_codeBtn").click(function(){
+	    if (validatePhone) {
+	    	sendPhone = document.getElementById("phone").value;
+	    	if ('' == '') {
+	    		sendPhone = $("#phoneShow").val();
+			}
+	        if(!(/^1(3|4|5|7|8)\d{9}$/.test(sendPhone))){
+	            layer.msg('请输入有效的手机号码！', { time: 500 }); 
+	            return;
+	        }
+	        
+	    }
+        sendCode(this);
+    })
+      // 点击发送验证码
+      var clock = '';
+        var nums = 60;
+        var btn;
+
+        function sendCode(thisBtn) {
+        	var idCardNo = $("#idCardNo").val();
+        	var imgCode = $("#imgCode").val();
+        	
+        	if ('' == '') {
+    			idCardNo = $("#idCardNoShow").val();
+			}
+        	
+        	if(smsNeedImg) {
+            	if (idCardNo == ''){
+            		toAlert('请先输入身份证号');
+            		return;
+            	}
+            	
+            	if (imgCode == ''){
+            		toAlert('请先输入图片验证码');
+            		return;
+            	}
+        	}
+        	
+        	$("#loaddingDiv").attr("style","display:block");
+            $.ajax({
+                url: 'creditcard!getBanksmsCode.action',
+                data: {
+                	'bankCode': bankCodeReq,
+                	'session': base64.encode(session),
+                	'idNum': idCardNo,
+                	'extracode': imgCode,
+                	'mobile' : sendPhone,
+                	},
+                dataType: 'json',
+                cache: false,
+                success: function (data) {
+                	$("#loaddingDiv").attr("style","display:none");
+                	if (data.code == 'success') {
+                		
+                		btn = thisBtn;
+                        btn.disabled = true; //将按钮置为不可点击
+                        btn.value = nums + '秒重新获取';
+                        clock = setInterval(doLoop, 1000); //一秒执行一次
+                        if(data.message != null && data.message != ''){
+	                        toAlert(data.message);
+                        }
+                        if (data.session != null && data.session != '') {
+                        	session = data.session;
+                        }
+                        
+                        if (bankCodeReq == 'HSBC') {
+                        	if (data.userKey != null && data.userKey != '') {
+                            	userKey = data.userKey;
+                            }
+                            
+                            if (data.token != null && data.token != '') {
+                            	token = data.token;
+                            }
+                        }
+                        
+            		}else {
+            			toAlert(data.message);
+            		}
+                },
+                error: function(xhr, type){
+                	$("#loaddingDiv").attr("style","display:none");
+                }
+    		});
+           
+        }
+
+        function doLoop() {
+            nums--;
+            if (nums > 0) {
+                btn.value = nums + '秒重新获取';
+            } else {
+                clearInterval(clock); //清除js定时器
+                btn.disabled = false;
+                btn.value = '获取验证码';
+                nums = 60; //重置时间
+            }
+        }
+</script>
+
+<script>
+	var base64 = new Base64();  
+
+	var validateRealName = false;//是否需要真实姓名
+	var validatePhone = false;//是否需要手机号
+	var validateIdCardNo = false;//是否需要身份证号
+	var validateImgCode = false;//是否需要图形验证码
+	var validatePhoneCode = false;//是否需要短信验证码
+	
+	var smsNeedImg = false;//短信验证码是否需要图形验证码和身份证号
+
+	var bankCodeReq = '';
+	$(function(){
+		bankCodeReq = 'CEB';
+    	if (bankCodeReq == 'PAB1') {
+    		bankCodeReq = 'PAB';
+    	}
+    	if (bankCodeReq == 'BCM1') {
+    		bankCodeReq = 'BCM';
+    	}
+    	
+    	if (bankCodeReq == 'CMB1') {
+    		bankCodeReq = 'CMB';
+    	}
+    	
+		if ('' != '') {
+			if (''.length >=15 ) {
+				$("#idCardNoShow").val(''.substring(0,6)+"********"+''.substring(14,''.length));
+			}else {
+				$("#idCardNoShow").val('');
+			}
+			
+		}
+		
+		if ('' != '') {
+			if (''.length >=8 ) {
+				$("#phoneShow").val(''.substring(0,3)+"****"+''.substring(7,''.length));
+			}else {
+				$("#phoneShow").val('');
+			}
+			
+		}
+		
+		if(bankCodeReq == 'CMB' || bankCodeReq == 'CMBC' 
+				|| bankCodeReq == 'CEB' || bankCodeReq == 'HSBC') {//招商银行、民生银行、光大银行、汇丰银行
+			validateIdCardNo = true;
+			validateImgCode = true;
+			validatePhoneCode = true;
+			smsNeedImg = true;
+			
+			if (bankCodeReq == 'CEB') {
+				validateRealName = true;
+			}
+		}else if(bankCodeReq == 'ECITIC' || bankCodeReq == 'PAB' 
+				 || bankCodeReq == 'ABC' || bankCodeReq == 'CGB') {//中信银行、平安银行、农业银行、广发银行
+			validatePhone = true;
+			validateIdCardNo = true;
+			validatePhoneCode = true;
+		}else if(bankCodeReq == 'SPDB' || bankCodeReq == 'BCM'
+			  || bankCodeReq == 'CZSB' || bankCodeReq == 'CCB'|| bankCodeReq == 'CIB'
+		      ) {//浦发银行、交通银行、浙商银行、建设银行、
+			validateIdCardNo = true;
+			validateImgCode = true;
+		}else if (bankCodeReq == 'BKSH') {//上海银行
+			validateRealName = true;
+			validateIdCardNo = true;
+		}else if (bankCodeReq == 'GZCB') {//广州银行
+			validateIdCardNo = true;
+		}
+		
+		if (!validateRealName) {
+			$("#realNameDiv").attr('style','display:none');
+		}
+		
+		if (validateImgCode) {
+			getImgCode();
+		}else {
+			$("#imgCodeDiv").attr('style','display:none');
+		}
+		
+		if (!validatePhone) {
+			$("#plan_phone").attr('style','display:none');
+		}
+		
+		if (!validatePhoneCode) {
+			$("#plan_code").attr('style','display:none');
+		}
+		
+		
+		//当是从订单进入的时候，姓名、手机号、身份证号不能修改
+		if ('' != '') {
+			$("#realName").attr("disabled","disabled");
+			$("#idCardNoShow").attr("disabled","disabled");
+			$("#phoneShow").attr("disabled","disabled");
+		}
+	});
+	
+	//获取图片验证码
+	function getImgCode(){
+		$("#loaddingDiv").attr("style","display:block");
+		$.ajax({
+            url: 'creditcard!creditcardBank.action',
+            data: {
+            	'bankCode': bankCodeReq,
+            	},
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+            	$("#loaddingDiv").attr("style","display:none");
+            	if (data.code = 'success') {
+        			$("#imgValidateCode").attr("src",data.imageCode);
+        			session = data.session;
+        		}else {
+        			toAlert(data.message);
+        		}
+            },
+            error: function(xhr, type){
+            	$("#loaddingDiv").attr("style","display:none");
+            }
+		});
+	}
+	
+	var session = '';
+	var userKey = '';
+	var token = '';
+	
+	//刷新图片验证码
+	$("#imgValidateCode").click(function(){
+		$("#loaddingDiv").attr("style","display:block");
+		$.ajax({
+            url: 'creditcard!getBankimageCode.action',
+            async: false,
+            data: {
+            	'bankCode': bankCodeReq,
+            	'session': base64.encode(session),
+            	},
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+            	$("#loaddingDiv").attr("style","display:none");
+            	if (data.code = 'success') {
+            		$("#imgValidateCode").attr("src",data.imageCode);
+        			session = data.session;
+        		}else {
+        		
+        		}
+            },
+            error: function(xhr, type){
+            	$("#loaddingDiv").attr("style","display:none");
+            }
+		});
+	});
+	
+	$("#personal_btn").click(function(){
+		var realName = $("#realName").val();
+    	if (realName == '' && validateRealName){
+    		toAlert('请先输入姓名');
+    		return;
+    	}
+    	
+		var idCardNo = $("#idCardNo").val();
+		if ('' == '') {
+			idCardNo = $("#idCardNoShow").val();
+		}
+		if (idCardNo == '' && validateIdCardNo){
+    		toAlert('请先输入身份证号');
+    		return;
+    	}
+    	
+    	
+    	var imgCode = $("#imgCode").val();
+    	if (imgCode == '' && validateImgCode){
+    		toAlert('请先输入图形验证码');
+    		return;
+    	}
+    	
+    	var phone = $("#phone").val();
+    	if ('' == '') {
+    		phone = $("#phoneShow").val();
+		}
+    	if (phone == '' && validatePhone){
+    		toAlert('请先输入手机号');
+    		return;
+    	}
+    	
+    	var validateCode = $("#validateCode").val();
+    	if (validateCode == '' && validatePhoneCode){
+    		toAlert('请先输入验证码');
+    		return;
+    	}
+    	
+    	$("#loaddingDiv").attr("style","display:block");
+		$.ajax({
+            url: 'creditcard!memberCreditcardsearch.action',
+            data: {
+            	'req.bankCode': bankCodeReq,
+            	'req.session': base64.encode(session),
+            	'req.smsCode': validateCode,
+            	'req.identificationNo': idCardNo,
+            	'req.imageCode': imgCode,
+            	'req.name': encodeURIComponent(realName),
+            	'req.userId': '360152',
+            	'req.orderId': '',
+            	'req.mobile': phone,
+            	'req.userKey': userKey,
+            	'req.token': token,
+            	},
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+            	if (validateImgCode) {
+            		getImgCode();
+            	}
+            	
+            	$("#loaddingDiv").attr("style","display:none");
+            	if (data.code == 'success' || data.code == 'fail') {
+           			$("#appCardType").html(data.data.cardName);
+            		
+            		if (data.data.checkDate != null && data.data.checkDate != '') {
+            			$("#reviewDate").html(data.data.checkDate);
+            		}else {
+            			$("#reviewDate").html(data.data.createDate);
+            		}
+           			
+            		if(data.code == 'success' ){
+		            		if(data.data.statusCode =='1'){
+		            			$("#other").html('审核成功');
+		            		}else if(data.data.statusCode =='2'){
+			           			$("#other").html('已通过');
+		            		}else{
+		            			$("#other").html('等待银行审批');
+		            		}
+            		}else{
+            			 $("#other").html('查询失败');
+            		}
+           			
+           			$("#appStatus").html(data.data.status);
+           			
+           			toToast();
+            		
+        		}else {
+        			toAlert(data.message);
+        		}
+            },
+            error: function(xhr, type){
+            	$("#loaddingDiv").attr("style","display:none");
+            }
+		});
+	});
+	
+	
+	function processOrder(id,processType) {
+		$("#loaddingDiv").attr("style","display:block");
+		$.ajax({
+            url: 'order!processOrder.action',
+            data: {
+            	'id': id,
+            	'processType': processType,
+            	},
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+            	$("#loaddingDiv").attr("style","display:none");
+            	jsonObject = data;
+            	
+            	if (jsonObject.code == 'success') {
+            		if (processType == '5') {
+            			//do something
+            		}
+        			
+        		}else {
+        			toAlert(jsonObject.message);
+        		}
+            },
+            error: function(xhr, type){
+            	$("#loaddingDiv").attr("style","display:none");
+            	toAlert('调用失败');
+            }
+		});
+	}
+</script>
+
+
+</body></html>

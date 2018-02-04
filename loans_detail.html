@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!-- saved from url=(0263)http://superbank.olvip.vip/superbank/wx/loan!loans_application_add.action?loanSourceId=12&registerLink=https://bang.yirendai.com/signup?referrer=szyltx&loanLink=https://bang.yirendai.com/signup?referrer=szyltx&h5Link=http://image.ygs001.com/pic/loans/yirendai.jpg -->
+<html lang="en" style="font-size: 183.867px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>贷款申请</title>
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/layer.css">
+    <link rel="stylesheet" href="./static/css/swiper.css">
+    <script src="./static/js/jquery-2.1.1.js"></script>
+    <script src="./static/js/jweixin-1.2.0.js"></script>
+    <script id="wxScript" type="text/javascript" src="./static/js/wxconfig.js" sharepage="loan" orgid="231766" userid="360152" loansourceid="12" registerlink="https://bang.yirendai.com/signup?referrer=szyltx" loanlink="https://bang.yirendai.com/signup?referrer=szyltx" h5link="http://image.ygs001.com/pic/loans/yirendai.jpg" sharelogo="http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517648961&amp;OSSAccessKeyId=Ck76WULSZApw3ZFv&amp;Signature=j6ZTgjIoNAX8Ml7LOPX18UNhht4%3D"></script>
+    
+<link rel="stylesheet" href="./static/css/layer(1).css" id="layuicss-skinlayercss"></head>
+<body>       
+<div style="position:relative;">
+	<div id="loaddingDiv" style="display:none">
+        <div class="loading">
+        </div>
+        <div class="loadingImg"><img src="./static/image/loading.gif" alt=""></div>
+    </div> 
+	
+    <div class="introduction_of_bank">
+        <img src="./static/image/yirendai.jpg" alt="">
+    </div>
+    <div class="loans_tel">
+        <span>姓名　　</span>
+        <div><input id="realName" type="text" placeholder="请输入姓名"></div>
+    </div>
+    <div class="loans_tel">
+        <span>手机号　</span>
+        <div>
+        	<input id="phone" type="text" placeholder="请输入手机号" maxlength="11" pattern="[0-9]*" ng-pattern="/[^a-zA-Z]/">
+        	<input id="phoneHidden" type="hidden" placeholder="请输入手机号" maxlength="11" pattern="[0-9]*" ng-pattern="/[^a-zA-Z]/">
+        </div>
+    </div>
+    <div id="idCardDiv" class="loans_tel loans_mb">
+        <span>身份证号</span>
+        <div>
+        	<input id="identityNumber" type="text" placeholder="请输入身份证号">
+        	<input id="identityNumberHidden" type="hidden" placeholder="请输入身份证号">
+        </div>
+    </div>
+    <div class="loans_footer">
+        <div class="income_btn"><input class="active" id="loanBtn" style="display:none" type="button" value="前往申请" onclick="toSubmit(&#39;6&#39;)"></div>
+        <div class="income_btn"><input class="active" id="regBtn" style="display:block" type="button" value="注册" onclick="toSubmit(&#39;5&#39;)"></div>
+        <div class="income_dis_btn"><input class="" id="impBtn" style="display:none" type="button" value="已申请贷款信息导入贷款信息"></div>
+    </div>
+    <div class="nav" id="nav" style="visibility: visible; display: block;">
+        <a href="index.html"><img src="./static/image/home_icon@2x.png" alt=""></a>
+        <a href="javascript:void(0);" onclick="javascript:history.go(-1);"><img src="./static/image/back_icon@2x.png" alt=""></a>
+    </div>
+</div>
+<!-- 弹出框 -->
+<div class="weui-mask "></div>
+<div class="weui-dialog ">
+    <div class="weui-dialog__hd">
+        <div class="weui-dialog__title">温馨提示</div>
+    </div>
+    <div class="weui-dialog__bd"></div>
+    <div class="weui-dialog_tip" style="display:none">
+        （注：贷款过程中，平台和小额贷款公司不收取任何费用，凡以任何理由收取费用的，请勿支付，谨防受骗！）
+    </div>
+    <div class="weui-dialog__ft">
+        <a href="javascript:;" class="weui-dialog__btn primary">确定</a>
+    </div>
+</div>
+<script src="./static/js/layer.js"></script>
+<script src="./static/js/swiper.js"></script>
+<script id="commonScript" src="./static/js/adaptive.js" source=""></script>
+<script src="./static/js/Inertia.js"></script>
+<script>
+	//滑动的小球
+	new Inertia(document.getElementById('nav'));
+	//滑动的小球end
+	$(function(){
+		if ('' == '1') {
+			$(".index_return").attr("href","index!index.action"); 
+		}
+		
+		var jsonObject = {"code":"success","message":"调用成功","data":{"isReged":"0","isHaveApper":"0","realName":null,"phone":null,"idCardNo":null},"totalCount":null};
+		
+		if (jsonObject.data.isReged != '1') {
+			$("#regBtn").attr('style','display:block');
+		}else {
+			$("#loanBtn").attr('style','display:block');
+		}
+		
+		if (jsonObject.data.isHaveApper == '1') {
+			$("#impBtn").attr('style','display:block');
+			
+			$("#idCardDiv").removeClass("loans_mb").addClass("loans_dis_mb");
+		}
+	})
+</script>
+
+<script>
+	function toSubmit(_type){
+		$(".weui-dialog_tip").attr('style','display:none');
+		
+		var realName = $("#realName").val();
+		var phone = $("#phone").val();
+		if (phone.indexOf("****") != -1) {
+			phone = $("#phoneHidden").val();
+		}
+		
+		var identityNumber = $("#identityNumber").val();
+		if (identityNumber.indexOf("********") != -1) {
+			identityNumber = $("#identityNumberHidden").val();
+		}
+		
+		if (realName == '') {
+			toAlert('姓名不能为空');
+			return;
+		}else if (!isRealName(realName)) {
+			toAlert('请输入中文姓名');
+			return;
+		}
+		
+		if (phone == '') {
+			toAlert('手机号不能为空');
+			return;
+		}else if (!isMobile(phone)) {
+			toAlert('请输入正确的手机号');
+			return;
+		}
+		
+		if (identityNumber == '') {
+			toAlert('身份证号不能为空');
+			return;
+		}else if (!isIdCard(identityNumber)) {
+			toAlert('请输入正确的身份证号');
+			return;
+		}
+		
+		$("#loaddingDiv").attr("style","display:block");
+		$.ajax({
+			   url:'loan!saveLoan.action',
+			   dataType:'json',
+			   data: {
+				   "realName": encodeURIComponent($("#realName").val()),
+				   "phone": phone,
+				   "identityNumber": identityNumber,
+				   "loanSourceId": '12',
+				   'orderType' : _type
+				   },
+			   success:function(data){
+				   $("#loaddingDiv").attr("style","display:none");
+				   if(data.code == 'success'){
+					   if (_type == '5') {
+						   $(".weui-dialog_tip").attr('style','display:block');
+						   $(".weui-dialog__ft").find("a").attr("href",'https://bang.yirendai.com/signup?referrer=szyltx');
+						   toAlert('注册成功，前往完善信息！');
+					   }else if (_type == '6'){
+						   $(".weui-dialog_tip").attr('style','display:block');
+						   $(".weui-dialog__ft").find("a").attr("href",'https://bang.yirendai.com/signup?referrer=szyltx');
+						   toAlert('提交成功，前往完善信息！');
+					   }
+					   
+				   }
+			   },
+			   error:function(error){ 
+				   $("#loaddingDiv").attr("style","display:none");
+				   layer.msg(error, {
+	                   time: 1000
+	               });
+			   } 
+			});
+	};
+	
+	$("#impBtn").click(function(){
+		var jsonObject = {"code":"success","message":"调用成功","data":{"isReged":"0","isHaveApper":"0","realName":null,"phone":null,"idCardNo":null},"totalCount":null};
+		
+		var phone = '';
+		if (jsonObject.data.phone.length >= 8) {
+			phone = jsonObject.data.phone.substring(0,3)+'****' + jsonObject.data.phone.substring(7,jsonObject.data.phone.length);
+		}else {
+			phone = jsonObject.data.phone;
+		}
+		
+		var idCardNo = '';
+		if (jsonObject.data.idCardNo.length >= 15) {
+			idCardNo = jsonObject.data.idCardNo.substring(0,6)+'********' + jsonObject.data.idCardNo.substring(14,jsonObject.data.idCardNo.length);
+		}else {
+			idCardNo = jsonObject.data.idCardNo;
+		}
+		
+		$("#realName").val(jsonObject.data.realName);
+		$("#phone").val(phone);
+		$("#phoneHidden").val(jsonObject.data.phone);
+		$("#identityNumber").val(idCardNo);
+		$("#identityNumberHidden").val(jsonObject.data.idCardNo);
+	});
+	/* $("input").focus(function() {
+        $(".loans_footer").css({"position":"absolute","bottom":"-140px"});
+    })
+    $("input").blur(function() {
+        $(".loans_footer").css({"position":"fixed","bottom":"0"});
+    }) */
+</script>
+
+
+</body></html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://superbank.olvip.vip/superbank/wx/member!getWithdrawals.action -->
+<html lang="en" style="font-size: 247.067px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>收支明细</title>
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/layer.css">
+    <link rel="stylesheet" href="./static/css/swiper.css">
+    <link rel="stylesheet" href="./static/css/lCalendar.css">
+    <style>
+        .order_no_data{border-top:0;}
+    </style>
+    <script src="./static/js/jquery-2.1.1.js"></script>
+    <script src="./static/js/jweixin-1.2.0.js"></script>
+    <script id="wxScript" type="text/javascript" src="./static/js/wxconfig.js" sharepage="index" orgid="231766" userid="360152" sharelogo="http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517676932&amp;OSSAccessKeyId=Ck76WULSZApw3ZFv&amp;Signature=6Jl7zi51O2YYMlbv5LdrZH%2FOU3c%3D"></script>
+    <script>
+    var pageNumber = 1;
+    var userType=0;
+          $(function () {
+        	  	var hasData = true;
+        	  	pageNumber = 1;
+                getDatas(1,0,0);
+               
+                $(window).scroll(function () {
+                    var documentTop = $(document).scrollTop();
+                    var windowHeight = $(window).height();
+                    var documentHeight = $(document).height();
+                    if (documentTop >= (documentHeight - windowHeight)) {
+                        if (hasData) {
+                        	var tt=$(".income_popupMid_info>div.active").text();
+                            if(tt=='全部'){
+                            	userType=0;
+                            }else if(tt=='代理授权'){
+                            	userType=1;
+                            }
+							else if(tt=='信用卡申请'){
+								userType=2;
+                            }
+							else if(tt=='收款'){
+								userType=3;
+							}
+							else if(tt=='信用卡还款'){
+								userType=4;
+							}
+							else if(tt=='贷款'){
+								userType=5;
+							}else if(tt=='退代理费'){
+								userType=12;
+							}
+                            var tt3=$(".income_tab>li.active").text();
+                            if(tt3=='提现明细'){
+                            	userType=100;
+                            }
+                            pageNumber = pageNumber + 1;
+                            getDatas(pageNumber,0,userType);
+                        }
+                    }
+                });
+                
+         });
+          
+          
+          function getDatas(_pageNumber,model,userType){
+              var pagesize =  $("#pagesize").val();
+              var startDate =  $("#startDate").val();
+              var endDate =  $("#endDate2").val();
+              var content_html = "";
+              var content_html2 = "";
+              var content_html3 = "";
+              var url = "";
+              if(userType==100){
+            	  url="member!findWithdrawalsDetailed.action";
+              }else{
+            	  url="member!findWithdrawals.action";
+              }
+              $.ajax({
+                  url: url,
+                  async: false,
+                  data: {
+                  	'pageNumber': _pageNumber,
+                  	'pageSize':pagesize,
+                  	'userType':userType,
+                  	'startDate':startDate,
+                  	'endDate':endDate
+                  	},
+                  dataType: 'json',
+                  cache: false,
+                  success: function (datas) {
+                  	var size = datas.data;
+                  	if(size == 'null' || size == '' || size == undefined){
+                  		if (_pageNumber == 1) {
+                  			if(userType==100){
+                  				content_html = "<div class='order_no_data '>"+
+                                "<img src='/superbank/resources/img/details_img@2x.png' alt=''>"+
+                                "<div>暂无记录</div>"+
+                            	"</div>";
+                                $("#income_detail2").html(content_html);
+                  			}else{
+                  				content_html = "<div class='order_no_data '>"+
+                                "<img src='/superbank/resources/img/details_img@2x.png' alt=''>"+
+                                "<div>暂无记录</div>"+
+                            	"</div>";
+                            	content_html3+='<div class="income_infoTitle">';
+                                content_html3+='<span>筛选条件</span>';
+                                content_html3+='<div class="income_fold">筛选<img src="/superbank/resources/img/income_screen.png" alt=""></div>';
+                                content_html3+='</div>';
+                                content_html3+='<div class="income_popupInfoWrap" style="display:none;">';
+                                content_html3+='<div class="income_popupInfo">';
+                                content_html3+='<div class="income_popupTop">';
+                                content_html3+='<div class="income_popupTitle">按时间</div>';
+                                content_html3+='<div class="income_popupDate">';
+                                content_html3+='<div>';
+                                content_html3+='<img src="/superbank/resources/img/calendar.png" alt="">';
+                                content_html3+='<input type="text" id="beginDate"  placeholder="选择开始日期" readonly unselectable="on" onfocus="this.blur()">';
+                                content_html3+='</div>';
+                                content_html3+='<span>-</span>';
+                                content_html3+='<div>';
+                                content_html3+='<img src="/superbank/resources/img/calendar.png" alt="">';
+                                content_html3+='<input type="text" id="endDate"  placeholder="选择截止日期" readonly unselectable="on" onfocus="this.blur()">';
+                                content_html3+='</div>';
+                                content_html3+='</div>';
+                                content_html3+='</div>';
+                                content_html3+='<div class="income_popupMid">';
+                                content_html3+='<div class="income_popupTitle">按类型</div>';
+                                content_html3+='<div class="income_popupMid_info">';
+                                content_html3+='<div id="qb" class="active">全部</div>';
+                                content_html3+='<div id="dlsq">代理授权</div>';
+                                content_html3+='<div id="xyksq">信用卡申请</div>';
+                                content_html3+='<div id="sk">收款</div>';
+                                content_html3+='<div id="xykhk">信用卡还款</div>';
+                                content_html3+='<div id="dk">贷款</div>';
+                                content_html3+='<div id="tdlf">退代理费</div>';
+                                content_html3+='</div>';
+                                content_html3+='</div>';
+                                content_html3+='<div class="income_popupFooter">';
+                                content_html3+='<a class="income_popupFooter_cancel" href="javascript:void(0);">取消</a>';
+                                content_html3+='<a class="income_popupFooter_sure" href="javascript:void(0);">确认</a>';
+                                content_html3+='</div>';
+                                content_html3+='</div>';
+                                content_html3+='<div class="income_masked"></div>';
+                                content_html3+='</div>';
+                  				$("#income_detail").html(content_html3+content_html);
+                  			}
+                      		
+                  			var calendar = new lCalendar();
+            				calendar.init({
+            				    'trigger': '#beginDate',
+            				    'type': 'date'
+            				});
+            				var endCalendar = new lCalendar();
+            				endCalendar.init({
+            				'trigger': '#endDate',
+            				'type': 'date'
+            				}); 
+            				// 类型切换
+            			    $(".income_popupMid_info>div").click(function(){
+            			        $(this).addClass("active").siblings().removeClass("active");
+            			      
+            			    });
+            			    $(".income_fold").click(function(){
+            			        $(".income_popupInfoWrap").slideDown();
+            			        $("body").css("overflow-y","hidden");
+            			    })
+            			    $(".income_popupFooter_cancel").click(function(){
+            			        $(".income_popupInfoWrap").slideUp();
+            			        // $(".income_popupInfoWrap").hide();
+            			        $("body").css("overflow-y","auto");
+            			    })
+            			    $(".income_popupFooter_sure").click(function(){
+            			       var tt=$(".income_popupMid_info>div.active").text();
+            			       var numb = null;
+            			        	 if(tt=='全部'){
+            			        	numb=0; 
+            			        }else if(tt=='代理授权'){
+            			    	    numb=1;
+          						}else if(tt=='信用卡申请'){
+          							numb=2;
+          						}else if(tt=='收款'){
+          							numb=3;
+          						}else if(tt=='信用卡还款'){
+          							numb=4;
+          						}else if(tt=='贷款'){
+          							numb=6;
+          						}else if(tt=='贷款'){
+          							numb=6;
+          						}else if(tt=='还款'){
+          							numb=7;
+          						}else if(tt=='退代理费'){
+          							numb=12;
+          						}
+            			       var dateStar=$("#beginDate").val();
+            			       var endDate2=$("#endDate").val();
+            			       $("#startDate").val(dateStar);
+            			       $("#endDate2").val(endDate2);
+            			       $(".income_popupInfoWrap").slideUp();
+            			       getDatas(1,1,numb);
+            			    })
+                  			
+                  			
+                  		}
+                	}else{
+                			var jsons = datas.data;
+                			if(jsons == null || jsons == '' || jsons == undefined){
+                				return ;
+                			}
+                			if(userType==100){
+                				for(var i=0;i<jsons.length;i++){//遍历提现明细
+              						var info = jsons[i];
+                					
+              						var accountNos=null;
+              						if (info.cardNo.length >= 13) {
+              							accountNos = info.cardNo.substring(0,4)+'********' + info.cardNo.substring(12,info.cardNo.length);
+              						}
+              						content_html2+="<div class='income_two'>";
+              						content_html2+="<div class='income_twoTop'>";
+              						content_html2+="<span>订单编号</span>";
+              						content_html2+="<div>";
+              						content_html2+="<span><span>"+info.obtainNo+"</span></span>";
+              						
+              						if(info.status==1){
+              							content_html2+="<div class='income_yellow'>未结算</div>";
+              						}else if(info.status==2){
+              							content_html2+="<div class='income_blue'>结算中</div>";
+              						}else if(info.status==3){
+              							content_html2+="<div class='income_green'>已结算</div>";
+              						}else if(info.status==4){
+              							content_html2+="<div class='income_gray'>结算失败</div>";
+              						}
+              						content_html2+="</div>";
+              						content_html2+="</div>";
+              						content_html2+="<ul class='income_twoInfo'>";
+              						content_html2+="<li>";
+              						content_html2+="<span>提现金额</span>";    
+              						content_html2+="<div><span>"+info.obtainAmount+"</span>元</div>";        
+              						content_html2+="</li>";    
+              						content_html2+="<li>";    
+              						content_html2+="<span>结算卡号</span>";   
+              						if(info.cardNo == null || info.cardNo == '' || info.cardNo == undefined){
+              							content_html2+="<div>无结算卡</div>";        
+                        			}else{
+                        				content_html2+="<div>"+accountNos+"</div>";        
+                        			}
+              						
+              						content_html2+="</li>";
+              						content_html2+="<li>";    
+              						content_html2+="<span>订单时间</span>";    
+              						content_html2+="<div>"+formatDateTime3(info.createDate,'yyyy-MM-dd HH:mm:ss')+"</div>";        
+              						content_html2+="</li>";
+              						content_html2+="</ul>";
+              						content_html2+="</div>";
+                            	   }
+                				
+                				if(model==1){
+               					 $("#income_detail2").html(content_html2);
+               				 }else{
+               					 $("#income_detail2").append(content_html2);
+               				 }
+                				
+                			}else{
+                				content_html3+='<div class="income_infoTitle">';
+                                content_html3+='<span>筛选条件</span>';
+                                content_html3+='<div class="income_fold">筛选<img src="/superbank/resources/img/income_screen.png" alt=""></div>';
+                                content_html3+='</div>';
+                                content_html3+='<div class="income_popupInfoWrap" style="display:none;">';
+                                content_html3+='<div class="income_popupInfo">';
+                                content_html3+='<div class="income_popupTop">';
+                                content_html3+='<div class="income_popupTitle">按时间</div>';
+                                content_html3+='<div class="income_popupDate">';
+                                content_html3+='<div>';
+                                content_html3+='<img src="/superbank/resources/img/calendar.png" alt="">';
+                                content_html3+='<input type="text" id="beginDate"  placeholder="选择开始日期" readonly>';
+                                content_html3+='</div>';
+                                content_html3+='<span>-</span>';
+                                content_html3+='<div>';
+                                content_html3+='<img src="/superbank/resources/img/calendar.png" alt="">';
+                                content_html3+='<input type="text" id="endDate"  placeholder="选择截止日期" readonly>';
+                                content_html3+='</div>';
+                                content_html3+='</div>';
+                                content_html3+='</div>';
+                                content_html3+='<div class="income_popupMid">';
+                                content_html3+='<div class="income_popupTitle">按类型</div>';
+                                content_html3+='<div class="income_popupMid_info">';
+                                content_html3+='<div id="qb" class="active">全部</div>';
+                                content_html3+='<div id="dlsq" >代理授权</div>';
+                                content_html3+='<div id="xyksq">信用卡申请</div>';
+                                content_html3+='<div id="sk">收款</div>';
+                                content_html3+='<div id="xykhk">信用卡还款</div>';
+                                content_html3+='<div id="dk">贷款</div>';
+                                content_html3+='<div id="tdlf">退代理费</div>';
+                                content_html3+='</div>';
+                                content_html3+='</div>';
+                                content_html3+='<div class="income_popupFooter">';
+                                content_html3+='<a class="income_popupFooter_cancel" href="javascript:void(0);">取消</a>';
+                                content_html3+='<a class="income_popupFooter_sure" href="javascript:void(0);">确认</a>';
+                                content_html3+='</div>';
+                                content_html3+='</div>';
+                                content_html3+='<div class="income_masked"></div>';
+                                content_html3+='</div>';
+                    				 for(var i=0;i<jsons.length;i++){//遍历收支明细
+                  						var info = jsons[i];
+                                 content_html+='<div>';
+                                 content_html+='<div class="income_One">';
+                                 content_html+='<div class="income_OneTop">';
+                                 if(info.orderType==1){
+           							content_html+='<span>代理授权</span>';
+           						}else if(info.orderType==2){
+           							content_html+='<span>信用卡申请</span>';
+           						}else if(info.orderType==3){
+           							content_html+='<span>收款</span>';
+           						}else if(info.orderType==4){
+           							content_html+='<span>还款申请</span>';
+           						}else if(info.orderType==5){
+           							content_html+='<span>贷款注册</span>';
+           						}else if(info.orderType==6){
+           							content_html+='<span>贷款批贷</span>';
+           						}else if(info.orderType==7){
+           							content_html+='<span>还款</span>';
+           						}else if(info.orderType==12){
+           							content_html+='<span>退代理费</span>';
+           						}
+           						if(info.typeName==null||info.typeName=='"null"'){
+           							content_html+='<span></span>';
+           						}else{
+           							content_html+='-<span>'+info.typeName+'</span>';          							
+           						}
+                                 //content_html+='<span>办信用卡</span>-<span>交通银行</span>';
+                                 content_html+='</div>';
+                                 content_html+='<ul class="income_addOneInfo">';
+                                 if(info.orderType!=1){
+                                	 content_html+='<li>';
+                                     content_html+='<span>奖金总额</span>';
+                                     content_html+='<div><span>'+info.totalProfit+'</span>元</div>';
+                                     content_html+='</li>';
+                                 }
+                                 content_html+='<li>';
+                                 content_html+='<span>收益金额</span>';
+                                 content_html+='<div class="income-money"><span>'+info.userProfit+'</span>元</div>';
+                                 content_html+='</li>';
+                                 content_html+='<li>';
+                                 content_html+='<span>收益时间</span>';
+                                 content_html+='<div>'+formatDateTime3(info.createDate,'yyyy-MM-dd HH:mm:ss')+'</div>';
+                                 content_html+='</li>';
+                                 content_html+='</ul>';
+                                 content_html+='</div>';
+                                 content_html+='</div>';
+                                }
+                    				 if(model==1){
+                    					 $("#income_detail").html(content_html3+content_html);
+                    				 }else{
+                    					 if(_pageNumber!=1){
+                    						 $("#income_detail").append(content_html);
+                    					 }else{
+                    						 $("#income_detail").append(content_html3+content_html);
+                    					 }
+                    					 
+                    				 }
+                    				 
+                    			if (userType == '0') {
+                    			}else if (userType == '1') {
+                    				$("#dlsq").addClass("active");
+                    				$("#qb").removeClass("active");
+                    			}else if(userType == '2'){
+                    				$("#xyksq").addClass("active");
+                    				$("#qb").removeClass("active");
+                    			}else if(userType == '3'){
+                    				$("#sk").addClass("active");
+                    				$("#qb").removeClass("active");
+                    			}else if(userType == '4'){
+                    				$("#xykhk").addClass("active");
+                    				$("#qb").removeClass("active");
+                    			}else if(userType == '5'){
+                    				$("#dk").addClass("active");
+                    				$("#qb").removeClass("active");
+                    			}else if(userType == '12'){
+                    				$("#tdlf").addClass("active");
+                    				$("#qb").removeClass("active");
+                    			}
+                			}	
+                			var calendar = new lCalendar();
+            				calendar.init({
+            				    'trigger': '#beginDate',
+            				    'type': 'date'
+            				});
+            				var endCalendar = new lCalendar();
+            				endCalendar.init({
+            				'trigger': '#endDate',
+            				'type': 'date'
+            				}); 
+            				// 类型切换
+            			    $(".income_popupMid_info>div").click(function(){
+            			        $(this).addClass("active").siblings().removeClass("active");
+            			      
+            			    });
+            			    $(".income_fold").click(function(){
+            			        $(".income_popupInfoWrap").slideDown();
+            			        $("body").css("overflow-y","hidden");
+            			    })
+            			    $(".income_popupFooter_cancel").click(function(){
+            			        $(".income_popupInfoWrap").slideUp();
+            			        // $(".income_popupInfoWrap").hide();
+            			        $("body").css("overflow-y","auto");
+            			    })
+            			    $(".income_popupFooter_sure").click(function(){
+            			       var tt=$(".income_popupMid_info>div.active").text();
+            			       var numb = null;
+      			        	 		  if(tt=='全部'){
+      			        			numb=0; 
+      			        		}else if(tt=='代理授权'){
+            			    	    numb=1;
+          						}else if(tt=='信用卡申请'){
+          							numb=2;
+          						}else if(tt=='收款'){
+          							numb=3;
+          						}else if(tt=='信用卡还款'){
+          							numb=4;
+          						}else if(tt=='贷款'){
+          							numb=6;
+          						}else if(tt=='贷款'){
+          							numb=6;
+          						}else if(tt=='还款'){
+          							numb=7;
+          						}else if(tt=='退代理费'){
+          							numb=12;
+          						}
+            			       var dateStar=$("#beginDate").val();
+            			       var endDate2=$("#endDate").val();
+            			       $("#startDate").val(dateStar);
+            			       $("#endDate2").val(endDate2);
+            			       $(".income_popupInfoWrap").slideUp();
+            			       getDatas(1,1,numb);
+            			    });
+            			    
+                	}
+                  }
+      		});
+      	}
+
+    
+    </script>
+<link rel="stylesheet" href="./static/css/layer(1).css" id="layuicss-skinlayercss"></head>
+<body>       
+<div>
+<div id="loaddingDiv" style="display:none">
+        <div class="loading">
+        </div>
+        <div class="loadingImg"><img src="./static/image/loading.gif" alt=""></div>
+    </div>
+
+    <div>   
+        <div class="income_top">
+            <div>
+                <div>收入总额(元)</div>
+                <span>0.00</span>
+            </div>
+            <div>
+                <div>可提现(元)</div>
+                <span>0.00</span>
+            </div>
+        </div>
+        <div class="income_tabWrap">
+            <ul class="income_tab">
+                <li class="income_tab_li1 active">收益明细</li>
+                <li class="income_tab_li2">提现明细</li>
+            </ul>
+        </div>
+        <div class="income_info">
+        <input type="hidden" id="pagesize" value="10">
+	    <input type="hidden" id="pageNo" value="1">
+	    <input type="hidden" id="startDate" name="" value="">
+	    <input type="hidden" id="endDate2" name="" value="">
+            <!-- 收支明细 -->
+            <div class="income_dis income_show" id="income_detail"><div class="income_infoTitle"><span>筛选条件</span><div class="income_fold">筛选<img src="./收支明细_files/income_screen.png" alt=""></div></div><div class="income_popupInfoWrap" style="display:none;"><div class="income_popupInfo"><div class="income_popupTop"><div class="income_popupTitle">按时间</div><div class="income_popupDate"><div><img src="./收支明细_files/calendar.png" alt=""><input type="text" id="beginDate" placeholder="选择开始日期" readonly="" unselectable="on" onfocus="this.blur()"></div><span>-</span><div><img src="./收支明细_files/calendar.png" alt=""><input type="text" id="endDate" placeholder="选择截止日期" readonly="" unselectable="on" onfocus="this.blur()"></div></div></div><div class="income_popupMid"><div class="income_popupTitle">按类型</div><div class="income_popupMid_info"><div id="qb" class="active">全部</div><div id="dlsq">代理授权</div><div id="xyksq">信用卡申请</div><div id="sk">收款</div><div id="xykhk">信用卡还款</div><div id="dk">贷款</div><div id="tdlf">退代理费</div></div></div><div class="income_popupFooter"><a class="income_popupFooter_cancel" href="javascript:void(0);">取消</a><a class="income_popupFooter_sure" href="javascript:void(0);">确认</a></div></div><div class="income_masked"></div></div><div class="order_no_data "><img src="./收支明细_files/details_img@2x.png" alt=""><div>暂无记录</div></div></div>
+            <!-- 收支明细end -->
+            <!-- 提现明细 -->
+            <div class="income_dis" id="income_detail2">
+                
+            </div>
+            <!-- 提现明细end -->
+            <div class="income_footer">
+                <div class="income_btn"><input class="active" id="A_codeBtn2" type="button" value="去结算"></div>
+            </div>
+        </div>
+    </div>
+    <div class="nav" id="nav" style="visibility: visible; display: block;">
+        <!--<a href="http://superbank.olvip.vip/superbank/wx/index!index.action"><img src="./static/image/home_icon@2x.png" alt=""></a>-->
+        <a href="index.html"><img src="./static/image/home_icon@2x.png" alt=""></a>
+        <a href="javascript:void(0);" onclick="javascript:history.go(-1);"><img src="./static/image/back_icon@2x.png" alt=""></a>
+    </div>
+   
+</div>
+<script src="./static/js/layer.js"></script>
+<script src="./static/js/swiper.js"></script>
+<script src="./static/js/lCalendar.min.js"></script>
+<script src="./static/js/Inertia.js"></script>
+<script id="commonScript" src="./static/js/adaptive.js" source=""></script>
+<script>
+	//滑动的小球
+	new Inertia(document.getElementById('nav'));
+	//滑动的小球end
+    // 收支提现切换
+    $(".income_tab li").click(function(){
+        var index=$(this).index();
+        if($(this).hasClass("income_tab_li1")){
+        	getDatas(1,1,0);
+        }else{
+        	getDatas(1,1,100);
+        }
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".income_dis").eq(index).addClass("income_show").siblings().removeClass("income_show");
+    })
+    function popup4() {
+        $(".surpass_Popup").removeClass("surpass_Popup_in").addClass("surpass_Popup_fade");
+        $(".surpass_Popup-backdrop").removeClass("surpass_Popup_in2").removeClass("surpass_Popup_fade").addClass("surpass_Popup_fade");
+    }
+
+    $(".surpass_Popup-footer").on("click", "#close4", function () {//这个是关闭弹出框
+        $(".surpass_Popup-dialog").animate({top: -1000});
+        setTimeout("popup4()", 200);
+    });
+    $(".indexState").click(function(){
+        $("#loaddingDiv").css("display","block")
+        $(".surpass_Popup-backdrop").toggleClass("surpass_Popup_in2");
+        $(".surpass_Popup").toggleClass("surpass_Popup_in");
+        $(".surpass_Popup-dialog").animate({top: 150});
+    })
+    $(".surpass_masked").click(function(){
+        $(".surpass_Popup-dialog").animate({top: -1000});
+        setTimeout("popup4()", 200);
+    })
+    $(".in_check").click(function(){
+        if($(this).attr('src')=="/superbank/resources/img/xuanzhong.png"){
+            $(this).attr('src',"/superbank/resources/img/meixuan.png")
+        }else{
+            $(this).attr('src',"/superbank/resources/img/xuanzhong.png")
+        }
+    });
+    
+    $("#A_codeBtn2").click(function(){
+    	
+//  	window.location.href="/superbank/wx/member!getExpressive.action";
+    	window.location.href="member_deposit.html";
+	});
+    
+</script>
+
+</body></html>

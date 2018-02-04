@@ -157,6 +157,14 @@ function makeCodeById(url,_id){
     qrcode.makeCode(url);
 }
 
+function makeCodeById2(url,_id){
+    var qrcode = new QRCode(document.getElementById(_id), {
+        width : 180,//设置宽高
+        height : 180
+    });
+    qrcode.makeCode(url);
+}
+
 function showWechat(wechatNo,qrCode,path) {
 	if (qrCode != null && qrCode != '' && qrCode != 'null') {
 		$("#qrCodeImg").attr("src",qrCode);
@@ -184,11 +192,13 @@ function showWechat(wechatNo,qrCode,path) {
 	}
 }
 $(function(){
-    var source = document.getElementById('commonScript').getAttribute('source');
-    if(source == 'app'){
-        $(".nav").css("display","none");
-    }else{
-        $(".nav").css("display","block");
-    }
+	if (document.getElementById('commonScript') != null) {
+		var source = document.getElementById('commonScript').getAttribute('source');
+	    if(source == 'app'){
+	        $(".nav").css("display","none");
+	    }else{
+	        $(".nav").css("display","block");
+	    }
+	}
     
 })

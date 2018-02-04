@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://superbank.olvip.vip/superbank/wx/order!order_management.action -->
+<html lang="en" style="font-size: 165.333px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">                                                              
+	
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>订单管理</title>
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/layer.css">
+    <link rel="stylesheet" href="./static/css/swiper.css">
+    <script src="./static/js/jquery-2.1.1.js"></script>
+    <script src="./static/js/jquery.cookie.js"></script>
+    <script src="./static/js/jweixin-1.2.0.js"></script>
+    <script id="wxScript" type="text/javascript" src="./static/js/wxconfig.js" sharepage="index" orgid="231766" userid="360152" sharelogo="http://agent-attch.oss-cn-hangzhou.aliyuncs.com/abcd_1515090898870_69579.jpg?Expires=1517737896&amp;OSSAccessKeyId=Ck76WULSZApw3ZFv&amp;Signature=wx0I27REkEMts9NSWab%2FMrAg7QE%3D"></script>
+    
+    <script src="./static/js/wxpayconfig.js"></script>
+<link rel="stylesheet" href="./static/css/layer(1).css" id="layuicss-skinlayercss"></head>
+<body>       
+<div>
+	<div id="loaddingDiv" style="display:none">
+        <div class="loading">
+        </div>
+        <div class="loadingImg"><img src="./static/image/loading.gif" alt=""></div>
+    </div> 
+    <!-- 内容部分 -->
+    <div>
+        <!-- 订单切换 -->
+        <div class="order_tab_wrap">
+	        <ul class="order_tab"> 
+	            <li class="active"><i class="fi-1 active"></i>代理</li>
+                <li><i class="fi-2"></i>激活还款</li>
+                <li class=""><i class="fi-3"></i>信用卡</li>
+                <li class=""><i class="fi-4"></i>贷款</li>
+	        </ul>
+        </div>
+         <!-- 订单切换end -->
+        <div class="order_info">
+            <!-- 代理订单 -->
+            <div class="order_dis order_show">
+                <!-- 代理订单tab切换 -->
+                <ul class="order_agent_tab">
+                    <li class="active"><div><span class="order_agent_span active">待付款</span></div></li>
+                   <!--  <li>待授权</li> -->
+                    <li><div><span class="order_agent_span">已完成</span></div> </li>
+                    <li><div><span class="order_agent_span">回收站</span></div> </li>
+                    <!-- <li>回收站</li> -->
+                </ul>
+                <div class="order_agent_info">
+                    <!-- 代理订待付款 -->
+                    <div class="order_agent_dis order_agent_show"><div class=""><div class="order_list" onclick="orderDetail(&#39;464242&#39;,&#39;SU201802031708379069866360152&#39;,&#39;李月月&#39;,&#39;334138&#39;,&#39;10&#39;,&#39;待付款&#39;,&#39;http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIOQsnZwG7fAiaQtIKAGg8P6Khd4jSU8htct0eWJNVOAMEibSFAlyhym79POzZacdDNgtsGtzkCzAkw/132&#39;,&#39;&#39;,&#39;18569947956&#39;,&#39;1&#39;,&#39;2018-02-03 17:08:38&#39;,&#39;198&#39;,&#39;mmmhhhxx&#39;)"><div class="order_listTop"><div class="order_listTip">订单编号</div><div class="order_listId"><span>SU201802031708379069866360152</span><div><span>（我的订单）</span></div></div><div class="order_listTopRight"><div class="order_listStatusRed">待付款</div><div class="order_listRight"><img src="./static/image/arrow_right.png" alt=""></div></div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>用户　　</div><span>李月月</span></div><div><div>用户　ID</div><span>334138</span></div><div><div>申请时间</div><span>2018-02-03 17:08:38</span></div></div><div class="order_listInfoRight" onclick="processOrderTips(464242,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div></div><div class=""><div class="order_list" onclick="orderDetail(&#39;464227&#39;,&#39;SU201802031708041074432360152&#39;,&#39;李月月&#39;,&#39;334138&#39;,&#39;10&#39;,&#39;待付款&#39;,&#39;http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIOQsnZwG7fAiaQtIKAGg8P6Khd4jSU8htct0eWJNVOAMEibSFAlyhym79POzZacdDNgtsGtzkCzAkw/132&#39;,&#39;&#39;,&#39;18569947956&#39;,&#39;1&#39;,&#39;2018-02-03 17:08:04&#39;,&#39;198&#39;,&#39;mmmhhhxx&#39;)"><div class="order_listTop"><div class="order_listTip">订单编号</div><div class="order_listId"><span>SU201802031708041074432360152</span><div><span>（我的订单）</span></div></div><div class="order_listTopRight"><div class="order_listStatusRed">待付款</div><div class="order_listRight"><img src="./static/image/arrow_right.png" alt=""></div></div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>用户　　</div><span>李月月</span></div><div><div>用户　ID</div><span>334138</span></div><div><div>申请时间</div><span>2018-02-03 17:08:04</span></div></div><div class="order_listInfoRight" onclick="processOrderTips(464227,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div></div><div class=""><div class="order_list" onclick="orderDetail(&#39;464223&#39;,&#39;SU201802031707586124427360152&#39;,&#39;李月月&#39;,&#39;334138&#39;,&#39;10&#39;,&#39;待付款&#39;,&#39;http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIOQsnZwG7fAiaQtIKAGg8P6Khd4jSU8htct0eWJNVOAMEibSFAlyhym79POzZacdDNgtsGtzkCzAkw/132&#39;,&#39;&#39;,&#39;18569947956&#39;,&#39;1&#39;,&#39;2018-02-03 17:07:59&#39;,&#39;198&#39;,&#39;mmmhhhxx&#39;)"><div class="order_listTop"><div class="order_listTip">订单编号</div><div class="order_listId"><span>SU201802031707586124427360152</span><div><span>（我的订单）</span></div></div><div class="order_listTopRight"><div class="order_listStatusRed">待付款</div><div class="order_listRight"><img src="./static/image/arrow_right.png" alt=""></div></div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>用户　　</div><span>李月月</span></div><div><div>用户　ID</div><span>334138</span></div><div><div>申请时间</div><span>2018-02-03 17:07:59</span></div></div><div class="order_listInfoRight" onclick="processOrderTips(464223,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div></div><div class=""><div class="order_list" onclick="orderDetail(&#39;464222&#39;,&#39;SU201802031707558947280360152&#39;,&#39;李月月&#39;,&#39;334138&#39;,&#39;10&#39;,&#39;待付款&#39;,&#39;http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIOQsnZwG7fAiaQtIKAGg8P6Khd4jSU8htct0eWJNVOAMEibSFAlyhym79POzZacdDNgtsGtzkCzAkw/132&#39;,&#39;&#39;,&#39;18569947956&#39;,&#39;1&#39;,&#39;2018-02-03 17:07:56&#39;,&#39;198&#39;,&#39;mmmhhhxx&#39;)"><div class="order_listTop"><div class="order_listTip">订单编号</div><div class="order_listId"><span>SU201802031707558947280360152</span><div><span>（我的订单）</span></div></div><div class="order_listTopRight"><div class="order_listStatusRed">待付款</div><div class="order_listRight"><img src="./static/image/arrow_right.png" alt=""></div></div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>用户　　</div><span>李月月</span></div><div><div>用户　ID</div><span>334138</span></div><div><div>申请时间</div><span>2018-02-03 17:07:56</span></div></div><div class="order_listInfoRight" onclick="processOrderTips(464222,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div></div><div class=""><div class="order_list" onclick="orderDetail(&#39;464221&#39;,&#39;SU201802031707546212610360152&#39;,&#39;李月月&#39;,&#39;334138&#39;,&#39;10&#39;,&#39;待付款&#39;,&#39;http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIOQsnZwG7fAiaQtIKAGg8P6Khd4jSU8htct0eWJNVOAMEibSFAlyhym79POzZacdDNgtsGtzkCzAkw/132&#39;,&#39;&#39;,&#39;18569947956&#39;,&#39;1&#39;,&#39;2018-02-03 17:07:55&#39;,&#39;198&#39;,&#39;mmmhhhxx&#39;)"><div class="order_listTop"><div class="order_listTip">订单编号</div><div class="order_listId"><span>SU201802031707546212610360152</span><div><span>（我的订单）</span></div></div><div class="order_listTopRight"><div class="order_listStatusRed">待付款</div><div class="order_listRight"><img src="./static/image/arrow_right.png" alt=""></div></div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>用户　　</div><span>李月月</span></div><div><div>用户　ID</div><span>334138</span></div><div><div>申请时间</div><span>2018-02-03 17:07:55</span></div></div><div class="order_listInfoRight" onclick="processOrderTips(464221,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div></div><div class=""><div class="order_list" onclick="orderDetail(&#39;464219&#39;,&#39;SU201802031707514152354360152&#39;,&#39;李月月&#39;,&#39;334138&#39;,&#39;10&#39;,&#39;待付款&#39;,&#39;http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIOQsnZwG7fAiaQtIKAGg8P6Khd4jSU8htct0eWJNVOAMEibSFAlyhym79POzZacdDNgtsGtzkCzAkw/132&#39;,&#39;&#39;,&#39;18569947956&#39;,&#39;1&#39;,&#39;2018-02-03 17:07:51&#39;,&#39;198&#39;,&#39;mmmhhhxx&#39;)"><div class="order_listTop"><div class="order_listTip">订单编号</div><div class="order_listId"><span>SU201802031707514152354360152</span><div><span>（我的订单）</span></div></div><div class="order_listTopRight"><div class="order_listStatusRed">待付款</div><div class="order_listRight"><img src="./static/image/arrow_right.png" alt=""></div></div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>用户　　</div><span>李月月</span></div><div><div>用户　ID</div><span>334138</span></div><div><div>申请时间</div><span>2018-02-03 17:07:51</span></div></div><div class="order_listInfoRight" onclick="processOrderTips(464219,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div></div><div class=""><div class="order_list" onclick="orderDetail(&#39;464218&#39;,&#39;SU201802031707466246023360152&#39;,&#39;李月月&#39;,&#39;334138&#39;,&#39;10&#39;,&#39;待付款&#39;,&#39;http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIOQsnZwG7fAiaQtIKAGg8P6Khd4jSU8htct0eWJNVOAMEibSFAlyhym79POzZacdDNgtsGtzkCzAkw/132&#39;,&#39;&#39;,&#39;18569947956&#39;,&#39;1&#39;,&#39;2018-02-03 17:07:47&#39;,&#39;198&#39;,&#39;mmmhhhxx&#39;)"><div class="order_listTop"><div class="order_listTip">订单编号</div><div class="order_listId"><span>SU201802031707466246023360152</span><div><span>（我的订单）</span></div></div><div class="order_listTopRight"><div class="order_listStatusRed">待付款</div><div class="order_listRight"><img src="./static/image/arrow_right.png" alt=""></div></div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>用户　　</div><span>李月月</span></div><div><div>用户　ID</div><span>334138</span></div><div><div>申请时间</div><span>2018-02-03 17:07:47</span></div></div><div class="order_listInfoRight" onclick="processOrderTips(464218,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div><div class="order_listFooter"><i></i><span>到底啦！</span><b></b></div></div></div>
+                    <!-- 代理订待付款end -->
+                    <!-- 代理订待授权 -->
+               <!--      <div class="order_agent_dis">
+                        
+                    </div> -->
+                    <!-- 代理订待授权end -->
+                    <!-- 代理订已完成 -->
+                    <div class="order_agent_dis">
+                        
+                    </div>
+                    <!-- 代理订已完成 end -->
+                    <!-- 代理订回收站 -->
+           <!--          <div class="order_agent_dis">
+                    
+                    </div> -->
+                    <!-- 代理订回收站end -->
+                </div>
+            </div>
+            <!-- 代理订单end -->
+            <!-- 激活订单 -->
+            <div class="order_dis">
+                <!-- 激活tab切换 -->
+                <ul class="order_activate_tab">
+                    <li class="active"><div><span class="order_activate_span active">待付款</span></div></li>
+                    <li><div><span class="order_activate_span ">已付款</span></div></li>
+                    <li><div><span class="order_activate_span ">回收站</span></div></li>
+                    <!-- <li>回收站</li> -->
+                </ul>
+                <div class="order_activate_info">
+                    <!-- 激活待付款 -->
+                    <div class="order_activate_dis order_activate_show">
+                    
+                    </div>
+                    <!-- 激活待付款end -->
+                    <!-- 激活待授权 -->
+                    <div class="order_activate_dis">
+                        
+                    </div>
+                    <!-- 激活待授权end -->
+                    <!-- 激活回收站 -->
+                    <div class="order_activate_dis">
+                    
+                    </div>
+                    <!-- 激活回收站end -->
+                </div>
+            </div>
+            <!-- 激活end -->
+            <!-- 信用卡订单 -->
+            <div class="order_dis">
+                <!-- 信用卡tab切换 -->
+                <ul class="order_visa_tab" id="order_visa_tab">
+                    <li class="active"><div><span class="order_visa_span active">已创建</span></div></li>
+                    <li><div><span class="order_visa_span">待审核</span></div></li>
+                    <li><div><span class="order_visa_span">已通过</span></div></li>
+                    <li><div><span class="order_visa_span">未通过</span></div></li>
+                    <li><div><span class="order_visa_span">回收站</span></div></li>
+                    <!-- <li>回收站</li> -->
+                </ul>
+                <div class="order_agent_info" id="order_visa_info">
+                    <!-- 信用卡已创建 -->
+                    <div class="order_visa_dis order_visa_show"><div class="order_visa_tip"><span>*</span>该明细为申请人进入信用卡申请页面时的浏览记录，仅供参考！</div><div class=""><div class="order_listWrap"><div class="order_list" onclick="checkCardPlan(466456,&#39;BCM&#39;,&#39;交通银行&#39;,&#39;410721199709154048&#39;,&#39;18569947892&#39;,&#39;466456&#39;,&#39;李梓君&#39;)"><div class="order_listTop"><div class="order_listTip">交通银行（我的订单）</div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>姓名　　</div><span>李梓君</span></div><div><div>手机号　&nbsp;</div><span>185****7892</span></div><div><div>申请时间</div><span>2018-02-03 20:18:31</span></div></div></div></div><div class="order_telA"><a href="tel:18569947892"><img src="./static/image/mobile.png" alt=""></a></div><div class="order_del" onclick="processOrderTips(466456,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div><div class=""><div class="order_listWrap"><div class="order_list" onclick="checkCardPlan(465776,&#39;CMBC&#39;,&#39;民生银行&#39;,&#39;410721199709154048&#39;,&#39;18569947892&#39;,&#39;465776&#39;,&#39;李梓君&#39;)"><div class="order_listTop"><div class="order_listTip">民生银行（我的订单）</div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>姓名　　</div><span>李梓君</span></div><div><div>手机号　&nbsp;</div><span>185****7892</span></div><div><div>申请时间</div><span>2018-02-03 19:09:31</span></div></div></div></div><div class="order_telA"><a href="tel:18569947892"><img src="./static/image/mobile.png" alt=""></a></div><div class="order_del" onclick="processOrderTips(465776,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div><div class=""><div class="order_listWrap"><div class="order_list" onclick="checkCardPlan(450878,&#39;CMBC&#39;,&#39;民生银行&#39;,&#39;410721199709154048&#39;,&#39;18569947956&#39;,&#39;450878&#39;,&#39;马红鑫&#39;)"><div class="order_listTop"><div class="order_listTip">民生银行（我的订单）</div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>姓名　　</div><span>马红鑫</span></div><div><div>手机号　&nbsp;</div><span>185****7956</span></div><div><div>申请时间</div><span>2018-02-02 13:45:56</span></div></div></div></div><div class="order_telA"><a href="tel:18569947956"><img src="./static/image/mobile.png" alt=""></a></div><div class="order_del" onclick="processOrderTips(450878,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div><div class=""><div class="order_listWrap"><div class="order_list" onclick="checkCardPlan(448370,&#39;SPDB&#39;,&#39;浦发银行&#39;,&#39;410721199709154048&#39;,&#39;18569947956&#39;,&#39;448370&#39;,&#39;马红鑫&#39;)"><div class="order_listTop"><div class="order_listTip">浦发银行（我的订单）</div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>姓名　　</div><span>马红鑫</span></div><div><div>手机号　&nbsp;</div><span>185****7956</span></div><div><div>申请时间</div><span>2018-02-02 10:10:24</span></div></div></div></div><div class="order_telA"><a href="tel:18569947956"><img src="./static/image/mobile.png" alt=""></a></div><div class="order_del" onclick="processOrderTips(448370,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div></div><div class=""><div class="order_listWrap"><div class="order_list" onclick="checkCardPlan(448128,&#39;CMBC&#39;,&#39;民生银行&#39;,&#39;410721199709154048&#39;,&#39;18569947956&#39;,&#39;448128&#39;,&#39;马红鑫&#39;)"><div class="order_listTop"><div class="order_listTip">民生银行（我的订单）</div></div><div class="order_listInfo"><div class="order_listInfoLeft"><div><div>姓名　　</div><span>马红鑫</span></div><div><div>手机号　&nbsp;</div><span>185****7956</span></div><div><div>申请时间</div><span>2018-02-02 09:44:42</span></div></div></div></div><div class="order_telA"><a href="tel:18569947956"><img src="./static/image/mobile.png" alt=""></a></div><div class="order_del" onclick="processOrderTips(448128,99,&#39;&#39;)"><img src="./static/image/delete@2x.png" alt=""></div></div><div class="order_listFooter"><i></i><span>到底啦！</span><b></b></div></div></div>
+                    <!-- 信用卡已创建end -->
+                    <!-- 信用卡待审核 -->
+                    <div class="order_visa_dis">
+                    
+                    </div>
+                    <!-- 信用卡待审核end -->
+                    <!-- 信用卡审核结果 -->
+                    <div class="order_visa_dis">
+                    
+                    </div>
+                    <!-- 信用卡审核结果end -->
+                    <!-- 信用卡回收站 -->
+                    <div class="order_visa_dis">
+                    
+                    </div>
+                    <!-- 信用卡回收站end -->
+                </div>
+            </div>
+            <!-- 信用卡订单end -->
+            <!-- 贷款订单 -->
+            <div class="order_dis">
+                <!-- 贷款tab切换 -->
+                <ul class="order_loans_tab" id="order_loans_tab">
+                    <li class="active"><div><span class="order_loans_span active">已创建</span></div></li>
+                    <li><div><span class="order_loans_span ">待审核</span></div></li>
+                    <li><div><span class="order_loans_span ">已通过</span></div></li>
+                    <li><div><span class="order_loans_span ">未通过</span></div></li>
+                    <li><div><span class="order_loans_span ">回收站</span></div></li>
+                    <!-- <li>回收站</li> -->
+                </ul>
+                <div class="order_agent_info" id="order_loans_info">
+                    <!-- 贷款已创建 -->
+                    <div class="order_loans_dis order_loans_show"><div class="order_no_data"><img src="./static/image/details_img@2x.png" alt=""><div>暂无数据</div></div></div>
+                    <!-- 贷款已创建end -->
+                    <!-- 贷款待审核 -->
+                    <div class="order_loans_dis">
+                    
+                    </div>
+                    <!-- 贷款待审核end -->
+                    <!-- 贷款审核结果 -->
+                    <div class="order_loans_dis">
+                    
+                    </div>
+                    <!-- 贷款审核结果end -->
+                    <!-- 贷款回收站 -->
+                    <div class="order_loans_dis">
+                    
+                    </div>
+                    <!-- 贷款回收站end -->
+                </div>
+            </div>
+            <!-- 贷款订单end -->
+        </div>
+        <div class="nav" id="nav" style="visibility: visible; display: block;">
+	        <a href="index.html"><img src="./static/image/home_icon@2x.png" alt=""></a>
+	        <a href="javascript:void(0);" onclick="javascript:history.go(-1);"><img src="./static/image/back_icon@2x.png" alt=""></a>
+	    </div>
+    </div>
+    <!-- 内容部分end -->
+    <!-- 详情弹出框 -->
+    <div class="fa_Popup">
+        <div class="fa_Popup-dialog ">
+            <div class="fa_Popup-content">
+                <div class="fa_Popup-body">
+                    <div class="re_popTop">
+                        <span>付款详情</span> 
+                        <div id="close"><img src="./static/image/close@2x.png" alt=""></div>
+                    </div>
+                    <div>
+                        <ul class="suc_addOneInfo">
+                            <li>
+                                <div>订单编号</div>
+                                <span id="orderNoSpan"></span>
+                            </li>
+                            <li>
+                                <div>用　　户</div>
+                                <span id="userNameSpan"></span>
+                            </li>
+                            <li>
+                                <div>用户&nbsp;I&nbsp;D&nbsp;</div>
+                                <span id="userCodeSpan"></span>
+                            </li>
+                            <li>
+                                <div>职　　务</div>
+                                <span id="userTypeSpan"></span>
+                            </li>
+                            <li>
+                                <div>订单状态</div>
+                                <span id="statusSpan"></span>
+                            </li>
+                            <li>
+                                <div>申请时间</div>
+                                <span id="createDateSpan"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="re_popTop_second">
+                        <span>申请人</span>                         
+                    </div>
+                    <div class="order_proposer">
+                        <div class="order_proposerLeft">
+                            <span class="order_pro_logo"><img id="userLogoImg" src="http://superbank.olvip.vip/superbank/wx/order!order_management.action" alt=""></span>
+                            <div>
+                                <span></span>
+                                <div>
+                                    <span class="order_pro_Name" id="userNameSpan1"></span>
+                                    <div class="order_pro_Id">ID: <span id="userCodeSpan1"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order_proposerRight">
+                            <div class="order_proRight_left">
+                                <div><img src="./static/image/wechat@2x.png" alt=""></div>
+                                <span>微信</span>
+                            </div>
+                            <div class="order_proRight_right">
+                                <a class="phoneSpan" href="http://superbank.olvip.vip/superbank/wx/order!order_management.action">
+                                <div class=""><img src="./static/image/mobile@2x.png" alt=""></div>
+                                <span>电话</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order_popBtn ">
+                    <a class="order_pay" href="JavaScript:void(0);">去付款</a>
+                    <a class="order_sure" href="JavaScript:void(0);">确认申请</a>
+                </div>
+                <div class="order_popInput order_hide" id="processDiv"><input class="active" id="personal_btn" type="button" value="通过"></div>
+                <div class="order_popInput order_hide" id="cancelDiv"><input class="active" id="cancel_btn" type="button" value="确认"></div>
+            </div>
+        </div> 
+        <div class="fa_masked"></div>
+    </div>  
+    <!-- 详情弹出框 end-->
+    <!-- 弹出框 -->
+	<div class="weui-mask "></div>
+	<div class="weui-dialog ">
+	    <div class="weui-dialog__hd">
+	        <div class="weui-dialog__title">温馨提示</div>
+	    </div>
+	    <div class="weui-dialog__bd"></div>
+	    <div class="weui-dialog__ft">
+	        <a href="javascript:;" class="weui-dialog__btn primary">确定</a>
+	    </div>
+	</div>
+    <!-- 提示弹出框end -->
+    <!-- 微信弹出框 -->
+    <div class="plan_Popup">
+        <div class="plan_Popup-dialog ">
+            <div class="plan_Popup-content">
+                <div class="plan_Popup-body">  
+                    <div class="order_Poptext">
+                        <span>申请人二维码</span>
+                        <div id="close2"><img src="./static/image/close@2x.png" alt=""></div>
+                    </div>  
+                    <div class="order_wechatPic">
+                        <img id="qrCodeImg" src="http://superbank.olvip.vip/superbank/wx/order!order_management.action" alt="">
+                    </div>
+                    <!--1.如果没有图片就提示这句话： 请使用下方微信号，加我微信 order_hide控制隐藏 没有微信号的时候加隐藏和active 2.什么都没有的情况：只显示默认图片和提示语：该用户未完善资料，可通过手机号联系！ -->
+                    <div class="order_weichatTip">扫一扫上面的二维码图案，加我微信</div>
+                    <div id="wechatNoDiv">
+                        <div class="order_weichat">微信号:<span id="order_weichatNum" class="order_weichatNum"></span></div>
+                        <div class="order_copy"><a data-clipboard-action="copy" data-clipboard-target="#order_weichatNum" href="javascript:void(0);">复制微信号</a></div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="plan_masked"></div>
+    </div> 
+    <!-- 微信弹出框end -->
+    
+    <!-- 提示弹出框 -->
+     <div class="index-mask "></div>
+     <div class="index-dialog ">
+         <div class="index-dialog__hd">
+             <div class="index-dialog__title">温馨提示</div>
+         </div>
+         <div class="hasTel ">
+            <div class="index_popup_bd">
+                
+            </div>
+            <div class="index-dialog_footer ">
+                <a class="index-dialog_cancel" href="javascript:void(0);">取消</a>
+                <a class="index-dialog_sure" href="http://superbank.olvip.vip/superbank/wx/url">确认</a>
+            </div>
+        </div>
+     </div>
+     <!-- 提示弹出框end -->
+     
+     <div class="payfor_Popup">
+      <div class="payfor_Popup-dialog " style="width:5.9rem;">
+          <div class="payfor_Popup-content">
+              <div class="payfor_Popup-body">
+                  <div class="payfor_Poptext">
+                      <span>请确认微信支付是否已完成</span>
+                  </div>
+                  <div class="indexPopup_info">
+                      <div class="payfor_text1" onclick="toCheckWxStatus()">已完成支付</div>
+                      <div class="payfor_text2" onclick="payAgain()">支付遇到问题，重新支付</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="payfor_masked"></div>
+  </div> 
+</div>
+<script src="./static/js/layer.js"></script>
+<script src="./static/js/swiper.js"></script>
+<script src="./static/js/clipboard.min.js"></script>
+<script id="commonScript" src="./static/js/adaptive.js" source=""></script>
+<script src="./static/js/Inertia.js"></script>
+<script src="./static/js/cityjson"></script>
+<script>
+//滑动的小球
+new Inertia(document.getElementById('nav'));
+//滑动的小球end
+	//复制微信到剪贴板
+	var clipboard = new Clipboard('.order_copy>a');
+	
+	clipboard.on('success', function(e) {
+	    toAlert("已复制好，可粘贴。")
+	});
+	
+	clipboard.on('error', function(e) {
+	    /* console.log(e); */
+	});
+
+	function getText(weiChat){
+		$(".order_weichatNum").html(weiChat);
+	}
+    $(".weui-dialog__ft").click(function(){
+        $(".weui-mask").removeClass("weui-mask--visible");
+        $(".weui-dialog").removeClass("weui-dialog--visible");
+    })
+    $(".weui-dialog_cancel").click(function(){
+        $(".weui-mask").removeClass("weui-mask--visible");
+        $(".weui-dialog").removeClass("weui-dialog--visible");
+    })
+    // 订单信用卡贷款切换
+    $(".order_tab li").click(function(){
+    	var index=$(this).index();
+        $(this).addClass("active").siblings().removeClass("active");
+        $(this).find("i").addClass("active");
+        $(this).siblings().find("i").removeClass("active");
+        $(".order_dis").eq(index).addClass("order_show").siblings().removeClass("order_show");
+        
+        clearCookie();
+        initData();
+    })
+    // 待付款切换
+    $(".order_agent_tab li").click(function(){
+        var index=$(this).index();
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".order_agent_dis").eq(index).addClass("order_agent_show").siblings().removeClass("order_agent_show");
+        $(this).find("span").addClass("active");
+        $(this).siblings().find("span").removeClass("active");
+        
+        clearCookie();
+        initData();
+    });
+    // 激活切换
+    $(".order_activate_tab li").click(function(){
+	     var index=$(this).index();
+	     $(this).addClass("active").siblings().removeClass("active");
+	     $(".order_activate_dis").eq(index).addClass("order_activate_show").siblings().removeClass("order_activate_show");
+	     $(this).find("span").addClass("active");
+	     $(this).siblings().find("span").removeClass("active");
+	     
+	     clearCookie();
+	     initData();
+ 	});
+    //信用卡切换
+    $("#order_visa_tab li").click(function(){
+        var index=$(this).index();
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".order_visa_dis").eq(index).addClass("order_visa_show").siblings().removeClass("order_visa_show");
+        $(this).find("span").addClass("active");
+        $(this).siblings().find("span").removeClass("active");
+        
+        clearCookie();
+        initData();
+    });
+    //贷款切换
+    $("#order_loans_tab li").click(function(){
+        var index=$(this).index();
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".order_loans_dis").eq(index).addClass("order_loans_show").siblings().removeClass("order_loans_show");
+        $(this).find("span").addClass("active");
+        $(this).siblings().find("span").removeClass("active");
+        
+        clearCookie();
+        initData();
+    });
+      // 详情弹出
+      function popup() {
+        $(".fa_Popup").removeClass("fa_Popup_in").addClass("fa_Popup_fade");
+        $(".fa_Popup-backdrop").removeClass("fa_Popup_in2").removeClass("fa_Popup_fade").addClass("fa_Popup_fade");
+    }
+    $(".order_popBtn").on("click", "#close", function () {//这个是关闭弹出框
+        $(".fa_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup()", 200);
+    });
+    $(".re_popTop").on("click", "#close", function () {//这个是关闭弹出框
+        $(".fa_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup()", 200);
+    });
+    function closeDetail() {//这个是关闭弹出框
+        $(".fa_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup()", 200);
+    };
+    
+    function toToastDetail() {//点击按钮弹出
+        // $(".fail_Popup-dialog").animate({top: -1000});
+        // setTimeout("popup()", 200);
+        $(".fa_Popup-backdrop").toggleClass("fa_Popup_in2");
+        $(".fa_Popup").toggleClass("fa_Popup_in");
+        $(".fa_Popup-dialog").animate({bottom:0});
+    };
+    // end
+      // 微信弹窗
+      function popup5() {
+        $(".plan_Popup").removeClass("plan_Popup_in").addClass("plan_Popup_fade");
+        $(".plan_Popup-backdrop").removeClass("plan_Popup_in2").removeClass("plan_Popup_fade").addClass("fa_Popup_fade");
+    }
+    $(".order_Poptext").on("click", "#close2", function () {//这个是关闭弹出框
+        $(".plan_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup5()", 200);
+    });
+    $(".order_proRight_left").click(function () {
+        // 付款详情的弹出
+        $(".fa_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup()", 200);
+        // end
+        $(".plan_Popup-backdrop").toggleClass("plan_Popup_in2");
+        $(".plan_Popup").toggleClass("plan_Popup_in");
+        $(".plan_Popup-dialog").animate({bottom:0});
+    });
+    $(".plan_masked").click(function(){
+        $(".plan_Popup-dialog").animate({bottom: -1000});
+        setTimeout("popup5()", 200);
+    })
+    // end
+    
+    // 支付确认
+      function popup6() {
+        $(".payfor_Popup").removeClass("payfor_Popup_in").addClass("payfor_Popup_fade");
+        $(".payfor_Popup-backdrop").removeClass("payfor_Popup_in2").removeClass("payfor_Popup_fade").addClass("surpass_Popup_fade");
+    }
+
+    $(".payfor_Popup-footer").on("click", "#close6", function () {//这个是关闭弹出框
+        $(".payfor_Popup-dialog").animate({top: -1000});
+        setTimeout("popup6()", 200);
+    });
+    function toastWx(){
+        $(".payfor_Popup-backdrop").toggleClass("payfor_Popup_in2");
+        $(".payfor_Popup").toggleClass("payfor_Popup_in");
+        $(".payfor_Popup-dialog").animate({top: 150});
+    }
+    // end
+</script>
+
+<script>
+	var pageNumber = 1;
+	var totalCount = 0;
+	var enableScroll = true;
+
+	$(function(){
+		if ('' == '1') {//如果是支付回调
+        	toastWx();
+        }
+		
+		initData();
+	})
+	
+	function initData() {
+		var hasData = true;
+		
+		totalCount = 0;
+		pageNumber = 1;
+		enableScroll = true;
+        
+        getOrderList(1,1);
+        $(window).scroll(function () {
+            var documentTop = $(document).scrollTop();
+            var windowHeight = $(window).height();
+            var documentHeight = $(document).height();
+            if (documentTop >= (documentHeight - windowHeight)) {
+                if (hasData && enableScroll) {
+                    pageNumber = pageNumber + 1;
+                    getOrderList(pageNumber,0);
+                }
+            }
+        });
+	}
+	
+	function clearCookie() {
+		$.cookie("orderType", '', { expires: 7 });
+       	$.cookie("status", '', { expires: 7 });
+       	$.cookie("className", '', { expires: 7 });
+       	$.cookie("subClassName", '', { expires: 7 });
+	}
+	
+	function getOrderList(_pageNumber,model) { //model 0表示滚动，1表示加载
+		var className = '';
+		var subClassName = '';
+		
+		var orderType = '';
+		var status = '';
+		
+		var cooOrderType = $.cookie("orderType");
+		var cooStatus = $.cookie("status");
+		var cooClassName = $.cookie("className");
+		var cooSubClassName = $.cookie("subClassName");
+		
+		if (cooOrderType != '' && cooOrderType != undefined) {
+			orderType = cooOrderType;
+			status = cooStatus;
+			className = cooClassName;
+			subClassName = cooSubClassName;
+			
+			$(".order_tab li").each(function(){
+				if (orderType == '1') {
+					$(".order_dis").eq(0).addClass("order_show").siblings().removeClass("order_show");
+	                if ($(this).text() == '代理') {
+	                	$(this).addClass('active');
+	                }else {
+	                	$(this).removeClass('active');
+	                }
+	                $(".order_agent_span").each(function(){
+	                	var statusName = '';
+	                	if (status == '2') {
+	                		statusName = '待付款';
+	                	}else if (status == '4') {
+	                		statusName = '已完成';
+	                	}else if (status == '9') {
+	                		statusName = '回收站';
+	                	}
+	                	
+	                	if ($(this).text() == statusName) {
+	                		$(this).parents('li').addClass('active');
+	                	}else {
+	                		$(this).parents('li').removeClass('active');
+	                	}
+	                })
+				}
+				if (orderType == '2') {
+					$(".order_dis").eq(2).addClass("order_show").siblings().removeClass("order_show");
+	                if ($(this).text() == '信用卡') {
+	                	$(this).addClass('active');
+	                }else {
+	                	$(this).removeClass('active');
+	                }
+	                $(".order_visa_span").each(function(){
+	                	var statusName = '';
+	                	if (status == '1') {
+	                		statusName = '已创建';
+	                	}else if (status == '3') {
+	                		statusName = '待审核';
+	                	}else if (status == '5') {
+	                		statusName = '已通过';
+	                	}else if (status == '6') {
+	                		statusName = '未通过';
+	                	}else if (status == '9') {
+	                		statusName = '回收站';
+	                	}
+	                	
+	                	if ($(this).text() == statusName) {
+	                		$(this).parents('li').addClass('active');
+	                	}else {
+	                		$(this).parents('li').removeClass('active');
+	                	}
+	                })
+				}
+				if (orderType == '4') {
+					$(".order_dis").eq(1).addClass("order_show").siblings().removeClass("order_show");
+	                if ($(this).text() == '激活还款') {
+	                	$(this).addClass('active');
+	                }else {
+	                	$(this).removeClass('active');
+	                }
+	                $(".order_activate_span").each(function(){
+	                	var statusName = '';
+	                	if (status == '2') {
+	                		statusName = '待付款';
+	                	}else if (status == '5') {
+	                		statusName = '已付款';
+	                	}else if (status == '9') {
+	                		statusName = '回收站';
+	                	}
+	                	
+	                	if ($(this).text() == statusName) {
+	                		$(this).parents('li').addClass('active');
+	                	}else {
+	                		$(this).parents('li').removeClass('active');
+	                	}
+	                })
+				}
+				if (orderType == '5') {
+					$(".order_dis").eq(3).addClass("order_show").siblings().removeClass("order_show");
+	                if ($(this).text() == '贷款') {
+	                	$(this).addClass('active');
+	                }else {
+	                	$(this).removeClass('active');
+	                }
+	                $(".order_loans_span").each(function(){
+	                	var statusName = '';
+	                	if (status == '1') {
+	                		statusName = '已创建';
+	                	}else if (status == '3') {
+	                		statusName = '待审核';
+	                	}else if (status == '5') {
+	                		statusName = '已通过';
+	                	}else if (status == '6') {
+	                		statusName = '未通过';
+	                	}else if (status == '9') {
+	                		statusName = '回收站';
+	                	}
+	                	
+	                	if ($(this).text() == statusName) {
+	                		$(this).parents('li').addClass('active');
+	                	}else {
+	                		$(this).parents('li').removeClass('active');
+	                	}
+	                })
+				}
+            });
+		}else {
+			if ($(".order_tab li.active").text() == '代理') {
+	       		className = 'order_agent_dis';
+	       		subClassName = 'order_agent_show';
+	       		
+	       		orderType = '1';
+	       		
+	       		if ($(".order_agent_span.active").text() == '待付款') {
+	       			status = '2';
+	       		}else if ($(".order_agent_span.active").text() == '已完成') {
+	       			status = '4';
+	       		}else if ($(".order_agent_span.active").text() == '回收站') {
+	       			status = '9';
+	       		}
+	       	}else if ($(".order_tab li.active").text() == '激活还款') {
+	       		className = 'order_activate_dis';
+	       		subClassName = 'order_activate_show';
+	       		
+	       		orderType = '4';
+	       		
+	       		if ($(".order_activate_span.active").text() == '待付款') {
+	       			status = '2';
+	       		}else if ($(".order_activate_span.active").text() == '已付款') {
+	       			status = '5';
+	       		}else if ($(".order_activate_span.active").text() == '回收站') {
+	       			status = '9';
+	       		}
+	       	}else if ($(".order_tab li.active").text() == '信用卡') {
+	       		className = 'order_visa_dis';
+	       		subClassName = 'order_visa_show';
+	       		
+	       		orderType = '2';
+	       		
+	       		if ($(".order_visa_span.active").text() == '已创建') {
+	       			status = '1';
+	       		}else if ($(".order_visa_span.active").text() == '待审核') {
+	       			status = '3';
+	       		}else if ($(".order_visa_span.active").text() == '已通过') {
+	       			status = '5';
+	       		}else if ($(".order_visa_span.active").text() == '未通过') {
+	       			status = '6';
+	       		}else if ($(".order_visa_span.active").text() == '回收站') {
+	       			status = '9';
+	       		}
+	       	}else if ($(".order_tab li.active").text() == '贷款') {
+	       		className = 'order_loans_dis';
+	       		subClassName = 'order_loans_show';
+	       		
+	       		orderType = '5';
+	       		
+	       		if ($(".order_loans_span.active").text() == '已创建') {
+	       			status = '1';
+	       		}else if ($(".order_loans_span.active").text() == '待审核') {
+	       			status = '3';
+	       		}else if ($(".order_loans_span.active").text() == '已通过') {
+	       			status = '5';
+	       		}else if ($(".order_loans_span.active").text() == '未通过') {
+	       			status = '6';
+	       		}else if ($(".order_loans_span.active").text() == '回收站') {
+	       			status = '9';
+	       		}
+	       	}
+		}
+       	
+       	$.cookie("orderType", orderType, { expires: 7 });
+       	$.cookie("status", status, { expires: 7 });
+       	$.cookie("className", className, { expires: 7 });
+       	$.cookie("subClassName", subClassName, { expires: 7 });
+       
+       	$("#loaddingDiv").attr("style","display:block");
+		$.ajax({
+            url: 'order!orderList.action',
+            data: {
+            	'pageNumber': _pageNumber,
+            	'pageSize': "10",
+            	'orderType' : orderType,
+            	'status' : status,
+            	},
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+            	$("#loaddingDiv").attr("style","display:none");
+            	jsonObject = data;
+            	
+            	if (jsonObject.code == 'success') {
+            		var htmlStr = '';
+        			if (jsonObject.data.length > 0) {
+        				
+        				for (var i = 0; i < jsonObject.data.length; i++) {
+        					var statusName = '';
+        					var statusClass = '';
+        					var needDel = false;
+        					
+        					if (orderType == '1') {
+        						if (jsonObject.data[i].status == '2') {
+        							statusName = '待付款';
+        							statusClass = 'order_listStatusRed';
+        							needDel = true;
+        						}
+        						else if (jsonObject.data[i].status == '4') {
+        							statusName = '已完成';
+        							statusClass = 'order_listStatusGreen';
+        						}else if (jsonObject.data[i].status == '9') {
+        							statusName = '已删除';
+        							statusClass = 'order_listStatusRed';
+        						}
+        					}else if (orderType == '4') {
+        						if (jsonObject.data[i].status == '2') {
+        							statusName = '待付款';
+        							statusClass = 'order_listStatusRed';
+        							needDel = true;
+        						}else if (jsonObject.data[i].status == '5') {
+        							statusName = '已付款';
+        							statusClass = 'order_listStatusGreen';
+        						}else if (jsonObject.data[i].status == '9') {
+        							statusName = '已删除';
+        							statusClass = 'order_listStatusRed';
+        						}
+        					}else if (orderType == '2') {
+        						if (jsonObject.data[i].status == '1') {
+        							if (totalCount == 0) {
+        								htmlStr += '<div class="order_visa_tip">';
+        								htmlStr += '<span>*</span>该明细为申请人进入信用卡申请页面时的浏览记录，仅供参考！';
+   										htmlStr += '</div>';
+        							}
+        							
+        							statusName = '已创建';
+        							statusClass = 'order_listStatusRed';
+        							needDel = true;
+        						}else if (jsonObject.data[i].status == '3') {
+        							statusName = '待审核';
+        							statusClass = 'order_listStatusYellow';
+        						}else if (jsonObject.data[i].status == '5') {
+        							statusName = '已通过';
+        							statusClass = 'order_listStatusGreen';
+        						}else if (jsonObject.data[i].status == '6') {
+        							statusName = '未通过';
+        							statusClass = 'order_listStatusRed';
+        						}else if (jsonObject.data[i].status == '7') {
+        							statusName = '已办理过';
+        							statusClass = 'order_listStatusRed';
+        						}else if (jsonObject.data[i].status == '9') {
+        							statusName = '已删除';
+        							statusClass = 'order_listStatusRed';
+        						}
+        					}else if (orderType == '5') {
+        						if (jsonObject.data[i].status == '1') {
+        							if (totalCount == 0) {
+        								htmlStr += '<div class="order_visa_tip">';
+        								htmlStr += '<span>*</span>该明细为申请人进入信用卡申请页面时的浏览记录，仅供参考！';
+        								htmlStr += '</div>';
+        							}
+        							
+        							statusName = '已创建';
+        							statusClass = 'order_listStatusRed';
+        							needDel = true;
+        						}else if (jsonObject.data[i].status == '3') {
+        							statusName = '待审核';
+        							statusClass = 'order_listStatusYellow';
+        						}else if (jsonObject.data[i].status == '5') {
+        							statusName = '已通过';
+        							statusClass = 'order_listStatusGreen';
+        						}else if (jsonObject.data[i].status == '6') {
+        							statusName = '未通过';
+        							statusClass = 'order_listStatusRed';
+        						}else if (jsonObject.data[i].status == '9') {
+        							statusName = '已删除';
+        							statusClass = 'order_listStatusRed';
+        						}
+        					}
+        					
+        					var isSelfOrder = jsonObject.data[i].isSelfOrder == '1' ? '（我的订单）' : '';
+        					
+        					var orderNo = jsonObject.data[i].orderNo;
+        					/* if (jsonObject.data[i].isSelfOrder == '1') {
+        						orderNo = '...' + jsonObject.data[i].orderNo.substring(jsonObject.data[i].orderNo.length-10,jsonObject.data[i].orderNo.length);
+        					}else {
+        						orderNo = '...' + jsonObject.data[i].orderNo.substring(jsonObject.data[i].orderNo.length-20,jsonObject.data[i].orderNo.length);
+        					} */
+        					
+        					var userName = jsonObject.data[i].userName;
+        					if (jsonObject.data[i].userName == null) {
+        						userName = '';
+        					}
+        					
+        					htmlStr += '<div class="">';
+        					
+        					if (orderType == '1') {
+        						htmlStr += '<div class="order_list" onclick="orderDetail(\''+jsonObject.data[i].id
+								+'\',\''+jsonObject.data[i].orderNo
+								+'\',\''+jsonObject.data[i].userName
+								+'\',\''+jsonObject.data[i].userCode
+								+'\',\''+jsonObject.data[i].userType
+								+'\',\''+statusName
+								+'\',\''+jsonObject.data[i].userLogo
+								+'\',\''+jsonObject.data[i].qrCode
+								+'\',\''+jsonObject.data[i].phone
+								+'\',\''+jsonObject.data[i].isSelfOrder
+								+'\',\''+formatDateTime3(jsonObject.data[i].createDate,'yyyy-MM-dd HH:mm:ss')
+								+'\',\''+jsonObject.data[i].price
+								+'\',\''+jsonObject.data[i].weixinCode+'\')">';
+            					htmlStr += '<div class="order_listTop">';
+        						htmlStr += '<div class="order_listTip">订单编号</div>';
+            					htmlStr += '<div class="order_listId"><span>'+orderNo+'</span><div><span>'+isSelfOrder+'</span></div></div>';
+            					htmlStr += '<div class="order_listTopRight">';
+            					htmlStr += '<div class="'+statusClass+'">'+statusName+'</div>';
+            					htmlStr += '<div class="order_listRight"><img src="/superbank/resources/img/arrow_right.png" alt=""></div>';
+            					htmlStr += '</div>';
+            					htmlStr += '</div>';
+            					htmlStr += '<div class="order_listInfo">';
+            					htmlStr += '<div class="order_listInfoLeft">';
+            					htmlStr += '<div>';
+            					htmlStr += '<div>用户&#12288;&#12288;</div>';
+            					htmlStr += '<span>'+userName+'</span>';
+            					htmlStr += '</div>';            					htmlStr += '<div>';
+            					htmlStr += '<div>用户&#12288;ID</div>';
+            					htmlStr += '<span>'+jsonObject.data[i].userCode+'</span>';
+            					htmlStr += '</div>';
+            					
+            					if (jsonObject.data[i].status == '4' && jsonObject.data[i].isSelfOrder != '1') {
+            						htmlStr += '<div>';
+                					htmlStr += '<div>用户分润</div>';
+                					htmlStr += '<span>'+jsonObject.data[i].userProfit+'元</span>';
+                					htmlStr += '</div>';
+            					}
+        					}else if (orderType == '4') {
+        						htmlStr += '<div class="order_list" onclick="orderDetail(\''+jsonObject.data[i].id
+								+'\',\''+jsonObject.data[i].orderNo
+								+'\',\''+jsonObject.data[i].userName
+								+'\',\''+jsonObject.data[i].userCode
+								+'\',\''+jsonObject.data[i].userType
+								+'\',\''+statusName
+								+'\',\''+jsonObject.data[i].userLogo
+								+'\',\''+jsonObject.data[i].qrCode
+								+'\',\''+jsonObject.data[i].phone
+								+'\',\''+jsonObject.data[i].isSelfOrder
+								+'\',\''+formatDateTime3(jsonObject.data[i].createDate,'yyyy-MM-dd HH:mm:ss')
+								+'\',\''+jsonObject.data[i].price
+								+'\',\''+jsonObject.data[i].weixinCode+'\')">';
+            					htmlStr += '<div class="order_listTop">';
+        						htmlStr += '<div class="order_listTip">订单编号</div>';
+            					htmlStr += '<div class="order_listId"><span>'+orderNo+'</span><div><span>'+isSelfOrder+'</span></div></div>';
+            					htmlStr += '<div class="order_listTopRight">';
+            					htmlStr += '<div class="'+statusClass+'">'+statusName+'</div>';
+            					htmlStr += '<div class="order_listRight"><img src="/superbank/resources/img/arrow_right.png" alt=""></div>';
+            					htmlStr += '</div>';
+            					htmlStr += '</div>';
+            					htmlStr += '<div class="order_listInfo">';
+            					htmlStr += '<div class="order_listInfoLeft">';
+            					htmlStr += '<div>';
+            					htmlStr += '<div>用户&#12288;&#12288;</div>';
+            					htmlStr += '<span>'+userName+'</span>';
+            					htmlStr += '</div>';            					htmlStr += '<div>';
+            					htmlStr += '<div>用户&#12288;ID</div>';
+            					htmlStr += '<span>'+jsonObject.data[i].userCode+'</span>';
+            					htmlStr += '</div>';
+        					}else if (orderType == '2') {
+        						htmlStr += '<div class="order_listWrap">';
+        						//if (jsonObject.data[i].isSelfOrder == '1') {
+        							htmlStr += '<div class="order_list" onclick="checkCardPlan('+jsonObject.data[i].id+',\''
+		    							+jsonObject.data[i].bankCode+'\',\''
+		    							+jsonObject.data[i].bankName+'\',\''
+		    							+jsonObject.data[i].orderIdNo+'\',\''
+		    							+jsonObject.data[i].orderPhone+'\',\''
+		    							+jsonObject.data[i].id+'\',\''
+		    							+jsonObject.data[i].orderName+'\')">';
+        						//}else {
+        						//	htmlStr += '<div class="order_list">';
+        						//}
+        						
+            					htmlStr += '<div class="order_listTop">';
+        						htmlStr += '<div class="order_listTip">'+jsonObject.data[i].bankName+isSelfOrder+'</div>';
+        						//htmlStr += '<div class="order_listTopRight">';
+            					//htmlStr += '<div class="'+statusClass+'">'+statusName+'</div>';
+            					//htmlStr += '<div class="order_listRight"><img src="/superbank/resources/img/arrow_right.png" alt=""></div>';
+            					//htmlStr += '<img src="/superbank/resources/img/delete@2x.png" alt="">';
+            					//htmlStr += '</div>';
+            					htmlStr += '</div>';
+            					htmlStr += '<div class="order_listInfo">';
+            					htmlStr += '<div class="order_listInfoLeft">';
+            					htmlStr += '<div>';
+            					htmlStr += '<div>姓名&#12288;&#12288;</div>';
+            					htmlStr += '<span>'+jsonObject.data[i].orderName+'</span>';
+            					htmlStr += '</div>';
+            					htmlStr += '<div>';
+            					htmlStr += '<div>手机号&#12288;&nbsp;</div>';
+            					
+            					var orderPhone = '';
+            					if (jsonObject.data[i].orderPhone.length >= 8) {
+            						orderPhone = jsonObject.data[i].orderPhone.substring(0,3)+'****' + jsonObject.data[i].orderPhone.substring(7,jsonObject.data[i].orderPhone.length);
+            					}else {
+            						orderPhone = jsonObject.data[i].orderPhone;
+            					}
+            					
+            					htmlStr += '<span>'+orderPhone+'</span>';
+            					htmlStr += '</div>';
+            					
+            					if (jsonObject.data[i].status == '5') {
+            						htmlStr += '<div>';
+                					htmlStr += '<div>用户分润</div>';
+                					htmlStr += '<span>'+jsonObject.data[i].userProfit+'元</span>';
+                					htmlStr += '</div>';
+            					}
+            					
+        					}else if (orderType == '5') {
+        						htmlStr += '<div class="order_list">';
+            					htmlStr += '<div class="order_listTop">';
+        						htmlStr += '<div class="order_listTip">'+jsonObject.data[i].loanName+isSelfOrder+'</div>';
+        						htmlStr += '<div class="order_listTopRight">';
+            					htmlStr += '<div class="'+statusClass+'">'+statusName+'</div>';
+            					htmlStr += '<div class="order_listRight"><img src="/superbank/resources/img/arrow_right.png" alt=""></div>';
+            					htmlStr += '</div>';
+            					htmlStr += '</div>';
+            					htmlStr += '<div class="order_listInfo">';
+            					htmlStr += '<div class="order_listInfoLeft">';
+            					htmlStr += '<div>';
+            					htmlStr += '<div>申请人工号</div>';
+            					htmlStr += '<span>'+jsonObject.data[i].userCode+'</span>';
+            					htmlStr += '</div>';
+            					htmlStr += '<div>';
+            					htmlStr += '<div>手机号&#12288;</div>';
+            					
+            					var orderPhone = '';
+            					if (jsonObject.data[i].orderPhone.length >= 8) {
+            						orderPhone = jsonObject.data[i].orderPhone.substring(0,3)+'****' + jsonObject.data[i].orderPhone.substring(7,jsonObject.data[i].orderPhone.length);
+            					}else {
+            						orderPhone = jsonObject.data[i].orderPhone;
+            					}
+            					
+            					htmlStr += '<span>'+orderPhone+'</span>';
+            					htmlStr += '</div>';
+            					
+            					if (jsonObject.data[i].status == '5') {
+            						htmlStr += '<div>';
+                					htmlStr += '<div>用户分润</div>';
+                					htmlStr += '<span>'+jsonObject.data[i].userProfit+'元</span>';
+                					htmlStr += '</div>';
+            					}
+        					}
+        					
+        					htmlStr += '<div>';
+        					htmlStr += '<div>申请时间</div>';
+        					htmlStr += '<span>'+formatDateTime3(jsonObject.data[i].createDate,'yyyy-MM-dd HH:mm:ss')+'</span>';
+        					htmlStr += '</div>';
+        					htmlStr += '</div>';
+        					
+        					if (needDel && jsonObject.data[i].isSelfOrder == '1' 
+        							&& jsonObject.data[i].status != '9'
+        							&& orderType != '2') {
+        						htmlStr += '<div class="order_listInfoRight" onclick="processOrderTips('+jsonObject.data[i].id+',99,\'\')"><img src="/superbank/resources/img/delete@2x.png" alt=""></div>';
+        					}
+        					
+        					htmlStr += '</div>';
+        					htmlStr += '</div>';
+        					
+        					if (orderType == '2') {
+        						htmlStr += '<div class="order_telA"><a href="tel:'+jsonObject.data[i].orderPhone+'"><img src="/superbank/resources/img/mobile.png" alt=""></a></div>';
+        						if (needDel && jsonObject.data[i].status != '9' && jsonObject.data[i].isSelfOrder == '1') {
+        							htmlStr += '<div class="order_del" onclick="processOrderTips('+jsonObject.data[i].id+',99,\'\')">';
+            						htmlStr += '<img src="/superbank/resources/img/delete@2x.png" alt="">';
+            						htmlStr += '</div>';
+        						}
+        						htmlStr += '</div>';
+        						
+        					}
+        					
+        					
+        					totalCount += 1;
+        					
+        					if (totalCount == jsonObject.totalCount) {
+        						enableScroll = false;
+        						htmlStr += '<div class="order_listFooter"><i></i><span>到底啦！</span><b></b></div>';
+        					}
+        					
+        					htmlStr += '</div>';
+	        				
+	        			}
+        				
+        				if (model == 0) {
+        					$("."+className+"."+subClassName).append(htmlStr);
+        				}else {
+        					$("."+className+"."+subClassName).html(htmlStr);
+        				}
+        				
+        			}else {
+        				htmlStr+='<div class="order_no_data">';
+        				htmlStr+='<img src="/superbank/resources/img/details_img@2x.png" alt="">';
+        				htmlStr+='<div>暂无数据</div>';
+        				htmlStr+='</div>';
+        				if (totalCount == 0) {
+        					$("."+className+"."+subClassName).html(htmlStr);
+        				}
+        			}
+        			
+        			
+        		}else {
+        		
+        		}
+            },
+            error: function(xhr, type){
+            	$("#loaddingDiv").attr("style","display:none");
+            }
+		});
+		
+	};
+	
+	function orderDetail(id,orderNo,userName,userCode,userType,status,userLogo,qrCode,phone,
+			isSelfOrder,createDate,price,weixinCode){
+		$("#orderNoSpan").html(orderNo);
+		$("#userNameSpan").html(userName == 'null' ? "" : userName);
+		$("#userCodeSpan").html(userCode);
+		
+		if (userType == '10') {
+			$("#userTypeSpan").html('普通用户');
+		}else if (userType == '20') {
+			$("#userTypeSpan").html('专员');
+		}else if (userType == '30') {
+			$("#userTypeSpan").html('经理');
+		}else if (userType == '40') {
+			$("#userTypeSpan").html('银行家');
+		}
+		
+		
+		$("#statusSpan").html(status);
+		$("#userLogoImg").attr("src",userLogo);
+		
+		/* if (qrCode != null && qrCode != "null" && qrCode != '') {
+			$("#qrCodeImg").attr("src",qrCode);
+		} */
+		showWechat(weixinCode,qrCode,"/superbank");
+		
+		$(".phoneSpan").attr("href",'tel:'+phone);
+		$("#createDateSpan").html(createDate);
+		$("#userNameSpan1").html(userName == 'null' ? "" : userName);
+		$("#userCodeSpan1").html(userCode);
+		
+		if (status == '待付款'){
+			if (isSelfOrder == '1') {
+				$(".order_popBtn").removeClass("order_hide");
+				
+				$("#processDiv").addClass("order_hide");
+				$("#cancelDiv").addClass("order_hide");
+				
+				$(".order_pay").attr("href",'javascript:toPay(\''+orderNo+'\','+price+')');
+				
+				$(".order_sure").attr("href",'javascript:processOrderTips('+id+',99,\''+userName+'\')')
+				$(".order_sure").html("删除订单");
+			}else {
+				$(".order_popBtn").addClass("order_hide");
+				$("#processDiv").addClass("order_hide");
+				
+				$("#cancelDiv").removeClass("order_hide");
+				
+				$("#cancel_btn").click(function(){
+					$(".fa_Popup-dialog").animate({bottom: -1000});
+			        setTimeout("popup()", 200);
+				});
+			}
+			
+		}else if (status == '待授权'){
+			if (isSelfOrder != '1') {
+				$(".order_popBtn").addClass("order_hide");
+				$("#processDiv").removeClass("order_hide");
+				$("#cancelDiv").addClass("order_hide");
+				
+				$("#personal_btn").click(function(){
+					processOrder(id,1,userName);
+				});
+			}else {
+				$(".order_popBtn").addClass("order_hide");
+				$("#processDiv").addClass("order_hide");
+				$("#cancelDiv").removeClass("order_hide");
+				
+				$("#cancel_btn").click(function(){
+					$(".fa_Popup-dialog").animate({bottom: -1000});
+			        setTimeout("popup()", 200);
+				});
+			}
+			
+		}else {
+			$(".order_popBtn").addClass("order_hide");
+			$("#processDiv").addClass("order_hide");
+			$("#cancelDiv").removeClass("order_hide");
+			
+			$("#cancel_btn").click(function(){
+				$(".fa_Popup-dialog").animate({bottom: -1000});
+		        setTimeout("popup()", 200);
+			});
+		}
+		
+		toToastDetail();
+	}
+	
+	function processOrderTips(id,processType,userName) {
+		$(".index_popup_bd").html('订单删除后将不可恢复，是否删除订单？');
+		indexPopup('javascript:processOrder('+id+','+processType+',\''+userName+'\')');
+		
+		stopBubbling(event);
+	}
+	
+	function stopBubbling(e) {
+        e = window.event || e;
+        if (e.stopPropagation) {
+            e.stopPropagation();      //阻止事件 冒泡传播
+        } else {
+            e.cancelBubble = true;   //ie兼容
+        }
+    }
+	
+	function processOrder(id,processType,userName) {
+		closeDetail();
+		closeTwoBtnTips();
+		
+		$("#loaddingDiv").attr("style","display:block");
+		$.ajax({
+            url: 'order!processOrder.action',
+            data: {
+            	'id': id,
+            	'processType': processType,
+            	},
+            dataType: 'json',
+            success: function (data) {
+            	$("#loaddingDiv").attr("style","display:none");
+            	jsonObject = data;
+            	
+            	if (jsonObject.code == 'success') {
+            		if (processType == '1') {
+            			initData();
+            			toAlert('已通过'+userName+'的VIP申请');
+            			setTimeout(function(){
+            				closeAlert();
+            			},5000);
+            		}else if(processType == '99') {
+            			initData();
+            			toAlert('删除成功');
+            			setTimeout(function(){
+            				closeAlert();
+            			},5000);
+            		}
+        			
+        		}else {
+        			toAlert(jsonObject.message);
+        		}
+            },
+            error: function(xhr, type){
+            	$("#loaddingDiv").attr("style","display:none");
+            	toAlert('调用失败');
+            }
+		});
+	}
+	
+	
+	function checkCardPlan(bankId,bankCode,bankName,idCardNo,phone,orderId,realName) {
+		location.href = 'creditcard!checkCardPlan.action?bankId='+bankId+'&bankCode='+bankCode
+				+'&bankName='+encodeURIComponent(encodeURIComponent(bankName))
+				+'&idCardNo='+idCardNo+'&phone='+phone+'&orderId='+orderId+'&realName='+encodeURIComponent(encodeURIComponent(realName));
+	}
+	
+	
+	function toPay(_orderNo,_price){
+		$("#loaddingDiv").attr("style","display:block");
+		
+		if ('' == 'app') {//从app进入，调起h5支付
+		   $.ajax({
+			   type:'POST',
+			   url:'index!payWxin.action',
+			   dataType:'json',
+			   data: {
+				   "totalMoney": _price ,
+				   "payNo": _orderNo,
+				   "attach": 'customerApp',
+				   "cip":cip,
+				   "orderTo":'YES',
+				   },
+			   success:function(data){
+				   if(data.code == 'success'){
+					   window.location.href=data.url5;
+				   }else {
+					   toAlert(data.message);
+				   }
+				   $("#loaddingDiv").attr("style","display:none");
+			   },
+			   error:function(error){
+				   $("#loaddingDiv").attr("style","display:none");
+				   toAlert(error);
+			   }
+		   });
+	   }else {//否则，使用公众号支付、
+		   wxconfig();
+	    	
+	    	var cip=returnCitySN["cip"]; 
+	    	
+		    $.ajax({
+			   type:'POST',
+			   url:'index!wxPublicSignal.action',
+			   dataType:'json',
+			   data: {
+				   "totalMoney": _price,
+				   "vOrderNo": _orderNo,
+				   "attach": 'orderPay',
+				   "cip":cip,
+				   "orderTo":'YES',
+				   "WeChat":'YES',
+				   },
+			   success:function(data){
+				   
+				   if(data.code == '0'){
+					   var url = "/superbank/wx/index!h5Returnback.action?out_urt=" + data.orderNo + "&moeny="+data.totalMoney + "&attach=orderPay";
+	                   var url2 = "/superbank/wx/index!h5Returnback.action?out_urt=" + data.orderNo + "&moeny="+data.totalMoney + "&attach=orderPay";
+					   chooseWXPayShop(data.timestamp, data.nonce_str, data.prepay_id, 'MD5', data.sign, url, url2);
+				   }else {
+					   toAlert(data.message);
+				   }
+				   $("#loaddingDiv").attr("style","display:none");
+			   },
+			   error:function(error){
+				   $("#loaddingDiv").attr("style","display:none");
+				   toAlert(error);
+				   return;
+			   }
+		   });
+	   }
+    	
+    }
+    
+    
+    function toCheckWxStatus(){
+    	getWxStatus('1');
+    }
+    
+    
+    function payAgain() {
+    	getWxStatus('2');
+    }
+    
+    function getWxStatus(_type) {
+    	$(".payfor_Popup-dialog").animate({top: -1000});
+        setTimeout("popup6()", 200);
+		$("#loaddingDiv").attr("style","display:block");
+        
+        $.ajax({
+            url: 'index!toCheckWxStatus.action',
+            async: false,
+            data: {
+            	'payNo': '',
+            	'moeny': '',
+            	},
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+            	$("#loaddingDiv").attr("style","display:none");
+            	if (data.code == 'success') {
+            		
+            		var totalAmount = data.totalAmount;
+            		var payNo = data.payNo;
+            		var createDate = data.createDate;
+            		
+            		location.href = "index!paySuccess.action?totalAmount="+totalAmount+"&payNo="+payNo+"&createDate="+createDate;
+            	} else {
+            		if (_type == '1') {
+            			toAlert(data.message);
+						return true;
+            		}else {
+            			
+            		}
+            		
+            	}
+            },
+            error: function(xhr, type){
+            	$("#loaddingDiv").attr("style","display:none");
+            }
+        });
+    }
+</script>
+
+
+</body></html>
